@@ -1,5 +1,5 @@
 var routers = require ('express').Router();
-var weddingController = require('../controllers/weddingController');
+var weddingController = require('../controllers/wedding.controller');
 
 
 
