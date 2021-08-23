@@ -1,10 +1,10 @@
-var mysql = require('mysql2');
+var mysql = require('mysql');
 
 
 var connection = mysql.createConnection({
     host: 'localhost',
-    user : 'Majdi_10',
-    password : 'Majdi_joiblia_10',
+    user : 'student',
+    password : 'student',
     database : 'weddingPlanner'
 });
 

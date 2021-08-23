@@ -23,4 +23,4 @@ USE weddingPlanner;
 
 
 
--- mysql -u Majdi_10 -p < db/schema.sql
+-- mysql -u student -p < db/schema.sql
