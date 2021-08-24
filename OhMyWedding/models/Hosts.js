@@ -1,34 +1,29 @@
 var { DataTypes } = require('sequelize');
 const db = require('../db/index');
-const Reservation = require('./Reservation')
 
+const Packages = require('./Packages')
 
-const Packages = db.define('Packages', {
-    id: {
+const Hosts = db.define('Hosts', {
+    id:{
         type: DataTypes.INTEGER,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true
     },
-
-    name: {
+    name:{
         type: DataTypes.STRING
     },
-    image: {
+    image:{
         type: DataTypes.STRING
     },
-    description: {
+    state:{
         type: DataTypes.STRING
-    },
-
-    price: {
-        type: DataTypes.INTEGER
     },
 },{ // options
     timestamps: false
 })
 
+Hosts.hasOne(Packages);
+Packages.belongsTo(Packages);
 
-
-module.exports = Packages
-
+module.exports = Hosts

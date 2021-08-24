@@ -1,16 +1,16 @@
 var { DataTypes } = require('sequelize');
 const db = require('../db/index');
-const Reservation = require('./Reservation')
 
 
-const Packages = db.define('Packages', {
+const Packages = require('./Packages');
+
+const LuxuryCars = db.define('LuxuryCars', {
     id: {
         type: DataTypes.INTEGER,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true
     },
-
     name: {
         type: DataTypes.STRING
     },
@@ -20,15 +20,20 @@ const Packages = db.define('Packages', {
     description: {
         type: DataTypes.STRING
     },
-
     price: {
         type: DataTypes.INTEGER
     },
-},{ // options
+    brand: {
+        type: DataTypes.STRING
+    },
+    state: {
+        type: DataTypes.STRING
+    },
+}, { // options
     timestamps: false
 })
 
+LuxuryCars.hasMany(Packages);
+Packages.belongsTo(LuxuryCars);
 
-
-module.exports = Packages
-
+module.exports = LuxuryCars;

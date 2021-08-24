@@ -1,9 +1,7 @@
 var { DataTypes } = require('sequelize');
 const db = require('../db/index');
-const Reservation = require('./Reservation')
 
-
-const Packages = db.define('Packages', {
+module.exports = db.define('Admin', {
     id: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -11,24 +9,16 @@ const Packages = db.define('Packages', {
         primaryKey: true
     },
 
-    name: {
+    username: {
         type: DataTypes.STRING
     },
-    image: {
+    password: {
         type: DataTypes.STRING
     },
-    description: {
-        type: DataTypes.STRING
-    },
-
-    price: {
-        type: DataTypes.INTEGER
-    },
-},{ // options
+}, { // options
     timestamps: false
-})
+
+});
 
 
-
-module.exports = Packages
 

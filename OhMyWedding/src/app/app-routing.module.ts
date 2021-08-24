@@ -9,6 +9,8 @@ import {CarsComponent} from './cars/cars.component';
 import {MusicalBandComponent} from './musical-band/musical-band.component'
 import {WeddingClothesComponent} from './wedding-clothes/wedding-clothes.component';
 import { WeddingSettingComponent } from './wedding-setting/wedding-setting.component';
+import { SignUp2Component } from './sign-up2/sign-up2.component';
+import { LogInComponent } from './log-in/log-in.component';
 
 const routes: Routes = [{path:'', component: PackagesListComponent }, 
 {path:'details', component: DetailsComponent }, 
@@ -18,8 +20,16 @@ const routes: Routes = [{path:'', component: PackagesListComponent },
 {path:'carslist', component: CarsComponent},
 {path:'musicalbandlist', component: MusicalBandComponent},
 {path:'weddingclotheslist', component:WeddingClothesComponent},
-{path:'weddingsettinglist', component:WeddingSettingComponent}
-];
+{path:'weddingsettinglist', component:WeddingSettingComponent},
+  {
+    path:'Sign-Up',
+    component:SignUp2Component
+  },
+  {
+    path:'Log-in',
+    component:LogInComponent
+  }
+]
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

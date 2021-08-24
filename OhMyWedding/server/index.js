@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const port = 3000;
+<<<<<<< HEAD
 
 
 const db = require('../db/index');
@@ -14,10 +15,30 @@ app.use(express.urlencoded({ extended:true, limit:'50mb' }));
 app.use(cors("*"))
 
 app.use('/', packagesRouter);
+=======
+const userRoutes = require('./routes/user.routes');
+
+
+const db = require('../db/index')
+const Dressing = require('../models/Dressing')
+// const Admin = require('../models/Admin')
+
+db.authenticate()
+    .then(() => {
+        console.log('Database connected')
+        return db.sync({ force: true });
+    }).then(()=>{
+        const dressing =  Dressing.create({ name: 'suite'});
+    })
+    .catch(err => {
+        console.log('Error:' + err)
+    })
+>>>>>>> 1d4a8672c13cb8376141dd70a32f07811fb7d59e
 
 
 
 
+<<<<<<< HEAD
 
 db.authenticate().then(()=>{
     console.log('Database connected')
@@ -29,7 +50,15 @@ db.authenticate().then(()=>{
 .catch(err =>{
     console.log('Error:' + err)
 })
+=======
+app.use(bodyParser.json({ limit: '50mb' }))
+app.use(express.urlencoded({ extended: true, limit: '50mb' }));
+app.use(cors("*"))
 
-app.listen(port,()=>{
+app.use('/', userRoutes);
+>>>>>>> 1d4a8672c13cb8376141dd70a32f07811fb7d59e
+
+console.log(db.models)
+app.listen(port, () => {
     console.log(`listening on port ${port}`)
 })

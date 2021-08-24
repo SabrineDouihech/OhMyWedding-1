@@ -1,0 +1,21 @@
+
+<div class="container">
+    <div class="signup">
+    <h1>Sign-Up</h1>
+</div>
+    <div class="inputs">
+    <label>Username</label>
+    <input type='text' placeholder="Username" class="input-field" #username/>
+    <label> E-mail </label>
+    <input type="text" placeholder="adress e-mail" class="input-field" #email/>
+    <label>Password</label>
+    <input type="password" placeholder="password" class="input-field" #password/>
+    <label>Identity Card</label>
+    <input type="number" placeholder="Identity Card" class="input-field" #identitycard/>
+    <label>Phone Number</label>
+    <input type="number" placeholder="Phone Number" class="input-field" #phonenumber/>
+    <div class="btn">
+        <button (click)="insertUser(username.value,email.value,password.value,identitycard.value,phonenumber.value)" >Create Account</button>
+    </div>
+</div>
+</div>
