@@ -9,23 +9,14 @@ export class PackagesService {
 
   constructor(private http : HttpClient) {}
 
-  getPack(){
-    return this.http.get('http://localhost:3000/api/getpackage');
+
+  getPackages(){
+    return this.http.get('http://localhost:3000/api/getpackages');
   }
 
-   postPack(data:any){
-     return this.http.post('http://localhost:3000/api/postpackage',data);
-   }
-
-  //  deletePack(id:number){
-  //    return this.http.delete('http://localhost:3000/api/deletepackage'+id)
-  //  }
-
-  //  updatePack(id:number,data:any){
-  //    return this.http.put('http://localhost:3000/api/updatepackage'+id,data)
-  //  }
-
-   
-
+  // createPackages(data: any) {
+  //   return this.http.post('http://localhost:3000/api/createpackages', data);
+  // }
   
+
 }
