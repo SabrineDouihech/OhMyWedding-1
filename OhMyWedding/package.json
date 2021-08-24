@@ -2,8 +2,8 @@
   "name": "oh-my-wedding",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
-    "start": "nodemon server/index.js",
+    "ng": "ng serve",
+    "start": "nodemon index.js",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
@@ -19,6 +19,7 @@
     "@angular/platform-browser-dynamic": "~12.2.0",
     "@angular/router": "~12.2.0",
     "body-parser": "^1.19.0",
+    "bootstrap": "^5.1.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "mysql": "^2.18.1",
