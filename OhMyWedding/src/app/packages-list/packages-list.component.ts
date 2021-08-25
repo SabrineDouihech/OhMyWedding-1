@@ -23,6 +23,7 @@ packages: any =[];
 details(){
   this.router.navigateByUrl('/details')
 }
+
 categoriesList(){
   this.router.navigateByUrl('/categorieslist')
 }
