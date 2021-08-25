@@ -14,7 +14,7 @@ import { LogInComponent } from './log-in/log-in.component';
 
 const routes: Routes = [{path:'', component: PackagesListComponent }, 
 {path:'details', component: DetailsComponent }, 
-{path:'categoriesList', component: CategoriesListComponent },
+{path:'categorieslist', component: CategoriesListComponent },
 {path:'food', component: FoodComponent },
 {path:'invitationcard', component: InvitationCardsComponent },
 {path:'carslist', component: CarsComponent},

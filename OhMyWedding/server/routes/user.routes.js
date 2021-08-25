@@ -9,8 +9,4 @@ routers.post('/api/user/signUp', userController.CreateUser)
 
 
 
-
-
-
-
 module.exports = routers
