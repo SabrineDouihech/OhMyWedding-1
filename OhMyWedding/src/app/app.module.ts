@@ -4,6 +4,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { PackagesComponent } from './packages/packages.component';
+import { HttpClientModule } from '@angular/common/http';
+import { SignUp2Component } from './sign-up2/sign-up2.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LogInComponent } from './log-in/log-in.component';
 
 @NgModule({
   declarations: [
@@ -13,8 +17,13 @@ import { PackagesComponent } from './packages/packages.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
-
+    AppRoutingModule,
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    SignUp2Component,
+    LogInComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
