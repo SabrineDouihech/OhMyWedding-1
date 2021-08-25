@@ -1,12 +1,9 @@
-var mysql = require('mysql2');
 const { Sequelize } = require('sequelize');
 
-
-const db = new Sequelize ('weddingPlanner','root','root',{
+const db = new Sequelize('weddingPlanner', 'student', 'student', {
     host: 'localhost',
-    dialect:'mysql'
-
+    dialect: 'mysql',
 })
 
 
-module.exports = db; 
+module.exports = db;
