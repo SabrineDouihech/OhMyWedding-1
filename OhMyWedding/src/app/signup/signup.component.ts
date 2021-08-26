@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../user.service';
-
 @Component({
-  selector: 'app-sign-up2',
-  templateUrl: './sign-up2.component.html',
-  styleUrls: ['./sign-up2.component.css']
+  selector: 'app-signup',
+  templateUrl: './signup.component.html',
+  styleUrls: ['./signup.component.css']
 })
-export class SignUp2Component implements OnInit {
+export class SignupComponent implements OnInit {
 
   constructor(private us : UserService, private router: Router) { }
 
@@ -19,5 +18,6 @@ export class SignUp2Component implements OnInit {
       alert('done')
     })
   }
+
 
 }

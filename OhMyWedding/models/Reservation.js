@@ -32,7 +32,7 @@ const Reservation = db.define('Reservation', {
 })
 
 
-Reservation.hasOne(Packages);
-Packages.belongsTo(Reservation);
+// Reservation.hasOne(Packages);
+// Packages.belongsTo(Reservation);
 
 module.exports = Reservation;

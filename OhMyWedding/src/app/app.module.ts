@@ -15,16 +15,17 @@ import { WeddingClothesComponent } from './wedding-clothes/wedding-clothes.compo
 import { DetailsComponent } from './details/details.component';
 import { WeddingSettingComponent } from './wedding-setting/wedding-setting.component';
 import { PackagesListComponent } from './packages-list/packages-list.component';
-import { SignUp2Component } from './sign-up2/sign-up2.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LogInComponent } from './log-in/log-in.component';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { SignupComponent } from './signup/signup.component';
+import { SigninComponent } from './signin/signin.component';
 @NgModule({
   declarations: [
+
     AppComponent,
     HomeComponent,
     PackagesComponent,
-    // HomeComponent,
     FavoritesComponent,
     CategoriesListComponent,
     FoodComponent,
@@ -35,9 +36,8 @@ import { LogInComponent } from './log-in/log-in.component';
     DetailsComponent,
     WeddingSettingComponent,
     PackagesListComponent,
-    SignUp2Component,
-    LogInComponent
-  ],
+    SignupComponent,
+    SigninComponent  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -45,8 +45,7 @@ import { LogInComponent } from './log-in/log-in.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    SignUp2Component,
-    LogInComponent
+
   ],
   providers: [],
   bootstrap: [AppComponent]

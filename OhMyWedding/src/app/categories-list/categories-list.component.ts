@@ -28,6 +28,7 @@ export class CategoriesListComponent implements OnInit {
   musicalBandList(){
     this.router.navigateByUrl('/musicalbandlist')
   }
+  
 weddingClotheslist(){
   this.router.navigateByUrl('/weddingclotheslist')
 }
