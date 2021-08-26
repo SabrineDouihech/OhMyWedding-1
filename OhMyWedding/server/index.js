@@ -18,16 +18,14 @@ app.use(express.urlencoded({ extended:true, limit:'50mb' }));
 app.use(cors("*"))
 
 app.use('/', packagesRouter);
-
+app.use('/api/user',userRoutes)
 
 
 
 
 db.authenticate().then(()=>{
     console.log('Database connected')
-    return db.sync({force: true})
-}).then(()=>{const reservation =  Reservation.create({ total: 50000, rest:40000 });
-    
+    // return db.sync({force: true})
 })
 .catch(err =>{
     console.log('Error:' + err)

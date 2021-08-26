@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { UserService } from '../user.service';
+import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-sign-up2',
@@ -14,10 +14,14 @@ export class SignUp2Component implements OnInit {
   ngOnInit(): void {
   }
 
-  insertUser(username:any,email:any,password:any,identitycard:any,phonenumber:any){
-    this.us.CreateUser({username:username,eMail:email,password:password,identityCard:identitycard,phoneNumber:phonenumber}).subscribe((data)=>{
+  insertUser(username:string,email:string,password:string,identitycard:any,phonenumber:any){
+    this.us.CreateUser({username:username,eMail:email,password:password,identityCard:parseInt(identitycard),phoneNumber:parseInt(phonenumber)}).subscribe((data:any)=>{
+      console.log(data)
       alert('done')
     })
   }
+
+
+  
 
 }
