@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
+import { HomeComponent } from './home/home.component';
+import { PackagesComponent } from './packages/packages.component';
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
-// import { HomeComponent } from './home/home.component';
 import { FavoritesComponent } from './favorites/favorites.component';
 import { CategoriesListComponent } from './categories-list/categories-list.component';
 import { FoodComponent } from './food/food.component';
@@ -21,6 +22,8 @@ import { LogInComponent } from './log-in/log-in.component';
 @NgModule({
   declarations: [
     AppComponent,
+    HomeComponent,
+    PackagesComponent,
     // HomeComponent,
     FavoritesComponent,
     CategoriesListComponent,
@@ -38,12 +41,16 @@ import { LogInComponent } from './log-in/log-in.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    BrowserModule,
+    AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    SignUp2Component,
+    LogInComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { 
-  
+export class AppModule {
+
 }
