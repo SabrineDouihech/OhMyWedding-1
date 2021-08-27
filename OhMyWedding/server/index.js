@@ -1,46 +1,54 @@
 const express = require('express');
+const db = require('../db/index');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const port = 3000;
-
-const userRoutes = require('./routes/user.routes')
-const packagesRouter = require('./routes/packages.routes');
-
-const db = require('../db/index');
-
-db.authenticate()
-    .then(() => {
-        console.log('Database connected')
-        return db.sync({ force: true });
-    }).then(() => {
-        const dressing = Dressing.create({ name: 'suite' });
-    })
-    .catch(err => {
-        console.log('Error:' + err)
-    })
 
 const app = express();
+
+const port = 3000;
+
 
 app.use(bodyParser.json({ limit: '50mb' }))
 app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 app.use(cors("*"))
 
-app.use('/', packagesRouter);
+const userRoutes = require('./routes/user.routes')
+const packagesRouter = require('./routes/packages.routes');
+const reservationRoutes = require('./routes/reservation.routes')
+const carsRoutes = require('./routes/cars.routes')
+const hostsRoutes = require('./routes/hosts.routes')
+const CardsRoutes = require('./routes/InvitionCards.routes')
 
 
 
 
-
-db.authenticate().then(() => {
-    console.log('Database connected')
-    return db.sync({ force: true })
-}).then(() => {
-    const reservation = Reservation.create({ total: 50000, rest: 40000 });
-
-})
+db.authenticate()
+    .then(() => {
+        console.log('Database connected')
+        return db.sync();
+    })
     .catch(err => {
         console.log('Error:' + err)
     })
+
+
+
+app.use('/', packagesRouter);
+
+app.use("/", reservationRoutes);
+app.use("/", carsRoutes);
+app.use("/", hostsRoutes);
+app.use("/", CardsRoutes);
+
+
+
+
+
+
+
+
+
+
 
 console.log(db.models)
 app.listen(port, () => {

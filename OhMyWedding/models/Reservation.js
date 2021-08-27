@@ -1,6 +1,5 @@
 var { DataTypes } = require('sequelize');
 const db = require('../db/index');
-const Packages = require('./Packages')
 
 
 
@@ -11,28 +10,28 @@ const Reservation = db.define('Reservation', {
         autoIncrement: true,
         primaryKey: true
     },
-    total:{
+    total: {
         type: DataTypes.INTEGER
     },
-    rest:{
+    rest: {
         type: DataTypes.INTEGER
     },
-    reserveDate:{
+    reserveDate: {
         type: DataTypes.DATE
     },
-    item_id:{
+    item_id: {
         type: DataTypes.STRING
     },
-    type:{
+    type: {
         type: DataTypes.STRING
     },
-},{ // options
+}, { // options
     timestamps: false
-    
+
 })
 
 
-Reservation.hasOne(Packages);
-Packages.belongsTo(Reservation);
+
 
 module.exports = Reservation;
+// INSERT INTO Reservations(total,rest,reserveDate,item_id,type) VALUES (10000,100,13/09/1996,1,"card");
