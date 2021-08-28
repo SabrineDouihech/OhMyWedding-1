@@ -4,18 +4,22 @@ const { Op } = require("sequelize");
 
 
 const AdminLogin = async function (req, res) {
-    
-    Admin.findAll({ 
-        where: {[Op.and]: [
-                            { adminname: req.body.adminname },
-                            { password: req.body.password }
-                        ]}
+
+    Admin.findAll({
+        where: {
+            [Op.and]: [
+                { adminname: req.body.adminname },
+                { password: req.body.password }
+            ]
+        }
     })
-    .then((data)=>{if (data.length > 0) {
-                 res.send(data)
-             } else {
-                 res.send({ message: 'access denied' })
-             }})
+        .then((data) => {
+            if (data.length > 0) {
+                res.send(data)
+            } else {
+                res.send({ message: 'access denied' })
+            }
+        })
     res.send('data')
 }
 

@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
+
 export class SignupComponent implements OnInit {
 
   constructor(private us: UserService, private router: Router) { }
@@ -14,14 +15,28 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  insertUser(username:string,email:string,password:string,identitycard:any,phonenumber:any){
-    this.us.CreateUser({username:username,eMail:email,password:password,identityCard:parseInt(identitycard),phoneNumber:parseInt(phonenumber)}).subscribe((data:any)=>{
-      console.log(data)
-      alert('done')
-    })
+  insertUser(
+    username: string,
+    email: string,
+    password: string,
+    identitycard: any,
+    phonenumber: any) {
+
+    this.us.CreateUser(
+
+      {
+        username: username,
+        eMail: email,
+        password: password,
+        identityCard: parseInt(identitycard),
+        phoneNumber: parseInt(phonenumber)
+
+      })
+      .subscribe((data: any) => {
+
+        console.log(data)
+        alert('done')
+      })
   }
-
-
-  
 
 }

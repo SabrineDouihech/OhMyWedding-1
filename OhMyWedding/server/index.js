@@ -9,89 +9,56 @@ const app = express();
 const port = 3000;
 
 
-app.use(bodyParser.json({ limit: '50mb' }))
+app.use(bodyParser.json({ limit: '50mb' }));
 app.use(express.urlencoded({ extended: true, limit: '50mb' }));
-app.use(cors("*"))
+app.use(cors("*"));
 
 const userRoutes = require('./routes/user.routes')
 const packagesRouter = require('./routes/packages.routes');
 const adminRouter = require('./routes/admin.routes');
-
- const Admin = require ('../models/Admin');
-
 const reservationRoutes = require('./routes/reservation.routes')
 const carsRoutes = require('./routes/cars.routes')
-const hostsRoutes = require('./routes/hosts.routes')
-const CardsRoutes = require('./routes/InvitionCards.routes')
-
-
+const hostsRoutes = require('./routes/hosts.routes');
+const CardsRoutes = require('./routes/InvitionCards.routes');
 const favouriteRouter = require("./routes/favourite.routes");
 const foodRouter = require("./routes/food.routes");
 
-const Packages = require ('../models/Packages') 
-const Food = require ('../models/Food') 
-
-
-app.use('/api/packages', packagesRouter);
+app.use('/api/package', packagesRouter);
 app.use('/api/user', userRoutes);
 app.use('/api/admin', adminRouter)
-
 app.use("/", reservationRoutes);
 app.use("/", carsRoutes);
 app.use("/", hostsRoutes);
 app.use("/", CardsRoutes);
-
-
 app.use("/api/favorites", favouriteRouter);
 app.use("/api/food", foodRouter);
 
-
+const Packages = require('../models/Packages');
+const Food = require('../models/Food');
+const Admin = require('../models/Admin');
 
 db.authenticate()
     .then(() => {
-        console.log('Database connected')
-        return db.sync();
-    // }).then(async () => {
-    //     try {
-    //         // const pack1 = await Admin.create({adminname:'majdi10',password:'1230s'})
-    //         // const pack2 = await Packages.create({image:"https://images.pexels.com/photos/3014858/pexels-photo-3014858.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",name:"Package2",price:30000, persons: 100})
-    //         console.log('dummy data created');
-    //     } catch (e) { console.error(e) }
+        console.log('Database connected');
+        return db.sync({ force: false });
+    }).then(async () => {
+        //         try {
+        //             const pack1 = Packages.create ({name:"pack2", image: "https://images.pexels.com/photos/1045541/pexels-photo-1045541.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", price: 30000, persons:100})
+        //   const pack2 = Packages.create ({name:"pack2", image: "https://images.pexels.com/photos/1045541/pexels-photo-1045541.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", price: 30000, persons:100})
+        //   const food1 = Food.create ({name:"food1", image: "https://images.pexels.com/photos/1070850/pexels-photo-1070850.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", price: 30000, foodtype: "Dinner"})
+        //   const food2 = Food.create ({name:"food2", image: "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", price: 20000, foodtype: "Dinner"})
+
+        //             console.log('dummy data created');
+        //         } catch (e) { console.error(e) }
     })
     .catch(err => {
         console.log('Error:' + err)
-    })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    });
 
 
 app.listen(port, () => {
-
-  console.log(`listening on port ${port}`);
+    console.log(`listening on port ${port}`);
 });
-
-
-
-
-
-
-
 
 // const pack1 = Packages.create({image:"https://images.pexels.com/photos/2788488/pexels-photo-2788488.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",name:"Package1",price:"50000 dinars", persons:"100 person"})
 //     const pack2 = Packages.create({image:"https://images.pexels.com/photos/3014858/pexels-photo-3014858.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",name:"Package2",price:"30000 dinars", persons:"100 person"})
