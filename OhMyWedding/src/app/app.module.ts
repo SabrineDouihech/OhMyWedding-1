@@ -15,11 +15,11 @@ import { WeddingClothesComponent } from './wedding-clothes/wedding-clothes.compo
 import { DetailsComponent } from './details/details.component';
 import { WeddingSettingComponent } from './wedding-setting/wedding-setting.component';
 import { PackagesListComponent } from './packages-list/packages-list.component';
-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { SignupComponent } from './signup/signup.component';
 import { SigninComponent } from './signin/signin.component';
+import {FormsModule} from '@angular/forms'
+
 @NgModule({
   declarations: [
 
@@ -45,6 +45,8 @@ import { SigninComponent } from './signin/signin.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    FormsModule,
+
 
   ],
   providers: [],

@@ -1,47 +1,42 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const Packages = require ('../models/Packages');
-const cors = require('cors');
-const port = 3000;
-
-const userRoutes = require('./routes/user.routes')
-const packagesRouter = require('./routes/packages.routes');
-
-const db = require('../db/index');
-
-db.authenticate()
-    .then(() => {
-        console.log('Database connected')
-        return db.sync({ force: true });
-    }).then( async () => {
-        try{
-            const pack1 = await Packages.create({image:"https://images.pexels.com/photos/2788488/pexels-photo-2788488.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",name:"Package1",price:50000, persons:100})
-            const pack2 = await Packages.create({image:"https://images.pexels.com/photos/3014858/pexels-photo-3014858.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",name:"Package2",price:30000, persons: 100})
-            console.log('dummy data created');
-        }catch(e){console.error(e)}
-    })
-    .catch(err => {
-        console.log('Error:' + err)
-    })
+const express = require("express");
+const db = require("../db/index");
+const bodyParser = require("body-parser");
+const cors = require("cors");
 
 const app = express();
 
-app.use(bodyParser.json({ limit: '50mb' }))
-app.use(express.urlencoded({ extended: true, limit: '50mb' }));
-app.use(cors("*"))
+const port = 3000;
 
-app.use('/', packagesRouter);
+const userRouter = require("./routes/user.routes");
+const packagesRouter = require("./routes/packages.routes");
+const favouriteRouter = require("./routes/favourite.routes");
+const foodRouter = require("./routes/food.routes");
 
+const Packages = require ('../models/Packages') 
+const Food = require ('../models/Food') 
 
+db.authenticate()
+  .then(() => {
+    console.log("Database connected");
+    return db.sync();
+  })
+  .then(()=>{
+  //   const pack1 = Packages.create ({name:"Decoration", image: "https://images.pexels.com/photos/1045541/pexels-photo-1045541.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", price: 30000, persons:100})
+  // const food1 = Food.create ({name:"cake", image: "https://images.pexels.com/photos/1070850/pexels-photo-1070850.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", price: 30000, foodtype: "Dinner"})
+  })
+  .catch((err) => {
+    console.log("Error: " + err);
+  });
 
+app.use(bodyParser.json({ limit: "50mb" }));
+app.use(express.urlencoded({ extended: true, limit: "50mb" }));
+app.use(cors("*"));
 
-console.log(db.models)
+app.use("/api/package", packagesRouter);
+app.use("/api/user", userRouter);
+app.use("/api/favorites", favouriteRouter);
+app.use("/api/food", foodRouter);
+
 app.listen(port, () => {
-    console.log(`listening on port ${port}`)
-})
-
-
-
-
-
-
+  console.log(`listening on port ${port}`);
+});

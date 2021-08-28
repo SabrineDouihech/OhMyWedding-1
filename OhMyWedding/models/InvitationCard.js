@@ -30,4 +30,5 @@ const InvitationCard = db.define('InvitationCard', {
 
 InvitationCard.hasMany(Packages);
 Packages.belongsTo(InvitationCard);
+
 module.exports = InvitationCard

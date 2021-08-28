@@ -10,12 +10,14 @@ export class PackagesService {
   constructor(private http: HttpClient) { }
 
   getPackages() {
-    return this.http.get('http://localhost:3000/api/getpackages');
+    return this.http.get('http://localhost:3000/api/package');
   }
 
-  // createPackages(data: any) {
-  //   return this.http.post('http://localhost:3000/api/createpackages', data);
+  // addtofavorites(data: any) {
+  //   return this.http.post('http://localhost:3000/api/addtofavorites', data);
   // }
 
-
+  addtofavorites(data: any) {
+    return this.http.post('http://localhost:3000/api/favorites', data);
+   }
 }

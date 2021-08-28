@@ -9,7 +9,7 @@ module.exports = db.define('Admin', {
         primaryKey: true
     },
 
-    username: {
+    adminname: {
         type: DataTypes.STRING
     },
     password: {
