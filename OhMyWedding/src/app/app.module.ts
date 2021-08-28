@@ -27,6 +27,7 @@ import { AdminWeddingSettingComponent } from './admin-wedding-setting/admin-wedd
 import { AdminReservationComponent } from './admin-reservation/admin-reservation.component';
 import { SignupComponent } from './signup/signup.component';
 import { SigninComponent } from './signin/signin.component';
+import { NavComponent } from './nav/nav.component';
 @NgModule({
   declarations: [
 
@@ -54,7 +55,9 @@ import { SigninComponent } from './signin/signin.component';
     AdminWeddingSettingComponent,
     AdminReservationComponent,
     SignupComponent,
-    SigninComponent],
+    SigninComponent,
+    NavComponent  ],
+ 
   imports: [
     BrowserModule,
     AppRoutingModule,

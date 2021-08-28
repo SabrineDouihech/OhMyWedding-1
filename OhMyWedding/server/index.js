@@ -14,6 +14,10 @@ app.use(cors("*"))
 
 const userRoutes = require('./routes/user.routes')
 const packagesRouter = require('./routes/packages.routes');
+const adminRouter = require('./routes/admin.routes');
+
+// const Admin = require ('../models/Admin');
+// const Packages = require ('../models/Packages');
 const reservationRoutes = require('./routes/reservation.routes')
 const carsRoutes = require('./routes/cars.routes')
 const hostsRoutes = require('./routes/hosts.routes')
@@ -26,6 +30,12 @@ db.authenticate()
     .then(() => {
         console.log('Database connected')
         return db.sync();
+    // }).then(async () => {
+    //     try {
+    //         // const pack1 = await Admin.create({adminname:'majdi10',password:'1230s'})
+    //         // const pack2 = await Packages.create({image:"https://images.pexels.com/photos/3014858/pexels-photo-3014858.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",name:"Package2",price:30000, persons: 100})
+    //         console.log('dummy data created');
+    //     } catch (e) { console.error(e) }
     })
     .catch(err => {
         console.log('Error:' + err)
@@ -33,7 +43,11 @@ db.authenticate()
 
 
 
-app.use('/', packagesRouter);
+
+
+app.use('/api/packages', packagesRouter);
+app.use('/api/user', userRoutes);
+app.use('/api/admin', adminRouter)
 
 app.use("/", reservationRoutes);
 app.use("/", carsRoutes);
