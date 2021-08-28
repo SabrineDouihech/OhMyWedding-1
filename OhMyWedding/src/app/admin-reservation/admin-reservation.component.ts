@@ -23,6 +23,7 @@ export class AdminReservationComponent implements OnInit {
   getReservation() {
     this.rs.getReservation().subscribe((mYdata) => {
       this.reservation = mYdata
+      console.log(this.reservation)
       console.log("dzzadzdazda", this.reservation);
 
     })

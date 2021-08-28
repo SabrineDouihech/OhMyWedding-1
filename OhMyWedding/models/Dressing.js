@@ -9,25 +9,25 @@ const Dressing = db.define('Dressing', {
         autoIncrement: true,
         primaryKey: true
     },
-    name:{
+    name: {
         type: DataTypes.STRING
     },
-    image:{
+    image: {
         type: DataTypes.STRING
     },
-    description:{
+    description: {
         type: DataTypes.STRING
     },
-    price:{
+    price: {
         type: DataTypes.INTEGER
     },
-    genre:{
+    genre: {
         type: DataTypes.STRING
     },
-    state:{
+    state: {
         type: DataTypes.STRING
     },
-},{ // options
+}, { // options
     timestamps: false
 })
  //date ? is it the state !

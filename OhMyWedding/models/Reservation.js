@@ -3,6 +3,7 @@ const db = require('../db/index');
 
 
 const Reservation = db.define('Reservation', {
+
     id: {
         type: DataTypes.INTEGER,
         allowNull: false,
