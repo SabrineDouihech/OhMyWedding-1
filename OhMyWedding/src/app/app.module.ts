@@ -16,6 +16,7 @@ import { DetailsComponent } from './details/details.component';
 import { WeddingSettingComponent } from './wedding-setting/wedding-setting.component';
 import { PackagesListComponent } from './packages-list/packages-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {FormsModule} from '@angular/forms'
 import { AdminDachComponent } from './admin-dach/admin-dach.component';
 import { AdminPackageslistComponent } from './admin-packageslist/admin-packageslist.component';
 import { AdminMusicalbandlistComponent } from './admin-musicalbandlist/admin-musicalbandlist.component';
@@ -28,6 +29,7 @@ import { AdminReservationComponent } from './admin-reservation/admin-reservation
 import { SignupComponent } from './signup/signup.component';
 import { SigninComponent } from './signin/signin.component';
 import { NavComponent } from './nav/nav.component';
+
 @NgModule({
   declarations: [
 
@@ -65,8 +67,10 @@ import { NavComponent } from './nav/nav.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    // SignUp2Component,
-    // LogInComponent
+    FormsModule,
+
+
+    
 
   ],
   providers: [],

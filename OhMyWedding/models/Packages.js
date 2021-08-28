@@ -24,10 +24,13 @@ const Packages = db.define('Packages', {
     price: {
         type: DataTypes.INTEGER
     },
-    persons: {
+ 
+    persons:{
         type: DataTypes.INTEGER
-    }
-},{ // options
+    },
+
+  
+
 }, { // options
     timestamps: false
 })

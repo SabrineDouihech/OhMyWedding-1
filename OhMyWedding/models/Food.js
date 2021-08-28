@@ -29,7 +29,6 @@ const Food = db.define('Food', {
     },
 },{ // options
     timestamps: false
-
 })
 
 Food.hasMany(Packages);
