@@ -20,6 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { SignupComponent } from './signup/signup.component';
 import { SigninComponent } from './signin/signin.component';
+import { NavComponent } from './nav/nav.component';
 @NgModule({
   declarations: [
 
@@ -37,7 +38,8 @@ import { SigninComponent } from './signin/signin.component';
     WeddingSettingComponent,
     PackagesListComponent,
     SignupComponent,
-    SigninComponent  ],
+    SigninComponent,
+    NavComponent  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

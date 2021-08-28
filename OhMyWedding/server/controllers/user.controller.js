@@ -28,11 +28,11 @@ const CreateUser = async function (req,res){
 }
 
 const UserLogin = async function (req, res) {
-    try{
-        const result = await User.findAll({
+    try{ 
+        const result = await User.findAll({ where: {
             username: req.body.username,
             password: req.body.password
-        })
+        } })
         if(result.length>0){
             res.send(result)
         }else{
@@ -43,16 +43,4 @@ const UserLogin = async function (req, res) {
     }
 }
 
-
-
-
-
-
 module.exports = { SelectAll,CreateUser,UserLogin }
-
-
-
-
-
-
-

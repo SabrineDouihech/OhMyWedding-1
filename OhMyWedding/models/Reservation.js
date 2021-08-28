@@ -1,6 +1,5 @@
 var { DataTypes } = require('sequelize');
 const db = require('../db/index');
-const Packages = require('./Packages')
 
 
 
@@ -30,9 +29,5 @@ const Reservation = db.define('Reservation', {
     timestamps: false
     
 })
-
-
-// Reservation.hasOne(Packages);
-// Packages.belongsTo(Reservation);
 
 module.exports = Reservation;

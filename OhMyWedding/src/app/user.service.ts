@@ -5,7 +5,7 @@ import {HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class UserService {
-
+user : any = ""
   constructor(private http : HttpClient) {}
        SelectAll (){
     return this.http.get('http://localhost:3000/api/user');
