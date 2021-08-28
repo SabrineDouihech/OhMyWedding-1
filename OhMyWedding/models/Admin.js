@@ -1,7 +1,7 @@
 var { DataTypes } = require('sequelize');
 const db = require('../db/index');
 
-module.exports = db.define('Admin', {
+ const Admin = db.define('Admin', {
     id: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -19,6 +19,8 @@ module.exports = db.define('Admin', {
     timestamps: false
 
 });
+
+module.exports = Admin;
 
 
 

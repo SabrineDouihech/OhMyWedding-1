@@ -12,7 +12,7 @@ const SelectAll = async function (req, res) {
 
 const CreateUser = async function (req,res){
     try {
-        console.log("data")
+        console.log("my data hereeeee" , req.body);
         const data = await User.create({
             username: req.body.username,
             eMail:req.body.eMail,
@@ -27,16 +27,20 @@ const CreateUser = async function (req,res){
     }
 }
 
+const UserLogin = async function (req, res) {
+    try{ 
+        const result = await User.findAll({ where: {
+            username: req.body.username,
+            password: req.body.password
+        } })
+        if(result.length>0){
+            res.send(result)
+        }else{
+         res.send({msg : 'username wrong'})
+        }
+    } catch (err) {
+        res.status(500).send(err)
+    }
+}
 
-
-
-
-
-module.exports = { SelectAll,CreateUser }
-
-
-
-
-
-
-
+module.exports = { SelectAll,CreateUser,UserLogin }
