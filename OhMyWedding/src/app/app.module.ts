@@ -15,9 +15,16 @@ import { WeddingClothesComponent } from './wedding-clothes/wedding-clothes.compo
 import { DetailsComponent } from './details/details.component';
 import { WeddingSettingComponent } from './wedding-setting/wedding-setting.component';
 import { PackagesListComponent } from './packages-list/packages-list.component';
-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { AdminDachComponent } from './admin-dach/admin-dach.component';
+import { AdminPackageslistComponent } from './admin-packageslist/admin-packageslist.component';
+import { AdminMusicalbandlistComponent } from './admin-musicalbandlist/admin-musicalbandlist.component';
+import { AdminCarslistComponent } from './admin-carslist/admin-carslist.component';
+import { AdminFoodlistComponent } from './admin-foodlist/admin-foodlist.component';
+import { AdminInvitaIioncardslistComponent } from './admin-invita-iioncardslist/admin-invita-iioncardslist.component';
+import { AdminWeddingclothesComponent } from './admin-weddingclothes/admin-weddingclothes.component';
+import { AdminWeddingSettingComponent } from './admin-wedding-setting/admin-wedding-setting.component';
+import { AdminReservationComponent } from './admin-reservation/admin-reservation.component';
 import { SignupComponent } from './signup/signup.component';
 import { SigninComponent } from './signin/signin.component';
 @NgModule({
@@ -36,8 +43,18 @@ import { SigninComponent } from './signin/signin.component';
     DetailsComponent,
     WeddingSettingComponent,
     PackagesListComponent,
+    AdminDachComponent,
+    AdminPackageslistComponent,
+
+    AdminMusicalbandlistComponent,
+    AdminCarslistComponent,
+    AdminFoodlistComponent,
+    AdminInvitaIioncardslistComponent,
+    AdminWeddingclothesComponent,
+    AdminWeddingSettingComponent,
+    AdminReservationComponent,
     SignupComponent,
-    SigninComponent  ],
+    SigninComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -45,6 +62,8 @@ import { SigninComponent } from './signin/signin.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    // SignUp2Component,
+    // LogInComponent
 
   ],
   providers: [],

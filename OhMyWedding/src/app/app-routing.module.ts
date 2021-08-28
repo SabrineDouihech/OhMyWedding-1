@@ -12,6 +12,7 @@ import { CarsComponent } from './cars/cars.component';
 import { MusicalBandComponent } from './musical-band/musical-band.component'
 import { WeddingClothesComponent } from './wedding-clothes/wedding-clothes.component';
 import { WeddingSettingComponent } from './wedding-setting/wedding-setting.component';
+import { AdminDachComponent } from './admin-dach/admin-dach.component';
 import { SignupComponent } from './signup/signup.component';
 import { SigninComponent } from './signin/signin.component';
 
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'musicalbandlist', component: MusicalBandComponent },
   { path: 'weddingclotheslist', component: WeddingClothesComponent },
   { path: 'weddingsettinglist', component: WeddingSettingComponent },
+  { path: "admin", component: AdminDachComponent },
   {
     path: 'Sign-Up',
     component: SignupComponent
