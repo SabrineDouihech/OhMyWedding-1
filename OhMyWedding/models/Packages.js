@@ -28,6 +28,7 @@ const Packages = db.define('Packages', {
         type: DataTypes.INTEGER
     }
 },{ // options
+}, { // options
     timestamps: false
 })
 

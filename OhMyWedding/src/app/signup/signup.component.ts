@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignupComponent implements OnInit {
 
-  constructor(private us : UserService, private router: Router) { }
+  constructor(private us: UserService, private router: Router) { }
 
   ngOnInit(): void {
   }
