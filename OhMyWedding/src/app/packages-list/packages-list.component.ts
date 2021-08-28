@@ -10,12 +10,15 @@ import { Router } from '@angular/router';
 export class PackagesListComponent implements OnInit {
 
   constructor(private ps : PackagesService, private router: Router) { }
+
 data : any = [];
 packages: any =[];
+
   ngOnInit(): void {
+    this.getAPackage ()
   }
 
-  getAPackage (){
+getAPackage (){
     this.ps.getPackages().subscribe((data)=>{
       this.packages = data
     }) 

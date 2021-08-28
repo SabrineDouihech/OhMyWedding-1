@@ -25,13 +25,14 @@ import { AdminInvitaIioncardslistComponent } from './admin-invita-iioncardslist/
 import { AdminWeddingclothesComponent } from './admin-weddingclothes/admin-weddingclothes.component';
 import { AdminWeddingSettingComponent } from './admin-wedding-setting/admin-wedding-setting.component';
 import { AdminReservationComponent } from './admin-reservation/admin-reservation.component';
-
+import { SignupComponent } from './signup/signup.component';
+import { SigninComponent } from './signin/signin.component';
 @NgModule({
   declarations: [
+
     AppComponent,
     HomeComponent,
     PackagesComponent,
-    // HomeComponent,
     FavoritesComponent,
     CategoriesListComponent,
     FoodComponent,
@@ -51,20 +52,19 @@ import { AdminReservationComponent } from './admin-reservation/admin-reservation
     AdminInvitaIioncardslistComponent,
     AdminWeddingclothesComponent,
     AdminWeddingSettingComponent,
-    AdminReservationComponent
-
-    // SignUp2Component,
-    // LogInComponent
-  ],
+    AdminReservationComponent,
+    SignupComponent,
+    SigninComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
     // SignUp2Component,
     // LogInComponent
+
   ],
   providers: [],
   bootstrap: [AppComponent]

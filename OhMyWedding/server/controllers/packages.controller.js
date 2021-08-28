@@ -15,7 +15,6 @@ const getPackages = async function (req, res) {
 //   const packagesList = {
 //     name: req.body.name,
 //     image: req.body.image,
-//     image: req.body.image,
 //     price: req.body.price,
 //     persons: req.body.persons,
 //   };
@@ -25,7 +24,6 @@ const getPackages = async function (req, res) {
 //   } catch (error) {
 //     res.status(200).send(error);
 //   }
-
-//};
+// };
 
 module.exports = { getPackages };

@@ -2,8 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { PackagesComponent } from './packages/packages.component';
-import { SignUp2Component } from './sign-up2/sign-up2.component';
-import { LogInComponent } from './log-in/log-in.component';
+
 import { DetailsComponent } from './details/details.component';
 import { PackagesListComponent } from './packages-list/packages-list.component'
 import { CategoriesListComponent } from './categories-list/categories-list.component';
@@ -14,10 +13,13 @@ import { MusicalBandComponent } from './musical-band/musical-band.component'
 import { WeddingClothesComponent } from './wedding-clothes/wedding-clothes.component';
 import { WeddingSettingComponent } from './wedding-setting/wedding-setting.component';
 import { AdminDachComponent } from './admin-dach/admin-dach.component';
+import { SignupComponent } from './signup/signup.component';
+import { SigninComponent } from './signin/signin.component';
+
 const routes: Routes = [
   { path: "", component: HomeComponent },
   { path: "packages", component: PackagesComponent },
-  { path: '', component: PackagesListComponent },
+  { path: 'packageslist', component: PackagesListComponent },
   { path: 'details', component: DetailsComponent },
   { path: 'categorieslist', component: CategoriesListComponent },
   { path: 'food', component: FoodComponent },
@@ -29,11 +31,11 @@ const routes: Routes = [
   { path: "admin", component: AdminDachComponent },
   {
     path: 'Sign-Up',
-    component: SignUp2Component
+    component: SignupComponent
   },
   {
     path: 'Log-in',
-    component: LogInComponent
+    component: SigninComponent
   }
 ]
 

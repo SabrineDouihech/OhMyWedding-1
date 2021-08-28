@@ -28,8 +28,10 @@ const Packages = db.define('Packages', {
     timestamps: false
 })
 
-Reservation.hasMany(Packages);
-Packages.belongsTo(Reservation);
+Packages.hasMany(Reservation)
+Reservation.belongsTo(Packages)
+
+
 
 module.exports = Packages
 

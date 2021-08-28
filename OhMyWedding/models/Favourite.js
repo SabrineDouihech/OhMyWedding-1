@@ -25,7 +25,7 @@ const Favourite = db.define('Favourite', {
     timestamps: false
 })
 
-Favourite.hasMany(Packages);
+Favourite.hasMany(Packages); 
 Packages.belongsTo(Favourite);
 
 Favourite.hasMany(Food);
