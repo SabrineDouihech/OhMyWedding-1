@@ -3,31 +3,31 @@ const Packages = require('./Packages')
 const db = require('../db/index');
 
 const Dressing = db.define('Dressing', {
-    id:{
+    id: {
         type: DataTypes.INTEGER,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true
     },
-    name:{
+    name: {
         type: DataTypes.STRING
     },
-    image:{
+    image: {
         type: DataTypes.STRING
     },
-    description:{
+    description: {
         type: DataTypes.STRING
     },
-    price:{
+    price: {
         type: DataTypes.INTEGER
     },
-    genre:{
+    genre: {
         type: DataTypes.STRING
     },
-    state:{
+    state: {
         type: DataTypes.STRING
     },
-},{ // options
+}, { // options
     timestamps: false
 })
 

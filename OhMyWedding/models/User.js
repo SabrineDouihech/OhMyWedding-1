@@ -4,7 +4,7 @@ const db = require('../db/index');
 const Reservation = require('./Reservation');
 const Favourite = require('./Favourite');
 
-const User = db.define('User', {        
+const User = db.define('User', {
     id: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -28,9 +28,9 @@ const User = db.define('User', {
 
     phoneNumber: {
         type: DataTypes.INTEGER
-    }, 
-},{ // options
-        timestamps: false
+    },
+}, { // options
+    timestamps: false
 })
 
 User.hasMany(Reservation);

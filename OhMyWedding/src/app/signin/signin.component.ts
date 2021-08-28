@@ -9,19 +9,28 @@ import { Router } from '@angular/router';
 })
 export class SigninComponent implements OnInit {
 
-  constructor(private us : UserService, private router : Router) { }
-  user : any ;
+  constructor(private us: UserService, private router: Router) { }
+  user: any;
 
   ngOnInit(): void {
   }
-  saveUser(username : string, password : string){
-    this.us.UserLogin({username:username, password:password}).subscribe((result:any)=>{
-      this.user = result;
-       this.us.user = this.user[0]["username"]
-      
-      this.router.navigateByUrl("/")
-    })
-  
-    }
+  saveUser(
 
-}
+    username: string,
+    password: string
+
+  ) {
+    this.us.UserLogin(
+      {
+        username: username,
+        password: password
+      })
+      .subscribe((result: any) => {
+        this.user = result;
+
+        this.us.user = this.user[0]["username"];
+
+        this.router.navigateByUrl("/packages");
+      })
+  }
+};

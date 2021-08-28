@@ -1,12 +1,6 @@
 var LuxuryCars = require("../../models/LuxuryCars");
 
 
-
-
-
-
-
-
 const getLuxuryCars = async function (req, res) {
     try {
         const cars = await LuxuryCars.findAll({});

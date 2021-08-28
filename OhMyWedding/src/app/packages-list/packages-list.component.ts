@@ -24,6 +24,7 @@ safeprice: any;
 
 getAPackage (){
     this.packagesService.getPackages().subscribe((data)=>{
+    console.log(data)
       this.packages = data
       this.safeprice = data;
     }) 
