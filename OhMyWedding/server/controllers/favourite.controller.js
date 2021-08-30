@@ -12,9 +12,9 @@ const db = require("../../db");
 //       where: { itemId, UserId: userId, type },
 //     });
 
-//     if (destroyed) 
+//     if (destroyed)
 //       return res.status(204).send("unfavorited");
-    
+
 //     const packages = await Favourite.create({ type, UserId: userId, itemId });
 //     res.status(201).send(packages);
 //   } catch (error) {

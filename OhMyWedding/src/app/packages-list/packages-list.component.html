@@ -1,101 +1,103 @@
-<header>
-  <div class="container text-center">
-    <!-- Logo -->
-    <div class="logo">
-      <h1><b>List of Packages</b></h1>
+<body>
+  <header>
+    <div class="container text-center">
+      <!-- Logo -->
+      <div class="logo">
+        <h1><b>List of Packages</b></h1>
+      </div>
+      <h1>What package do you want ?</h1>
     </div>
-    <h1>What package do you want ?</h1>
+  </header>
+  <div class="dropi">
+    <div class="dropdown">
+      <!-- <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false" style="margin:17px"> -->
+      <label for="cars"> You Budget : </label>
+  
+      <select name="cars" [(ngModel)]="price" id="cars" >
+        <option value="">all</option>
+        <option value="10000">10000</option>
+        <option value="20000">20000</option>
+        <option value="30000">30000</option>
+        <option value="40000">40000</option>
+      </select>
+      <label for="cars"> You place : </label>
+  
+      <select name="cars" id="cars">
+        <option value="Tunis">Tunis</option>
+        <option value="Sfax">Sfax</option>
+        <option value="Djerba">Djerba</option>
+      </select>
+      <!-- </a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <li><a class="dropdown-item" href="#">10000</a></li>
+              <li><a class="dropdown-item" href="#">20000</a></li>
+              <li><a class="dropdown-item" href="#">30000</a></li>
+              <li><a class="dropdown-item" href="#">40000</a></li>
+              <li><a class="dropdown-item" href="#">50000</a></li>
+            </ul> -->
+  
+      <!-- <a
+        class="btn btn-secondary dropdown-toggle"
+        href="#"
+        role="button"
+        id="dropdownMenuLink"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        Your Place
+      </a>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <li><a class="dropdown-item" href="#">Tunis</a></li>
+        <li><a class="dropdown-item" href="#">Sfax</a></li>
+        <li><a class="dropdown-item" href="#">Djerba</a></li>
+      </ul> -->
+      <button type="button" class="btn btn-light" style="margin: 17px" (click)="search()">
+        Look for a specific package
+      </button>
+      <button (click)="categoriesList()" type="button" class="btn btn-light">
+        Create your own Package
+      </button>
+    </div>
+    <br />
   </div>
-</header>
-<div class="dropi">
-  <div class="dropdown">
-    <!-- <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false" style="margin:17px"> -->
-    <label for="cars"> You Budget : </label>
-
-    <select name="cars" [(ngModel)]="price" id="cars" >
-      <option value="">all</option>
-      <option value="10000">10000</option>
-      <option value="20000">20000</option>
-      <option value="30000">30000</option>
-      <option value="40000">40000</option>
-    </select>
-    <label for="cars"> You place : </label>
-
-    <select name="cars" id="cars">
-      <option value="Tunis">Tunis</option>
-      <option value="Sfax">Sfax</option>
-      <option value="Djerba">Djerba</option>
-    </select>
-    <!-- </a>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <li><a class="dropdown-item" href="#">10000</a></li>
-            <li><a class="dropdown-item" href="#">20000</a></li>
-            <li><a class="dropdown-item" href="#">30000</a></li>
-            <li><a class="dropdown-item" href="#">40000</a></li>
-            <li><a class="dropdown-item" href="#">50000</a></li>
-          </ul> -->
-
-    <!-- <a
-      class="btn btn-secondary dropdown-toggle"
-      href="#"
-      role="button"
-      id="dropdownMenuLink"
-      data-bs-toggle="dropdown"
-      aria-expanded="false"
-    >
-      Your Place
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-      <li><a class="dropdown-item" href="#">Tunis</a></li>
-      <li><a class="dropdown-item" href="#">Sfax</a></li>
-      <li><a class="dropdown-item" href="#">Djerba</a></li>
-    </ul> -->
-    <button type="button" class="btn btn-light" style="margin: 17px" (click)="search()">
-      Look for a specific package
-    </button>
-    <button (click)="categoriesList()" type="button" class="btn btn-light">
-      Create your own Package
-    </button>
-  </div>
-  <br />
-</div>
-
-<div class="container">
-  <div class="row">
-    <div class="col-md-4" *ngFor="let element of packages; let i = index">
-      <h4 class="text-center"><strong>STYLE 2</strong></h4>
-      <hr />
-      <div class="profile-card-6">
-        <img
-          src="{{ element.image }}"
-          (click)="details()"
-          class="img img-responsive"
-        />
-        <div class="profile-name">{{ element.name }} <br /></div>
-        <div class="profile-position">Lorem Ipsum Donor</div>
-        <div class="profile-overview">
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4" *ngFor="let element of packages; let i = index">
+        <h4 class="text-center"><strong>STYLE 2</strong></h4>
+        <hr />
+        <div class="profile-card-6">
+          <img
+            src="{{ element.image }}"
+            (click)="details()"
+            class="img img-responsive"
+          />
+          <div class="profile-name">{{ element.name }} <br /></div>
+          <div class="profile-position">Lorem Ipsum Donor</div>
           <div class="profile-overview">
-            <div class="row text-center">
-              <div class="col-xs-4">
-                <h3></h3>
-                <p></p>
-              </div>
-              <div class="col-xs-4">
-                <h3>{{ element.price }}</h3>
-                <p>Dinars</p>
-              </div>
-              <div class="col-xs-4">
-                <h3>{{ element.persons }}</h3>
-                <p>Person</p>
+            <div class="profile-overview">
+              <div class="row text-center">
+                <div class="col-xs-4">
+                  <h3></h3>
+                  <p></p>
+                </div>
+                <div class="col-xs-4">
+                  <h3>{{ element.price }}</h3>
+                  <p>Dinars</p>
+                </div>
+                <div class="col-xs-4">
+                  <h3>{{ element.persons }}</h3>
+                  <p>Person</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
+        <button type="button" class="btn btn-warning">Add to favorites</button>
       </div>
-      <button type="button" class="btn btn-warning">Add to favorites</button>
     </div>
   </div>
-</div>
+</body>
 
   <!-- <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
     <label for="id-of-input" class="custom-checkbox">

@@ -1,3 +1,6 @@
+/*****************
+    - Header -
+*****************/
 header {
 	position:relative;
 	left:0;
@@ -52,7 +55,7 @@ a:focus {
 }
 
 body {
-    background-color: #a4b6c7;
+    background-color: #F1F2F3;
 }
 
 .container-fluid,
@@ -140,3 +143,4 @@ body {
 .dropi{
     margin: 29px;
 }
+

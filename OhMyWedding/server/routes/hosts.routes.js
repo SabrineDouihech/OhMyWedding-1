@@ -1,21 +1,6 @@
-var router = require('express').Router();
-var hostsController = require('../controllers/hosts.controller')
+var router = require("express").Router();
+var hostsController = require("../controllers/hosts.controller");
 
-
-
-
-
-
-router.get("/hosts", hostsController.getHostes);
-
-
-
-
-
-
-
-
-
-
+router.get("/", hostsController.getHostes);
 
 module.exports = router;

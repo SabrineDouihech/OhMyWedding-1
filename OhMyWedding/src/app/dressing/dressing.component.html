@@ -1,10 +1,11 @@
+
 <header>
     <div class="container text-center">
       <!-- Logo -->
       <div class="logo">
-        <h1><b>List of Cars</b></h1>
+        <h1><b>List of Clothes</b></h1>
       </div>
-      <h1>What's your wedding car ?</h1>
+      <h1>What Do you want for food ?</h1>
     </div>
   </header>
   <div class="dropi">
@@ -13,26 +14,26 @@
         <select name="cars" [(ngModel)]="price" >
           <option  value="">all</option>
   
-          <option value="200">200</option>
-          <option value="800">800</option>
-          <option value="1000">1000</option>
-          <option value="1500">1500</option>
+          <option value="10000">1000</option>
+          <option value="20000">2000</option>
+          <option value="30000">3000</option>
+          <option value="40000">4000</option>
         </select>
   
-        <label for="cars"> car choices </label>
-        <select name="cars"  [(ngModel)]="brand" >
+        <label for="cars"> Clothes choices </label>
+        <select name="cars"  [(ngModel)]="genre" >
           <option value="">all</option>
   
-          <option value="Dinner">Mercedes</option>
-          <option value="Sweet food">Tesla</option>
-          <option value="Cake">Jeep</option>
+          <option value="Dinner">Wedding dress</option>
+          <option value="Sweet food">Suit</option>
+          <!-- <option value="Cake">Cake</option> -->
         </select>
   
-        <!-- <form action="">
+        <form action="">
           <label for="birthday">Your Wedding date</label>
           <input type="date"  name="birthday">
           <input type="submit">
-        </form> -->
+        </form>
   
         
         <button type="button" class="btn btn-light" style="margin: 17px" >
@@ -44,7 +45,7 @@
   
   <div class="container">
     <div class="row">
-      <div class="col-md-4" *ngFor="let element of cars; let i = index">
+      <div class="col-md-4" *ngFor="let element of clothes; let i = index">
         <h4 class="text-center"><strong>STYLE 2</strong></h4>
         <hr />
         <div class="profile-card-6">
@@ -63,7 +64,7 @@
                   <p>Dinars</p>
                 </div>
                 <div class="col-xs-4">
-                  <h3>{{ element.brand }}</h3>
+                  <h3>{{ element.genre }}</h3>
                   <p></p>
                 </div>
               </div>

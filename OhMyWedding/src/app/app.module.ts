@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
@@ -11,12 +12,9 @@ import { FoodComponent } from './food/food.component';
 import { InvitationCardsComponent } from './invitation-cards/invitation-cards.component';
 import { CarsComponent } from './cars/cars.component';
 import { MusicalBandComponent } from './musical-band/musical-band.component';
-import { WeddingClothesComponent } from './wedding-clothes/wedding-clothes.component';
 import { DetailsComponent } from './details/details.component';
-import { WeddingSettingComponent } from './wedding-setting/wedding-setting.component';
 import { PackagesListComponent } from './packages-list/packages-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {FormsModule} from '@angular/forms'
 import { AdminDachComponent } from './admin-dach/admin-dach.component';
 import { AdminPackageslistComponent } from './admin-packageslist/admin-packageslist.component';
 import { AdminMusicalbandlistComponent } from './admin-musicalbandlist/admin-musicalbandlist.component';
@@ -29,10 +27,11 @@ import { AdminReservationComponent } from './admin-reservation/admin-reservation
 import { SignupComponent } from './signup/signup.component';
 import { SigninComponent } from './signin/signin.component';
 import { NavComponent } from './nav/nav.component';
+import { HostsComponent } from './hosts/hosts.component';
+import { DressingComponent } from './dressing/dressing.component';
 
 @NgModule({
   declarations: [
-
     AppComponent,
     HomeComponent,
     PackagesComponent,
@@ -42,13 +41,10 @@ import { NavComponent } from './nav/nav.component';
     InvitationCardsComponent,
     CarsComponent,
     MusicalBandComponent,
-    WeddingClothesComponent,
     DetailsComponent,
-    WeddingSettingComponent,
     PackagesListComponent,
     AdminDachComponent,
     AdminPackageslistComponent,
-
     AdminMusicalbandlistComponent,
     AdminCarslistComponent,
     AdminFoodlistComponent,
@@ -58,8 +54,11 @@ import { NavComponent } from './nav/nav.component';
     AdminReservationComponent,
     SignupComponent,
     SigninComponent,
-    NavComponent  ],
- 
+    NavComponent,
+    HostsComponent,
+    DressingComponent,
+  ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -68,14 +67,8 @@ import { NavComponent } from './nav/nav.component';
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
-
-
-    
-
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule {
-
-}
+export class AppModule {}

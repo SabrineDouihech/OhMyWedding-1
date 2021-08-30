@@ -4,10 +4,10 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root',
 })
-export class LuxuryCarsSercice {
+export class InvitationCardsSercice {
   constructor(private http: HttpClient) {}
 
-  getCars() {
-    return this.http.get('http://localhost:3000/api/cars');
+  getSomeInvitationCards() {
+    return this.http.get('http://localhost:3000/api/cards');
   }
 }

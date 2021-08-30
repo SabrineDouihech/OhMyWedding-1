@@ -29,10 +29,10 @@ export class CategoriesListComponent implements OnInit {
     this.router.navigateByUrl('/musicalbandlist')
   }
   
-weddingClotheslist(){
-  this.router.navigateByUrl('/weddingclotheslist')
+dressing(){
+  this.router.navigateByUrl('/dressing')
 }
-weddingSettinglist(){
-  this.router.navigateByUrl('/weddingsettinglist')
+hosts(){
+  this.router.navigateByUrl('/hosts')
 }
 }

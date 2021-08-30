@@ -70,7 +70,8 @@ body {
 }
 
 .profile-card-6 {
-    max-width: 300px;
+    max-width: 350px;
+    height: 40%;
     background-color: #FFF;
     border-radius: 5px;
     box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1);
@@ -144,50 +145,3 @@ body {
     margin: 29px;
 }
 
-/* .btn {
-    margin :29px
-} */
-
-/* label {
-    /* Presentation */
-    /* font-size: 18px
-  } */
-
-  /* Required Styling */
-  
-  /* label input[type="checkbox"] {
-    display: none;
-  }
-  
-  .custom-checkbox {
-    margin-left: 2em;
-    position: relative;
-    cursor: pointer;
-  }
-  
-  .custom-checkbox .glyphicon {
-    color: gold;
-    position: absolute;
-    top: 0.4em;
-    left: -1.25em;
-    font-size: 0.75em;
-  }
-  
-  .custom-checkbox .glyphicon-star-empty {
-    color: gray;
-  }
-  
-  .custom-checkbox .glyphicon-star {
-    opacity: 0;
-    transition: opacity 0.2s ease-in-out;
-  }
-  
-  .custom-checkbox:hover .glyphicon-star{
-    opacity: 0.5;
-  }
-  
-  .custom-checkbox input[type="checkbox"]:checked ~ .glyphicon-star {
-    opacity: 1;
-  } */
-
-  

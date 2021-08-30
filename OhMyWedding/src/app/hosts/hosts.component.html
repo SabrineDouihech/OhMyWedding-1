@@ -1,10 +1,12 @@
+
+
 <header>
     <div class="container text-center">
       <!-- Logo -->
       <div class="logo">
-        <h1><b>List of Cars</b></h1>
+        <h1><b>List of Hosts</b></h1>
       </div>
-      <h1>What's your wedding car ?</h1>
+      <h1>Where do you want your wedding ?</h1>
     </div>
   </header>
   <div class="dropi">
@@ -13,29 +15,29 @@
         <select name="cars" [(ngModel)]="price" >
           <option  value="">all</option>
   
-          <option value="200">200</option>
-          <option value="800">800</option>
-          <option value="1000">1000</option>
-          <option value="1500">1500</option>
+          <option value="10000">200</option>
+          <option value="20000">300</option>
+          <option value="30000">400</option>
+          <option value="40000">500</option>
         </select>
   
-        <label for="cars"> car choices </label>
-        <select name="cars"  [(ngModel)]="brand" >
+        <!-- <label for="cars"> Food choices </label>
+        <select name="cars"  [(ngModel)]="foodtype" >
           <option value="">all</option>
   
-          <option value="Dinner">Mercedes</option>
-          <option value="Sweet food">Tesla</option>
-          <option value="Cake">Jeep</option>
+          <option value="Dinner">Dinner</option>
+          <option value="Sweet food">Sweet food</option>
+          <option value="Cake">Cake</option>
         </select>
-  
-        <!-- <form action="">
+   -->
+        <form action="">
           <label for="birthday">Your Wedding date</label>
           <input type="date"  name="birthday">
           <input type="submit">
-        </form> -->
+        </form>
   
         
-        <button type="button" class="btn btn-light" style="margin: 17px" >
+        <button type="button" class="btn btn-light" style="margin: 17px">
           Search
         </button>
       </div>
@@ -44,7 +46,7 @@
   
   <div class="container">
     <div class="row">
-      <div class="col-md-4" *ngFor="let element of cars; let i = index">
+      <div class="col-md-4" *ngFor="let element of hosts; let i = index">
         <h4 class="text-center"><strong>STYLE 2</strong></h4>
         <hr />
         <div class="profile-card-6">
@@ -63,7 +65,7 @@
                   <p>Dinars</p>
                 </div>
                 <div class="col-xs-4">
-                  <h3>{{ element.brand }}</h3>
+                  <!-- <h3>{{ element.foodtype }}</h3> -->
                   <p></p>
                 </div>
               </div>

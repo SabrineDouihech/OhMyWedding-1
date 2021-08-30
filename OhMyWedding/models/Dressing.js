@@ -30,6 +30,8 @@ const Dressing = db.define('Dressing', {
 },{ // options
     timestamps: false
 })
+ //date ? is it the state !
+
 
 Dressing.hasMany(Packages);
 Packages.belongsTo(Dressing);
