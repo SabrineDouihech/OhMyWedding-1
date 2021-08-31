@@ -1,0 +1,79 @@
+
+
+<header>
+    <div class="container text-center">
+      <!-- Logo -->
+      <div class="logo">
+        <h1><b>List of Hosts</b></h1>
+      </div>
+      <h1>Where do you want your wedding ?</h1>
+    </div>
+  </header>
+  <div class="dropi">
+      <div class="dropdown">
+        <label for="cars"  > You Budget : </label>
+        <select name="cars" [(ngModel)]="price" >
+          <option  value="">all</option>
+  
+          <option value="10000">200</option>
+          <option value="20000">300</option>
+          <option value="30000">400</option>
+          <option value="40000">500</option>
+        </select>
+  
+        <!-- <label for="cars"> Food choices </label>
+        <select name="cars"  [(ngModel)]="foodtype" >
+          <option value="">all</option>
+  
+          <option value="Dinner">Dinner</option>
+          <option value="Sweet food">Sweet food</option>
+          <option value="Cake">Cake</option>
+        </select>
+   -->
+        <form action="">
+          <label for="birthday">Your Wedding date</label>
+          <input type="date"  name="birthday">
+          <input type="submit">
+        </form>
+  
+        
+        <button type="button" class="btn btn-light" style="margin: 17px">
+          Search
+        </button>
+      </div>
+      <br />
+    </div>
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4" *ngFor="let element of hosts; let i = index">
+        <h4 class="text-center"><strong>STYLE 2</strong></h4>
+        <hr />
+        <div class="profile-card-6">
+          <img src="{{ element.image }}" class="img img-responsive" />
+          <div class="profile-name">{{ element.name }} <br /></div>
+          <div class="profile-position">Lorem Ipsum Donor</div>
+          <div class="profile-overview">
+            <div class="profile-overview">
+              <div class="row text-center">
+                <div class="col-xs-4">
+                  <h3></h3>
+                  <p></p>
+                </div>
+                <div class="col-xs-4">
+                  <h3>{{ element.price }}</h3>
+                  <p>Dinars</p>
+                </div>
+                <div class="col-xs-4">
+                  <!-- <h3>{{ element.foodtype }}</h3> -->
+                  <p></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button type="button" class="btn btn-warning">Add to favorites</button>
+      </div>
+    </div>
+  </div>
+  

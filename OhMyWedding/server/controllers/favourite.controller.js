@@ -12,7 +12,7 @@ const db = require("../../config/db.confing");
 //       where: { itemId, UserId: userId, type },
 //     });
 
-//     if (destroyed) 
+//     if (destroyed)
 //       return res.status(204).send("unfavorited");
 
 //     const packages = await Favourite.create({ type, UserId: userId, itemId });

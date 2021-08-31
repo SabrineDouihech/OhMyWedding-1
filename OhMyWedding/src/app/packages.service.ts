@@ -2,12 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-
 export class PackagesService {
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getPackages() {
     return this.http.get('http://localhost:3000/api/package');
@@ -19,5 +17,5 @@ export class PackagesService {
 
   addtofavorites(data: any) {
     return this.http.post('http://localhost:3000/api/favorites', data);
-   }
+  }
 }

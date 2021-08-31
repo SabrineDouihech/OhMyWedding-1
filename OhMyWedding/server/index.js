@@ -1,36 +1,37 @@
-
-const express = require('express');
-const db = require('../config/db.confing');
-const bodyParser = require('body-parser');
-const cors = require('cors');
+const express = require("express");
+const db = require("../config/db.confing");
+const bodyParser = require("body-parser");
+const cors = require("cors");
 
 const app = express();
 
 const port = 3000;
 
-
-app.use(bodyParser.json({ limit: '50mb' }));
-app.use(express.urlencoded({ extended: true, limit: '50mb' }));
+app.use(bodyParser.json({ limit: "50mb" }));
+app.use(express.urlencoded({ extended: true, limit: "50mb" }));
 app.use(cors("*"));
 app.use(function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "x-access-token, Origin, Content-Type, Accept");
-    next();
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "x-access-token, Origin, Content-Type, Accept"
+  );
+  next();
 });
 
-const userRoutes = require('./routes/user.routes')
-const packagesRouter = require('./routes/packages.routes');
-const adminRouter = require('./routes/admin.routes');
-const reservationRoutes = require('./routes/reservation.routes')
-const carsRoutes = require('./routes/cars.routes')
-const hostsRoutes = require('./routes/hosts.routes');
-const CardsRoutes = require('./routes/InvitationCard.routes');
+const userRoutes = require("./routes/user.routes");
+const packagesRouter = require("./routes/packages.routes");
+const adminRouter = require("./routes/admin.routes");
+const reservationRoutes = require("./routes/reservation.routes");
+const carsRoutes = require("./routes/cars.routes");
+const hostsRoutes = require("./routes/hosts.routes");
+const CardsRoutes = require("./routes/InvitationCard.routes");
 const favouriteRouter = require("./routes/favourite.routes");
 const foodRouter = require("./routes/food.routes");
 
-app.use('/api/package', packagesRouter);
-app.use('/api/user', userRoutes);
-app.use('/api/admin', adminRouter)
+app.use("/api/package", packagesRouter);
+app.use("/api/user", userRoutes);
+app.use("/api/admin", adminRouter);
 app.use("/api/resrvation", reservationRoutes);
 app.use("/api/cars", carsRoutes);
 app.use("/api/hosts", hostsRoutes);
@@ -38,17 +39,13 @@ app.use("/api/invitationcards", CardsRoutes);
 app.use("/api/favorites", favouriteRouter);
 app.use("/api/food", foodRouter);
 
-const Packages = require('../models/Packages');
-const Food = require('../models/Food');
-const Admin = require('../models/Admin');
-
+const Packages = require("../models/Packages");
+const Food = require("../models/Food");
+const Admin = require("../models/Admin");
 
 db.sequelize.sync().then(() => {
-    console.log('Database connection established with success');
-
+  console.log("Database connection established with success");
 });
-
-
 
 // db.authenticate()
 //     .then(() => {
@@ -68,11 +65,9 @@ db.sequelize.sync().then(() => {
 //         console.log('Error:' + err)
 //     });
 
-
 app.listen(port, () => {
-    console.log(`listening on port ${port}`);
+  console.log(`listening on port ${port}`);
 });
 
 // const pack1 = Packages.create({image:"https://images.pexels.com/photos/2788488/pexels-photo-2788488.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",name:"Package1",price:"50000 dinars", persons:"100 person"})
 //     const pack2 = Packages.create({image:"https://images.pexels.com/photos/3014858/pexels-photo-3014858.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",name:"Package2",price:"30000 dinars", persons:"100 person"})
-

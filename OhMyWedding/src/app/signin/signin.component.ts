@@ -5,32 +5,26 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
-  styleUrls: ['./signin.component.css']
+  styleUrls: ['./signin.component.css'],
 })
 export class SigninComponent implements OnInit {
-
-  constructor(private us: UserService, private router: Router) { }
+  constructor(private us: UserService, private router: Router) {}
   user: any;
 
-  ngOnInit(): void {
-  }
-  saveUser(
+  ngOnInit(): void {}
 
-    username: string,
-    password: string
-
-  ) {
-    this.us.UserLogin(
-      {
+  saveUser(username: string, password: string) {
+    this.us
+      .UserLogin({
         username: username,
-        password: password
+        password: password,
       })
       .subscribe((result: any) => {
         this.user = result;
 
-        this.us.user = this.user[0]["username"];
+        this.us.user = this.user[0]['username'];
 
-        this.router.navigateByUrl("/packages");
-      })
+        this.router.navigateByUrl('/packages');
+      });
   }
-};
+}
