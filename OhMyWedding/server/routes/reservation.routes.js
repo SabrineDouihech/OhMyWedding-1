@@ -6,7 +6,7 @@ var ResertionController = require('../controllers/reservation.controller')
 
 
 
-router.get("/res", ResertionController.getReservation);
+router.get("/", ResertionController.getReservation);
 
 
 

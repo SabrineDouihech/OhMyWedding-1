@@ -1,42 +1,38 @@
-var { DataTypes } = require('sequelize');
-const db = require('../db/index');
+module.exports = (sequelize, Sequelize) => {
+    const LuxuryCars = sequelize.define('LuxuryCars', {
+        id: {
+            type: Sequelize.INTEGER,
+            allowNull: false,
+            autoIncrement: true,
+            primaryKey: true
+        },
+        name: {
+            type: Sequelize.STRING
+        },
+        image: {
+            type: Sequelize.STRING
+        },
+        description: {
+            type: Sequelize.STRING
+        },
+        price: {
+            type: Sequelize.INTEGER
+        },
+        brand: {
+            type: Sequelize.STRING
+        },
+        availabledate: {
+            type: Sequelize.DATE
+        },
+        state: {
+            type: Sequelize.STRING
+        },
+    }, { // options
+        timestamps: false
+    });
 
-
-const Packages = require('./Packages');
-
-const LuxuryCars = db.define('LuxuryCars', {
-    id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        autoIncrement: true,
-        primaryKey: true
-    },
-    name: {
-        type: DataTypes.STRING
-    },
-    image: {
-        type: DataTypes.STRING
-    },
-    description: {
-        type: DataTypes.STRING
-    },
-    price: {
-        type: DataTypes.INTEGER
-    },
-    brand: {
-        type: DataTypes.STRING
-    },
-    state: {
-        type: DataTypes.STRING
-    },
-}, { // options
-    timestamps: false
-})
-
-LuxuryCars.hasMany(Packages);
-Packages.belongsTo(LuxuryCars);
-
-module.exports = LuxuryCars;
+    return LuxuryCars;
+}
 
 
 // INSERT INTO LuxuryCars(name,image,description,price,brand,state) VALUES ("RS","https://i.ytimg.com/vi/PJFEz6qw0sM/maxresdefault.jpg","WOW",1200,"Audi","2020-09-13");

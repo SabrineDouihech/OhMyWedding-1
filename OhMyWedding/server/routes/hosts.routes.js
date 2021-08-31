@@ -6,7 +6,7 @@ var hostsController = require('../controllers/hosts.controller')
 
 
 
-router.get("/hosts", hostsController.getHostes);
+router.get("/", hostsController.getHostes);
 
 
 

@@ -6,7 +6,9 @@ var carsController = require('../controllers/cars.controller')
 
 
 
-router.get("/cars", carsController.getLuxuryCars);
+router.get("/", carsController.getLuxuryCars);
+
+router.post("/", carsController.postLuxuryCar);
 
 
 

@@ -12,4 +12,6 @@ export class AdminFoodlistComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+
 }

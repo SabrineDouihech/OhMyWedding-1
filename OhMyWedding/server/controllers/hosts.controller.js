@@ -1,4 +1,5 @@
-var Hostes = require("../../models/Hosts");
+
+var db = require('../../config/db.confing');
 
 
 
@@ -9,9 +10,10 @@ var Hostes = require("../../models/Hosts");
 
 const getHostes = async function (req, res) {
     try {
-        const hosts = await Hostes.findAll({});
+        const hosts = await db.host.findAll();
         res.status(201).send(hosts);
     } catch (error) {
+        console.log(error);
         res.status(200).send(error);
     }
 };

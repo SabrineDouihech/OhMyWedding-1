@@ -12,14 +12,19 @@ export class SigninComponent implements OnInit {
   user: any;
 
   ngOnInit(): void {}
+
   saveUser(username: string, password: string) {
     this.us
-      .UserLogin({ username: username, password: password })
+      .UserLogin({
+        username: username,
+        password: password,
+      })
       .subscribe((result: any) => {
         this.user = result;
+
         this.us.user = this.user[0]['username'];
 
-        this.router.navigateByUrl('/');
+        this.router.navigateByUrl('/packages');
       });
   }
 }

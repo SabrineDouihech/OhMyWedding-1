@@ -1,9 +1,10 @@
 var Packages = require("../../models/Packages");
+var db = require("../../config/db.confing");
 
 //Methods
 const getPackages = async function (req, res) {
   try {
-    const packages = await Packages.findAll();
+    const packages = await db.packages.findAll();
     res.status(200).send(packages);
   } catch (error) {
     res.status(200).send(error);

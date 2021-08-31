@@ -1,4 +1,4 @@
-var db = require("../../db");
+var db = require("../../config/db.confing");
 const Admin = require("../../models/Admin");
 const { Op } = require("sequelize");
 

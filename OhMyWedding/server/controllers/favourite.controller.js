@@ -1,7 +1,7 @@
 var Favourite = require("../../models/Favourite");
 const User = require("../../models/User");
 const { QueryTypes } = require("sequelize");
-const db = require("../../db");
+const db = require("../../config/db.confing");
 
 // const addToFavorites = async function (req, res) {
 //   const { type, userId, itemId } = req.body;
