@@ -13,7 +13,6 @@ const getInvitionCards = async function (req, res) {
 const postInvitationcards = async function (req, res) {
   try {
     const invit = await db.invitationcard.create({
-      id: req.body.id,
       name: req.body.name,
       image: req.body.image,
       description: req.body.description,

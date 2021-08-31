@@ -16,7 +16,6 @@ const getFood = async function (req, res) {
 const postFood = async function (req, res) {
   try {
     const createfoodi = await db.food.create({
-      id: req.id.id,
       name: req.body.name,
       image: req.body.image,
       price: req.body.price,
