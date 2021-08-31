@@ -54,16 +54,8 @@ import { DressingComponent } from './dressing/dressing.component';
     AdminReservationComponent,
     SignupComponent,
     SigninComponent,
-    NavComponent,
-    HostsComponent,
-    DressingComponent,
-  ],
-
-  imports: [
-    BrowserModule,
     AppRoutingModule,
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,

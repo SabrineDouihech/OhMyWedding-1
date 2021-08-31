@@ -1,6 +1,21 @@
-var router = require("express").Router();
-var carsController = require("../controllers/cars.controller");
+var router = require('express').Router();
+var carsController = require('../controllers/cars.controller')
 
-router.get("/", carsController.getLuxuryCars);
+
+
+
+
+
+router.get("/cars", carsController.getLuxuryCars);
+
+
+
+
+
+
+
+
+
+
 
 module.exports = router;

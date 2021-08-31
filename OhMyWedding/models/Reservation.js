@@ -2,10 +2,6 @@ var { DataTypes } = require('sequelize');
 const db = require('../db/index');
 
 
-
-
-
-
 const Reservation = db.define('Reservation', {
     id: {
         type: DataTypes.INTEGER,
@@ -32,9 +28,6 @@ const Reservation = db.define('Reservation', {
     timestamps: false
 
 })
-
-
-
 
 module.exports = Reservation;
 // INSERT INTO Reservations(total,rest,reserveDate,item_id,type) VALUES (10000,100,13/09/1996,1,"card");

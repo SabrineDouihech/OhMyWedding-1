@@ -3,7 +3,7 @@ const Packages = require('./Packages')
 const db = require('../db/index');
 
 const Dressing = db.define('Dressing', {
-    id:{
+    id: {
         type: DataTypes.INTEGER,
         allowNull: false,
         autoIncrement: true,

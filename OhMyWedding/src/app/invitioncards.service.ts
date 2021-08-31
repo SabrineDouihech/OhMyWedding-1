@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
     providedIn: 'root'
 })
 
-export class LuxuryCarsSercice {
+export class IvitationCardsSercice {
 
     constructor(private http: HttpClient) { }
 
@@ -15,8 +15,8 @@ export class LuxuryCarsSercice {
 
 
 
-    getCars() {
-        return this.http.get('http://localhost:3000/cars');
+    getinvitationCards() {
+        return this.http.get('http://localhost:3000/cards');
     }
 
 
