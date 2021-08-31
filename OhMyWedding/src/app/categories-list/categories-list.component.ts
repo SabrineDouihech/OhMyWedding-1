@@ -6,33 +6,34 @@ import { Router } from '@angular/router';
   templateUrl: './categories-list.component.html',
   styleUrls: ['./categories-list.component.css']
 })
+
 export class CategoriesListComponent implements OnInit {
 
-  constructor(private router : Router) { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  foodlist(){
+  foodlist() {
     this.router.navigateByUrl('/food')
   }
 
-  invitationCardList(){
+  invitationCardList() {
     this.router.navigateByUrl('/invitationcard')
   }
 
-  carsList(){
+  carsList() {
     this.router.navigateByUrl('/carslist')
   }
 
-  musicalBandList(){
+  musicalBandList() {
     this.router.navigateByUrl('/musicalbandlist')
   }
-  
-weddingClotheslist(){
-  this.router.navigateByUrl('/weddingclotheslist')
-}
-weddingSettinglist(){
-  this.router.navigateByUrl('/weddingsettinglist')
-}
+
+  weddingClotheslist() {
+    this.router.navigateByUrl('/weddingclotheslist')
+  }
+  weddingSettinglist() {
+    this.router.navigateByUrl('/weddingsettinglist')
+  }
 }

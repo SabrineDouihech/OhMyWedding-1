@@ -1,37 +1,35 @@
-var { DataTypes } = require('sequelize');
-const Packages = require('./Packages')
-const db = require('../db/index');
+module.exports = (sequelize, Sequelize) => {
+    const Dressing = sequelize.define('Dressing', {
+        id: {
+            type: Sequelize.INTEGER,
+            allowNull: false,
+            autoIncrement: true,
+            primaryKey: true
+        },
+        name: {
+            type: Sequelize.STRING
+        },
+        image: {
+            type: Sequelize.STRING
+        },
+        description: {
+            type: Sequelize.STRING
+        },
+        price: {
+            type: Sequelize.INTEGER
+        },
+        genre: {
+            type: Sequelize.STRING
+        },
+        availabledate: {
+            type: Sequelize.DATE
+        },
+        state: {
+            type: Sequelize.STRING
+        },
+    }, { // options
+        timestamps: false
+    })
+    return Dressing;
 
-const Dressing = db.define('Dressing', {
-    id:{
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        autoIncrement: true,
-        primaryKey: true
-    },
-    name:{
-        type: DataTypes.STRING
-    },
-    image:{
-        type: DataTypes.STRING
-    },
-    description:{
-        type: DataTypes.STRING
-    },
-    price:{
-        type: DataTypes.INTEGER
-    },
-    genre:{
-        type: DataTypes.STRING
-    },
-    state:{
-        type: DataTypes.STRING
-    },
-},{ // options
-    timestamps: false
-})
-
-Dressing.hasMany(Packages);
-Packages.belongsTo(Dressing);
-
-module.exports = Dressing;
+}

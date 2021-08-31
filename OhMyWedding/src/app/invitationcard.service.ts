@@ -15,7 +15,7 @@ export class IvitationCardsSercice {
 
 
 
-    getinvitationCards() {
+    getSomeInvitationCards() {
         return this.http.get('http://localhost:3000/cards');
     }
 

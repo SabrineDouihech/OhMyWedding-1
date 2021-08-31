@@ -1,44 +1,33 @@
-var { DataTypes } = require('sequelize');
-const db = require('../db/index');
+module.exports = (sequelize, Sequelize) => {
+    const User = sequelize.define('Users', {
+        id: {
+            type: Sequelize.INTEGER,
+            allowNull: false,
+            autoIncrement: true,
+            primaryKey: true
 
-const Reservation = require('./Reservation');
-const Favourite = require('./Favourite');
 
-const User = db.define('User', {        
-    id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        autoIncrement: true,
-        primaryKey: true,
-    },
+        },
+        username: {
+            type: Sequelize.STRING
+        },
 
-    username: {
-        type: DataTypes.STRING
-    },
+        eMail: {
+            type: Sequelize.STRING
+        },
+        password: {
+            type: Sequelize.STRING
+        },
+        identityCard: {
+            type: Sequelize.INTEGER
+        },
 
-    eMail: {
-        type: DataTypes.STRING
-    },
-    password: {
-        type: DataTypes.STRING
-    },
-    identityCard: {
-        type: DataTypes.INTEGER
-    },
-
-    phoneNumber: {
-        type: DataTypes.INTEGER
-    }, 
-},{ // options
+        phoneNumber: {
+            type: Sequelize.INTEGER
+        },
+    }, { // options
         timestamps: false
-})
+    });
 
-User.hasMany(Reservation);
-Reservation.belongsTo(User);
-
-User.hasMany(Favourite);
-Favourite.belongsTo(User)
-
-module.exports = User
-
-
+    return User;
+}

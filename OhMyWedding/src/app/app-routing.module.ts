@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { PackagesComponent } from './packages/packages.component';
-
 import { DetailsComponent } from './details/details.component';
 import { PackagesListComponent } from './packages-list/packages-list.component'
 import { CategoriesListComponent } from './categories-list/categories-list.component';
@@ -15,6 +14,7 @@ import { WeddingSettingComponent } from './wedding-setting/wedding-setting.compo
 import { AdminDachComponent } from './admin-dach/admin-dach.component';
 import { SignupComponent } from './signup/signup.component';
 import { SigninComponent } from './signin/signin.component';
+import {FavoritesComponent} from './favorites/favorites.component';
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
@@ -28,7 +28,11 @@ const routes: Routes = [
   { path: 'musicalbandlist', component: MusicalBandComponent },
   { path: 'weddingclotheslist', component: WeddingClothesComponent },
   { path: 'weddingsettinglist', component: WeddingSettingComponent },
+
+  {path: 'favorites', component: FavoritesComponent},
+
   { path: "admin", component: AdminDachComponent },
+
   {
     path: 'Sign-Up',
     component: SignupComponent

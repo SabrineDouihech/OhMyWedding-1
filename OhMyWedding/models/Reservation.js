@@ -1,39 +1,29 @@
-var { DataTypes } = require('sequelize');
-const db = require('../db/index');
+module.exports = (sequelize, Sequelize) => {
+    const Reservation = sequelize.define('Reservation', {
+        id: {
+            type: Sequelize.INTEGER,
+            autoIncrement: true,
+            allowNull: false,
+            primaryKey: true
+        },
+        total: {
+            type: Sequelize.INTEGER
+        },
+        rest: {
+            type: Sequelize.INTEGER
+        },
+        reserveDate: {
+            type: Sequelize.DATE
+        },
+        item_id: {
+            type: Sequelize.STRING
+        },
+        type: {
+            type: Sequelize.STRING
+        },
+    }, { // options
+        timestamps: false
+    });
 
-
-
-const Reservation = db.define('Reservation', {
-    id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        autoIncrement: true,
-        primaryKey: true
-    },
-    total: {
-        type: DataTypes.INTEGER
-    },
-    rest: {
-        type: DataTypes.INTEGER
-    },
-    reserveDate: {
-        type: DataTypes.DATE
-    },
-    item_id: {
-        type: DataTypes.STRING
-    },
-    type: {
-        type: DataTypes.STRING
-    },
-}, { // options
-    timestamps: false
-
-})
-
-
-
-// Reservation.hasOne(Packages);
-// Packages.belongsTo(Reservation);
-
-module.exports = Reservation;
-// INSERT INTO Reservations(total,rest,reserveDate,item_id,type) VALUES (10000,100,13/09/1996,1,"card");
+    return Reservation;
+}

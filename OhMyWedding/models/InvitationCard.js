@@ -1,32 +1,37 @@
-var { DataTypes } = require('sequelize');
-const db = require('../db/index');
-const Packages = require('./Packages')
+module.exports = (sequelize, Sequelize) => {
+    const InvitationCard = sequelize.define('InvitationCard', {
+        id: {
+            type: Sequelize.INTEGER,
+            primaryKey: true
+        },
+        name: {
+            type: Sequelize.STRING
+        },
+        image: {
+            type: Sequelize.STRING
+        },
+        description: {
+            type: Sequelize.STRING
+        },
+        price: {
+            type: Sequelize.INTEGER
+        },
+        persons: {
+            type: Sequelize.INTEGER
+        },
+        availabledate: {
+            type: Sequelize.DATE
+        },
+        state: {
+            type: Sequelize.STRING
+        },
+    }, { // options
+        timestamps: false
+    });
 
-const InvitationCard = db.define('InvitationCard', {
-    id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        autoIncrement: true,
-        primaryKey: true
-    },
-    name: {
-        type: DataTypes.STRING
-    },
-    image: {
-        type: DataTypes.STRING
-    },
-    description: {
-        type: DataTypes.STRING
-    },
-    price: {
-        type: DataTypes.INTEGER
-    },
-    state: {
-        type: DataTypes.STRING
-    },
-}, { // options
-    timestamps: false
-})
+    return InvitationCard;
+}
+
 
 // INSERT INTO InvitationCards(name, image, description, price, state) VALUES("Invitation Cards", "https://www.afghanweddingcards.com/wp-content/uploads/2019/03/1169-1.jpg","yess", 25, "2020-09-13");
 // INSERT INTO InvitationCards(name, image, description, price, state) VALUES("Invitation Cards", "https://i.pinimg.com/736x/9c/85/23/9c8523899cb958a781eee212e57d0c58.jpg","yess" ,25, "2020-09-13");
@@ -34,6 +39,3 @@ const InvitationCard = db.define('InvitationCard', {
 
 
 
-InvitationCard.hasMany(Packages);
-Packages.belongsTo(InvitationCard);
-module.exports = InvitationCard

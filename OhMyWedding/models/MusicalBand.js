@@ -1,37 +1,35 @@
-var { DataTypes } = require('sequelize');
-const db = require('../db/index');
-const Packages = require('./Packages')
+module.exports = (sequelize, Sequelize) => {
+    const MusicalBand = sequelize.define('MusicalBand', {
+        id: {
+            type: Sequelize.INTEGER,
+            allowNull: false,
+            autoIncrement: true,
+            primaryKey: true
+        },
+        name: {
+            type: Sequelize.STRING
+        },
+        image: {
+            type: Sequelize.STRING
+        },
+        description: {
+            type: Sequelize.STRING
+        },
+        price: {
+            type: Sequelize.INTEGER
+        },
+        bandtype: {
+            type: Sequelize.STRING
+        },
+        availabledate: {
+            type: Sequelize.DATE
+        },
+        state: {
+            type: Sequelize.STRING
+        },
+    }, { // options
+        timestamps: false
+    });
 
-const MusicalBand = db.define('MusicalBand', {
-    id:{
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        autoIncrement: true,
-        primaryKey: true
-    },
-    name:{
-        type: DataTypes.STRING
-    },
-    image:{
-        type: DataTypes.STRING
-    },
-    description:{
-        type: DataTypes.STRING
-    },
-    price:{
-        type: DataTypes.INTEGER
-    },
-    bandtype:{
-        type: DataTypes.STRING
-    },
-    state:{
-        type: DataTypes.STRING
-    },
-},{ // options
-    timestamps: false
-})
-
-MusicalBand.hasMany(Packages);
-Packages.belongsTo(MusicalBand);
-
-module.exports = MusicalBand;
+    return MusicalBand;
+}

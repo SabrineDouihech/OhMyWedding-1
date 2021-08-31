@@ -1,21 +1,21 @@
-var db = require('../../db');
+var db = require('../../config/db.confing');
 const User = require('../../models/User');
 
 const SelectAll = async function (req, res) {
     try {
-        const user = await User.findAll({});
+        const user = await User.findAll();
         res.status(200).send(user);
     } catch (error) {
         res.status(404).send(error);
     }
 }
 
-const CreateUser = async function (req,res){
+const CreateUser = async function (req, res) {
     try {
-        console.log("data")
+        console.log("my data hereeeee", req.body);
         const data = await User.create({
             username: req.body.username,
-            eMail:req.body.eMail,
+            eMail: req.body.eMail,
             password: req.body.password,
             identityCard: req.body.identityCard,
             phoneNumber: req.body.phoneNumber,
@@ -27,16 +27,22 @@ const CreateUser = async function (req,res){
     }
 }
 
+const UserLogin = async function (req, res) {
+    try {
+        const result = await User.findAll({
+            where: {
+                username: req.body.username,
+                password: req.body.password
+            }
+        })
+        if (result.length > 0) {
+            res.send(result)
+        } else {
+            res.send({ msg: 'username wrong' })
+        }
+    } catch (err) {
+        res.status(500).send(err)
+    }
+}
 
-
-
-
-
-module.exports = { SelectAll,CreateUser }
-
-
-
-
-
-
-
+module.exports = { SelectAll, CreateUser, UserLogin }

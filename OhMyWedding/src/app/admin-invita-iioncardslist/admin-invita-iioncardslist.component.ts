@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IvitationCardsSercice } from "../invitioncards.service"
+import { IvitationCardsSercice } from "../invitationcard.service"
 @Component({
   selector: 'app-admin-invita-iioncardslist',
   templateUrl: './admin-invita-iioncardslist.component.html',
@@ -16,7 +16,7 @@ export class AdminInvitaIioncardslistComponent implements OnInit {
 
 
   getInviCard() {
-    this.ics.getinvitationCards().subscribe((mYdata) => {
+    this.ics.getSomeInvitationCards().subscribe((mYdata) => {
       this.InviCard = mYdata
       console.log(this.InviCard);
 
