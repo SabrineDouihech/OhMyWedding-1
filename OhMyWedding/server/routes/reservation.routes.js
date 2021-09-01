@@ -7,6 +7,7 @@ var ResertionController = require('../controllers/reservation.controller')
 
 
 router.get("/", ResertionController.getReservation);
+router.post("/", ResertionController.postReservation);
 
 
 

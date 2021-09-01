@@ -23,7 +23,7 @@ const postInvitationcards = async function (req, res) {
     });
     res.status(201).send(invit);
   } catch (error) {
-    res.status(200).send(error);
+    res.status(404).send(error);
   }
 };
 module.exports = { getInvitionCards, postInvitationcards };

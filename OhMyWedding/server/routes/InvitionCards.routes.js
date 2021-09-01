@@ -1,8 +1,9 @@
 var router = require('express').Router();
-var cardsController = require('../controllers/inviCard.controller')
+var cardsController = require('../controllers/invitationCard.controller')
 
 
-router.get("/cards", cardsController.getInvitionCards);
+router.get("/", cardsController.getInvitionCards);
+router.post("/", cardsController.postInvitationcards)
 
 
 module.exports = router;

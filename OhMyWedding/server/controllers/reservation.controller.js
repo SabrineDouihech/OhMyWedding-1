@@ -20,9 +20,9 @@ const postReservation = async function (req, res) {
       type: req.body.type
 
     })
-    res.send(200).send(reserve)
+    res.status(200).send(reserve)
   } catch (error) {
-    res.sned(404).send(error)
+    res.status(404).send(error)
   }
 }
 

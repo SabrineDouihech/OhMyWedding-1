@@ -8,7 +8,13 @@ var carsController = require('../controllers/cars.controller')
 
 router.get("/", carsController.getLuxuryCars);
 
+router.get("/:id", carsController.getOneCar);
+
 router.post("/", carsController.postLuxuryCar);
+
+router.delete("/:id", carsController.deleteLuxuryCar);
+
+router.put("/:id", carsController.updateCar)
 
 
 

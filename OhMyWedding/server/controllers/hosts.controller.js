@@ -29,11 +29,11 @@ const postHoste = async function (req, res) {
             price: req.body.price,
             persons: req.body.persons,
             availabledate: req.body.availabledate,
-            state: state.body.state
+            state: req.body.state
         })
         res.status(200).send(hostes)
+    } catch (error) {
 
-    } catch {
         res.status(400).send(error)
     }
 }
