@@ -1,8 +1,28 @@
-var routers = require("express").Router();
-var userController = require("../controllers/user.controller");
+const verifySignUp = require("./verifySignUp");
+const authJwt = require("./verifyJwToken");
+var router = require("express").Router();
+const controller = require("../controllers/user.controller.js");
 
-routers.get("/", userController.SelectAll);
-routers.post("/signUp", userController.CreateUser);
-routers.post("/logIn", userController.UserLogin);
+router.post(
+  "/auth/signup",
+  [verifySignUp.checkDuplicateUserNameOrEmail, verifySignUp.checkRolesExisted],
+  controller.signup
+);
 
-module.exports = routers;
+router.post("/auth/signin", controller.signin);
+
+router.get("/test/user", [authJwt.verifyToken], controller.userContent);
+
+router.get(
+  "/test/pm",
+  [authJwt.verifyToken, authJwt.isPmOrAdmin],
+  controller.managementBoard
+);
+
+router.get(
+  "/test/admin",
+  [authJwt.verifyToken, authJwt.isAdmin],
+  controller.adminBoard
+);
+
+module.exports = router;
