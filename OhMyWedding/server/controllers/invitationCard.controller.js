@@ -19,7 +19,7 @@ const getOneCard = async function (req, res) {
       res.status(200).send(card)
     })
   } catch (error) {
-    console.log(error)
+
     res.status(404).send(error)
   }
 }
