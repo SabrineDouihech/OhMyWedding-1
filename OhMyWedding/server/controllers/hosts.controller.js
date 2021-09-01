@@ -28,7 +28,7 @@ const getOneHoste = async function (req, res) {
             res.send(host)
         })
     } catch (error) {
-        res.status(4040).send(error)
+        res.status(404).send(error)
     }
 }
 

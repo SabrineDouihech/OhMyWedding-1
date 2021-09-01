@@ -1,4 +1,3 @@
-var InvitionCards = require("../../models/InvitationCard");
 var db = require("../../config/db.confing");
 
 const getInvitionCards = async function (req, res) {
@@ -10,6 +9,20 @@ const getInvitionCards = async function (req, res) {
   }
 };
 
+const getOneCard = async function (req, res) {
+  try {
+    db.invitationcard.findOne({
+      where: {
+        id: req.params.id
+      }
+    }).then((card) => {
+      res.status(200).send(card)
+    })
+  } catch (error) {
+    console.log(error)
+    res.status(404).send(error)
+  }
+}
 const postInvitationcards = async function (req, res) {
   try {
     const invit = await db.invitationcard.create({
@@ -26,4 +39,38 @@ const postInvitationcards = async function (req, res) {
     res.status(404).send(error);
   }
 };
-module.exports = { getInvitionCards, postInvitationcards };
+const deleteCards = async function (req, res) {
+  try {
+    db.invitationcard.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(() => {
+      res.send("card deleted")
+    })
+  } catch (error) {
+    res.status(404).send(error)
+  }
+}
+const updateCard = async function (req, res) {
+  try {
+    db.invitationcard.update({
+      name: req.body.name,
+      image: req.body.image,
+      description: req.body.description,
+      price: req.body.price,
+      persons: req.body.persons,
+      availabledate: req.body.availabledate,
+      state: req.body.state,
+    }, {
+      where: {
+        id: req.params.id
+      }
+    }).then((carde) => {
+      res.status(200).send(carde)
+    })
+  } catch (error) {
+    res.status(404).send(error)
+  }
+}
+module.exports = { getInvitionCards, postInvitationcards, getOneCard, deleteCards, updateCard };
