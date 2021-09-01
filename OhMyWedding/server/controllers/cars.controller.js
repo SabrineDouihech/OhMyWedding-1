@@ -49,7 +49,7 @@ const deleteLuxuryCar = async (req, res) => {
         id: req.params.id
       }
     }).then(() => {
-      res.send(" deleted with success")
+      res.send("deleted with success")
     })
 
   } catch (error) {

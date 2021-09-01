@@ -28,6 +28,8 @@ const hostsRoutes = require("./routes/hosts.routes");
 const CardsRoutes = require("./routes/InvitationCard.routes");
 const favouriteRouter = require("./routes/favourite.routes");
 const foodRouter = require("./routes/food.routes");
+const musicalBandRouter = require("./routes/mucsicalBand.routes");
+const dressingRouter = require("./routes/dressing.routes");
 
 app.use("/api/package", packagesRouter);
 app.use("/api/user", userRoutes);
@@ -38,6 +40,8 @@ app.use("/api/hosts", hostsRoutes);
 app.use("/api/invitationcards", CardsRoutes);
 app.use("/api/favorites", favouriteRouter);
 app.use("/api/food", foodRouter);
+app.use("/api/musicalband", musicalBandRouter);
+app.use("/api/dressing", dressingRouter);
 
 const Packages = require("../models/Packages");
 const Food = require("../models/Food");
