@@ -19,6 +19,7 @@ export class AdminCarslistComponent implements OnInit {
   }
 
   
+  
   getCars() {
     this.cs.getCars().subscribe((myData) => {
       this.Cars = myData

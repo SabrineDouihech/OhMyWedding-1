@@ -10,6 +10,8 @@ router.get("/", carsController.getLuxuryCars);
 
 router.get("/:id", carsController.getOneCar);
 
+// router.put("/", carsController.cloudImg)
+
 router.post("/", carsController.postLuxuryCar);
 
 router.delete("/:id", carsController.deleteLuxuryCar);

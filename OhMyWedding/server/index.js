@@ -2,6 +2,10 @@ const express = require("express");
 const db = require("../config/db.confing");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const Packages = require("../models/Packages");
+const Food = require("../models/Food");
+const Admin = require("../models/Admin");
+const upload = require("./routes/uploader");
 
 const app = express();
 
@@ -42,10 +46,11 @@ app.use("/api/favorites", favouriteRouter);
 app.use("/api/food", foodRouter);
 app.use("/api/musicalband", musicalBandRouter);
 app.use("/api/dressing", dressingRouter);
+app.post("/api", upload.single("picture"), async (req, res) => {
+  console.log(5)
+  return res.json({ picture: req.file.path });
+});
 
-const Packages = require("../models/Packages");
-const Food = require("../models/Food");
-const Admin = require("../models/Admin");
 
 db.sequelize.sync().then(() => {
   console.log("Database connection established with success");
