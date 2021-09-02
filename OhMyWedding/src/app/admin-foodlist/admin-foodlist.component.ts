@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-foodlist.component.css']
 })
 export class AdminFoodlistComponent implements OnInit {
-
+  mYdata: any = [];
+  Food: any = [];
   constructor() { }
 
   ngOnInit(): void {

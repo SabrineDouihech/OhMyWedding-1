@@ -36,7 +36,7 @@ const postFood = async function (req, res) {
       price: req.body.price,
       persons: req.body.persons,
       foodtype: req.body.foodtype,
-      state: req.body.state
+      state: 'Not Reserved',
     })
     res.status(200).send(createfoodi);
   }

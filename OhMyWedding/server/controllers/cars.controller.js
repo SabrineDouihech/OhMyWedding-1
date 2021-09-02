@@ -34,7 +34,7 @@ const postLuxuryCar = async function (req, res) {
       price: req.body.price,
       brand: req.body.brand,
       availabledate: req.body.availabledate,
-      state: req.body.state,
+      state: 'Not Reserved',
     });
     res.status(200).send(lux);
   } catch (error) {

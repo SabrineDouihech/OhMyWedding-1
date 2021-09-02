@@ -1,4 +1,3 @@
-
 var db = require("../../config/db.confing");
 
 //Methods
@@ -10,6 +9,8 @@ const getPackages = async function (req, res) {
     res.status(200).send(error);
   }
 };
+
+
 const postPackage = async function (req, res) {
   try {
     const package = await db.packages.create({

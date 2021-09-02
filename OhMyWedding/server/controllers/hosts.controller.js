@@ -41,7 +41,7 @@ const postHoste = async function (req, res) {
             price: req.body.price,
             persons: req.body.persons,
             availabledate: req.body.availabledate,
-            state: req.body.state
+            state: 'Not Reserved',
         })
         res.status(200).send(hostes)
     } catch (error) {
