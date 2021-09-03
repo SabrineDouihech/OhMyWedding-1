@@ -16,8 +16,20 @@ export class HostsSercice {
 
 
     gethosts() {
-        return this.http.get('http://localhost:3000/hosts');
+        return this.http.get('http://localhost:3000/api/hosts');
+    }
+    posthosts(data : any){
+        return this.http.post('http://localhost:3000/api/hosts',data);
+    }
+    deletehosts(id:string){
+        return this.http.delete(`http://localhost:3000/api/hosts/${id}`)
     }
 
+    upthosts(id:string,data:any){
+        return this.http.put(`http://localhost:3000/api/hosts/${id}`,data)
+    }
+    uploadImg(img : any) {
+        return this.http.post("http://localhost:3000/upload", img);
+      }
 
 }
