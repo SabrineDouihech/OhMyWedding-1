@@ -5,7 +5,7 @@ const cors = require("cors");
 const Packages = require("../models/Packages");
 const Food = require("../models/Food");
 const Admin = require("../models/Admin");
-const upload = require("./routes/uploader");
+// const upload = require("./routes/uploader");
 
 const app = express();
 
@@ -46,15 +46,40 @@ app.use("/api/favorites", favouriteRouter);
 app.use("/api/food", foodRouter);
 app.use("/api/musicalband", musicalBandRouter);
 app.use("/api/dressing", dressingRouter);
-app.post("/api", upload.single("picture"), async (req, res) => {
-  console.log(5)
-  return res.json({ picture: req.file.path });
+
+
+const multer = require("multer");
+
+// CREATES A LOCAL FOLDER
+const upload = multer({ dest: "uploads" });
+
+const cloudinary = require("cloudinary").v2;
+cloudinary.config({
+  cloud_name: "unsplashclone",
+  api_key: "181682594916931",
+  api_secret: "RJUn_vM_yWc3eLxDQ9B2mhgdCi0",
 });
+// app.post("/api", upload.single("picture"), async (req, res) => {
+//   console.log(res.json({ picture: req.file.path }))
+//   // return res.json({ picture: req.file.path });
+// });
 
-
+app.post("/upload", upload.any(0), (req, res) => {
+  let image = req.files[0].path;
+  try {
+    cloudinary.uploader.upload(image, (error, result) => {
+      error && res.send({ status: false, msg: error });
+      res.send({ status: true, msg: result });
+    });
+  } catch (err) {
+    res.send({ status: false, msg: err });
+  }
+});
 db.sequelize.sync().then(() => {
   console.log("Database connection established with success");
 });
+
+
 
 // db.authenticate()
 //     .then(() => {

@@ -57,7 +57,7 @@ const postbands = async function (req, res) {
       price: req.body.price,
       bandtype: req.body.bandtype,
       availabledate: req.body.availabledate,
-      state: req.body.state
+      state: 'Not Reserved',
     })
     res.send(200).send(bandes)
   } catch (error) {

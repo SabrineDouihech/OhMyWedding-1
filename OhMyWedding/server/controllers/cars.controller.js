@@ -49,7 +49,7 @@ const deleteLuxuryCar = async (req, res) => {
         id: req.params.id
       }
     }).then(() => {
-      res.send("deleted with success")
+      res.send({ message: "deleted with success" })
     })
 
   } catch (error) {
@@ -74,7 +74,7 @@ const updateCar = async (req, res) => {
       }
 
     }).then((car) => {
-      res.send("updating with success");
+      res.send({ message: "updating with success" });
     })
   } catch (error) {
     res.status(404).send(error)

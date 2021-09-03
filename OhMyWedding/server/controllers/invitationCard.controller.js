@@ -32,7 +32,7 @@ const postInvitationcards = async function (req, res) {
       price: req.body.price,
       persons: req.body.persons,
       availabledate: req.body.availabledate,
-      state: req.body.state,
+      state: 'Not Reserved',
     });
     res.status(201).send(invit);
   } catch (error) {

@@ -53,7 +53,7 @@ const updateFood = async function (req, res) {
       price: req.body.price,
       persons: req.body.persons,
       foodtype: req.body.foodtype,
-      state: req.body.state
+      state: 'Not Reserved',
     }, {
       where: {
         id: req.params.id
