@@ -3,7 +3,7 @@ import { FoodService } from "../food.service";
 @Component({
   selector: 'app-admin-foodlist',
   templateUrl: './admin-foodlist.component.html',
-  styleUrls: ['./admin-foodlist.component.css']
+  styleUrls: ['./admin-foodlist.component.scss']
 })
 export class AdminFoodlistComponent implements OnInit {
   mYdata: any = [];
@@ -57,15 +57,15 @@ upsatefood(id:string,daty:any){
   });
 }
 openAdd(){
-  this.image = ""
+ this.image = ""
  this.title = "New Food"
  this.food = {}
  this.foodAddUpdate = true
 }
-openUpdate(car : any){
+openUpdate(food : any){
   this.image = ""
   this.title = "Update Food"
-  this.food = car 
+  this.food = food 
  this.foodAddUpdate = false
 
 }
