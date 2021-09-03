@@ -32,6 +32,7 @@ const postFood = async function (req, res) {
   try {
     const createfoodi = await db.food.create({
       name: req.body.name,
+      description: req.body.description,
       image: req.body.image,
       price: req.body.price,
       persons: req.body.persons,
@@ -49,6 +50,7 @@ const updateFood = async function (req, res) {
   try {
     db.food.update({
       name: req.body.name,
+      description: req.body.description,
       image: req.body.image,
       price: req.body.price,
       persons: req.body.persons,

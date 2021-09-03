@@ -1,6 +1,172 @@
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Add
-    Cards</button>
 
+    <button type="button" class="btn btn-primary" (click)="openAdd()"  data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Add
+        Invitation Card</button>
+    
+    
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">{{title}}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Name:</label>
+                            <input type="text" value={{invicard?.name}} class="form-control" id="recipient-name" #name>
+                        </div>
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">image:</label>
+                            <img *ngIf="image" src={{image}} style="width:50px;height: 50px;">
+                            <input type="file" class="form-control" id="recipient-name" (change)="imgUpload($event)" >
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message-text" class="col-form-label"> Description:</label>
+                            <textarea class="form-control" value={{invicard?.description}}  id="message-text"#description></textarea>
+                        </div>
+    
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Price:</label>
+                            <input type="number" value={{invicard?.price}} class="form-control" id="recipient-name" #price>
+                        </div>
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">persons:</label>
+                            <input type="number" value={{invicard?.persons}} class="form-control" id="recipient-name" #persons>
+                        </div>
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Available Date:</label>
+                            <input type="date" class="form-control" id="recipient-name" #date>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button *ngIf="!invicardAddUpdate" type="button" class="btn btn-primary" (click)="upsateInvi(invicard.id,{ name: name.value, description: description.value , image:this.image, persons:persons.value,price: price.value , availabledate:date.value})">Update A Card</button>
+                    <button *ngIf="invicardAddUpdate"  type="button" class="btn btn-primary" (click)="insertAInvicard({ name: name.value, description: description.value , image:this.image, persons:persons.value,price: price.value,availabledate:date.value})">Add A Card</button>
+                </div>
+              
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            <h2 class="card-title">List of invitation cards</h2>
+    
+            <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                    <i class="fas fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+        <div class="card-body p-0">
+            <table class="table projects">
+                <thead>
+                    <tr >
+                        <!-- <th style="width: 8%">
+                            #
+                        </th> -->
+                        <th style="width: 20%">
+                           InvitationCard Name
+                        </th>
+                        <th style="width: 20%">
+                           InvitationCard Image
+                        </th>
+                        <th style="width: 20%">
+                           InvitationCard Description
+                        </th>
+                        <th style="width: 20%">
+                           InvitationCard Price
+                        </th>
+                        <th class="text-center">
+                            Persons
+                        </th>
+    
+                        <th class="text-center">
+                            InvitationCard  States
+                        </th>
+                      
+                    </tr>
+                </thead>
+                <tbody>
+    
+                    <tr *ngFor="let invi of InviCard">
+                      
+                        <td>
+                            <a>
+                                {{invi.name}}
+                            </a>
+                            <br />
+    
+                        </td>
+                        <td>
+                            <ul class="list-inline">
+                                <li class="list-inline-item">
+                                    <img style="width: 80%" src="{{invi.image}}">
+                                </li>
+    
+                            </ul>
+                        </td>
+                        <td>
+                            <a>
+                                {{invi.description}}
+                            </a>
+                            <br />
+    
+                        </td>
+                        <td>
+                            <a>
+                                {{invi.price}}
+                            </a>
+                            <br />
+    
+                        </td>
+                        <td>
+                            <a>
+                                {{invi.persons}}
+                            </a>
+                            <br />
+    
+                        </td>
+    
+                        <td class="project-state">
+                            <span class="badge badge-success">{{invi.state}}</span>
+                        </td>
+                        <td class="project-actions text-right">
+    
+                            <!-- <a class="btn btn-info btn-sm"  data-dismiss="modal" aria-label="Close" data-target="#exampleModal" data-whatever="@mdo">
+                                <span aria-hidden="true">&times;</span>
+                                <i class="fas fa-pencil-alt" ></i>
+                                Edit
+                            </a> -->
+                            <button type="button" (click)="openUpdate(invi)" class="btn btn-primary" data-toggle="modal" aria-label="Close" data-target="#exampleModal" data-whatever="@mdo">
+                                <i class="fas fa-pencil-alt" ></i>
+                                 edit
+                                </button>
+                        </td>
+                        <td>
+                            <a class="btn btn-danger btn-sm"  (click)="deleteAInvi(invi.id)">
+                                <i class="fas fa-pencil-alt">s
+                                </i>
+                                Delete
+                            </a>
+    
+    
+                        </td>
+                    </tr>
+    
+                </tbody>
+            </table>
+        </div>
+        <!-- /.card-body -->
+    </div>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
@@ -48,107 +214,4 @@
             </div>
         </div>
     </div>
-</div>
-<div class="card">
-    <div class="card-header">
-        <h3 class="card-title">Luxury Cars</h3>
-
-        <div class="card-tools">
-            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                <i class="fas fa-minus"></i>
-            </button>
-            <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-    </div>
-    <div class="card-body p-0">
-        <table class="table projects">
-            <thead>
-                <tr>
-                    <!-- <th style="width: 8%">
-                        #
-                    </th> -->
-                    <th style="width: 20%">
-                        Invitation Cards Name
-                    </th>
-                    <th style="width: 20%">
-                        Invitation Cards Image
-                    </th>
-                    <th style="width: 20%">
-                        Invitation Cards Description
-                    </th>
-                    <th style="width: 20%">
-                        Invitation Cards Price
-                    </th>
-
-                    <th class="text-center">
-                        Invitation Cards States
-                    </th>
-
-                </tr>
-            </thead>
-            <tbody>
-
-                <tr *ngFor="let card of InviCard">
-                    <!-- <td>
-                        #
-                    </td> -->
-                    <td>
-                        <a>
-                            {{card.name}}
-                        </a>
-                        <br />
-
-                    </td>
-                    <td>
-                        <ul class="list-inline">
-                            <li class="list-inline-item">
-                                <img style="width: 80%" src="{{card.image}}">
-                            </li>
-
-                        </ul>
-                    </td>
-                    <td>
-                        <a>
-                            {{card.description}}
-                        </a>
-                        <br />
-
-                    </td>
-                    <td>
-                        <a>
-                            {{card.price}}
-                        </a>
-                        <br />
-
-                    </td>
-
-
-                    <td class="project-state">
-                        <span class="badge badge-success">{{card.state}}</span>
-                    </td>
-                    <td class="project-actions text-right">
-
-                        <a class="btn btn-info btn-sm">
-                            <i class="fas fa-pencil-alt">
-                            </i>
-                            Edit
-                        </a>
-                    </td>
-                    <td>
-                        <a class="btn btn-danger btn-sm">
-                            <i class="fas fa-pencil-alt">
-                            </i>
-                            Delete
-                        </a>
-
-
-                    </td>
-                </tr>
-
-            </tbody>
-        </table>
-    </div>
-    <!-- /.card-body -->
 </div>

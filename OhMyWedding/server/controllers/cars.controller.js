@@ -67,7 +67,7 @@ const updateCar = async (req, res) => {
       price: req.body.price,
       brand: req.body.brand,
       availabledate: req.body.availabledate,
-      state: req.body.state
+      state: 'Not Reserved',
     }, {
       where: {
         id: req.params.id

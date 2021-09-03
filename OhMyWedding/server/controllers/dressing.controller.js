@@ -65,7 +65,7 @@ const updateDress = async function (req, res) {
       price: req.body.price,
       genre: req.body.genre,
       availabledate: req.body.availabledate,
-      state: req.body.state
+      state: 'Not Reserved',
     }, {
       where: {
         id: req.params.id
