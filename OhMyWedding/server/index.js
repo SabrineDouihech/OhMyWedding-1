@@ -23,7 +23,7 @@ app.use(function (req, res, next) {
 
 const userRoutes = require("./routes/user.routes");
 const packagesRouter = require("./routes/packages.routes");
-const adminRouter = require("./routes/admin.routes");
+
 const reservationRoutes = require("./routes/reservation.routes");
 const carsRoutes = require("./routes/cars.routes");
 const hostsRoutes = require("./routes/hosts.routes");
@@ -35,7 +35,7 @@ const dressingRouter = require("./routes/dressing.routes");
 
 app.use("/api/package", packagesRouter);
 app.use("/api/user", userRoutes);
-app.use("/api/admin", adminRouter);
+
 app.use("/api/resrvation", reservationRoutes);
 app.use("/api/cars", carsRoutes);
 app.use("/api/hosts", hostsRoutes);
