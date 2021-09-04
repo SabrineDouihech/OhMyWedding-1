@@ -50,7 +50,6 @@ app.use("/api/food", foodRouter);
 app.use("/api/musicalband", musicalBandRouter);
 app.use("/api/dressing", dressingRouter);
 
-
 const multer = require("multer");
 
 // CREATES A LOCAL FOLDER
@@ -78,54 +77,54 @@ app.post("/upload", upload.any(0), (req, res) => {
     res.send({ status: false, msg: err });
   }
 });
-db.sequelize.sync().then(() => {
-  const Packages = require("../models/Packages");
-  const Food = require("../models/Food");
 
-  var transporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-      user: process.env.EMAIL,
-      pass: process.env.PASSWORD,
-    },
-  });
+const Packages = require("../models/Packages");
+const Food = require("../models/Food");
 
-  var mailOptions = {
-    from: "OhMyWedding <mjoiblia10@gmail.com>",
-    to: "testmajdi115@gmail.com",
-    subject: "testing my email sending",
-    text: "here your rservation",
-  };
+var transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: process.env.EMAIL,
+    pass: process.env.PASSWORD,
+  },
+});
 
-  transporter.sendMail(mailOptions, function (err, info) {
-    if (err) {
-      console.log(err);
-    } else {
-      console.log("Email sent" + info.response);
-    }
-  });
+var mailOptions = {
+  from: "OhMyWedding <mjoiblia10@gmail.com>",
+  to: "testmajdi115@gmail.com",
+  subject: "testing my email sending",
+  text: "here your rservation",
+};
 
-  db.sequelize.sync({ force: true }).then(() => {
-    console.log("Database connection established with success");
-    initial();
-  });
-
-  app.listen(port, () => {
-    console.log(`listening on port ${port}`);
-  });
-
-  function initial() {
-    Role.create({
-      id: 1,
-      name: "USER",
-    });
-    Role.create({
-      id: 2,
-      name: "PM",
-    });
-
-    Role.create({
-      id: 3,
-      name: "ADMIN",
-    });
+transporter.sendMail(mailOptions, function (err, info) {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log("Email sent" + info.response);
   }
+});
+
+db.sequelize.sync({ force: true }).then(() => {
+  console.log("Database connection established with success");
+  initial();
+});
+
+app.listen(port, () => {
+  console.log(`listening on port ${port}`);
+});
+
+function initial() {
+  Role.create({
+    id: 1,
+    name: "USER",
+  });
+  Role.create({
+    id: 2,
+    name: "PM",
+  });
+
+  Role.create({
+    id: 3,
+    name: "ADMIN",
+  });
+}
