@@ -21,17 +21,30 @@ app.use(function (req, res, next) {
   next();
 });
 
-app.use("/api/package", require("./routes/packages.routes"));
-app.use("/api", require("./routes/user.routes"));
-app.use("/api/test/user", require("./routes/user.routes"));
-app.use("/api/test/admin", require("./routes/user.routes"));
-app.use("/api/test/pm", require("./routes/user.routes"));
-app.use("/", require("./routes/reservation.routes"));
-app.use("/", require("./routes/cars.routes"));
-app.use("/", require("./routes/hosts.routes"));
-app.use("/", require("./routes/InvitionCards.routes"));
-app.use("/api/favorites", require("./routes/favourite.routes"));
-app.use("/api/food", require("./routes/food.routes"));
+const userRoutes = require("./routes/user.routes");
+const packagesRouter = require("./routes/packages.routes");
+const adminRouter = require("./routes/admin.routes");
+const reservationRoutes = require("./routes/reservation.routes");
+const carsRoutes = require("./routes/cars.routes");
+const hostsRoutes = require("./routes/hosts.routes");
+const CardsRoutes = require("./routes/InvitationCard.routes");
+const favouriteRouter = require("./routes/favourite.routes");
+const foodRouter = require("./routes/food.routes");
+const musicalBandRouter = require("./routes/mucsicalBand.routes");
+const dressingRouter = require("./routes/dressing.routes");
+
+app.use("/api/package", packagesRouter);
+app.use("/api/user", userRoutes);
+app.use("/api/admin", adminRouter);
+app.use("/api/resrvation", reservationRoutes);
+app.use("/api/cars", carsRoutes);
+app.use("/api/hosts", hostsRoutes);
+app.use("/api/invitationcards", CardsRoutes);
+app.use("/api/favorites", favouriteRouter);
+app.use("/api/food", foodRouter);
+app.use("/api/musicalband", musicalBandRouter);
+app.use("/api/dressing", dressingRouter);
+
 const Packages = require("../models/Packages");
 const Food = require("../models/Food");
 

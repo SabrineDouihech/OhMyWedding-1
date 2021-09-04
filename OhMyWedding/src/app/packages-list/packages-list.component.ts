@@ -58,4 +58,8 @@ search() {
 
 }
 
+previousPage(){
+  this.router.navigateByUrl('/packages')
+}
+
 }
