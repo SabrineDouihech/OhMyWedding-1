@@ -1,14 +1,11 @@
 
 var db = require('../../config/db.confing');
 
-
-
 const getFood = async function (req, res) {
   try {
-    const food = await db.food.findAll({});
-    res.status(200).send(food);
-  }
-  catch (error) {
+    const packages = await db.food.findAll({});
+    res.status(200).send(packages);
+  } catch (error) {
     res.status(400).send(error);
   }
 };
@@ -82,4 +79,4 @@ const deletefood = async function (req, res) {
 
 
 
-module.exports = { getFood, postFood, getOneFood, updateFood, deletefood };
+module.exports = { getFood, postFood, getOneFood, updateFood, deletefood }

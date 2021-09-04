@@ -1,27 +1,36 @@
-
-
 <header>
-    <div class="container text-center">
-      <!-- Logo -->
-      <div class="logo">
-        <h1><b>List of Hosts</b></h1>
-      </div>
-      <h1>Where do you want your wedding ?</h1>
+  <div class="container text-center">
+    <!-- Logo -->
+    <div class="logo">
+      <h1><b>List of Hosts</b></h1>
     </div>
-  </header>
-  <div class="dropi">
-      <div class="dropdown">
-        <label for="cars"  > You Budget : </label>
-        <select name="cars" [(ngModel)]="price" >
-          <option  value="">all</option>
-  
-          <option value="10000">200</option>
-          <option value="20000">300</option>
-          <option value="30000">400</option>
-          <option value="40000">500</option>
-        </select>
-  
-        <!-- <label for="cars"> Food choices </label>
+    <h1>Where do you want your wedding ?</h1>
+  </div>
+</header>
+<div class="dropi">
+  <div class="dropdown">
+    <label for="cars"> You Budget : </label>
+    <select name="cars" [(ngModel)]="price">
+      <option value="">all</option>
+
+      <option value="10000">10000</option>
+      <option value="20000">20000</option>
+      <option value="30000">30000</option>
+      <option value="40000">40000</option>
+    </select>
+    <button
+      type="button"
+      class="btn btn-light"
+      style="margin: 17px"
+      (click)="searchforAHost()"
+    >
+      Search
+    </button>
+    <button class="back" (click)="goBacktoCategories()">
+      Go back to categories
+    </button>
+
+    <!-- <label for="cars"> Food choices </label>
         <select name="cars"  [(ngModel)]="foodtype" >
           <option value="">all</option>
   
@@ -30,20 +39,15 @@
           <option value="Cake">Cake</option>
         </select>
    -->
-        <form action="">
-          <label for="birthday">Your Wedding date</label>
-          <input type="date"  name="birthday">
-          <input type="submit">
-        </form>
-  
-        
-        <button type="button" class="btn btn-light" style="margin: 17px">
-          Search
-        </button>
-      </div>
-      <br />
-    </div>
-  
+    <form action="">
+      <label for="birthday">Your Wedding date</label>
+      <input type="date" name="birthday" />
+      <input type="submit" />
+    </form>
+  </div>
+  <br />
+</div>
+<div class="center">
   <div class="container">
     <div class="row">
       <div class="col-md-4" *ngFor="let element of hosts; let i = index">
@@ -65,15 +69,25 @@
                   <p>Dinars</p>
                 </div>
                 <div class="col-xs-4">
-                  <!-- <h3>{{ element.foodtype }}</h3> -->
-                  <p></p>
+                  <h3>{{ element.persons }}</h3>
+                  <p>persons</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <button type="button" class="btn btn-warning">Add to favorites</button>
+        <button type="button" class="btn btn-warning" style="margin-left: 0%">
+          Add to favorites
+        </button>
+        <button
+          type="button"
+          class="btn btn-warning"
+          (click)="showDetails(element)"
+          style="margin-left: 12%"
+        >
+          Show More
+        </button>
       </div>
     </div>
   </div>
-  
+</div>

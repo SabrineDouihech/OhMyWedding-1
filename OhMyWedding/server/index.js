@@ -7,6 +7,9 @@ const Food = require("../models/Food");
 const Admin = require("../models/Admin");
 // const upload = require("./routes/uploader");
 
+const nodemailer = require("nodemailer");
+require("dotenv").config();
+const Role = db.role;
 const app = express();
 
 const port = 3000;
@@ -76,9 +79,53 @@ app.post("/upload", upload.any(0), (req, res) => {
   }
 });
 db.sequelize.sync().then(() => {
-  console.log("Database connection established with success");
-});
+  const Packages = require("../models/Packages");
+  const Food = require("../models/Food");
 
-app.listen(port, () => {
-  console.log(`listening on port ${port}`);
-});
+  var transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      user: process.env.EMAIL,
+      pass: process.env.PASSWORD,
+    },
+  });
+
+  var mailOptions = {
+    from: "OhMyWedding <mjoiblia10@gmail.com>",
+    to: "testmajdi115@gmail.com",
+    subject: "testing my email sending",
+    text: "here your rservation",
+  };
+
+  transporter.sendMail(mailOptions, function (err, info) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log("Email sent" + info.response);
+    }
+  });
+
+  db.sequelize.sync({ force: true }).then(() => {
+    console.log("Database connection established with success");
+    initial();
+  });
+
+  app.listen(port, () => {
+    console.log(`listening on port ${port}`);
+  });
+
+  function initial() {
+    Role.create({
+      id: 1,
+      name: "USER",
+    });
+    Role.create({
+      id: 2,
+      name: "PM",
+    });
+
+    Role.create({
+      id: 3,
+      name: "ADMIN",
+    });
+  }

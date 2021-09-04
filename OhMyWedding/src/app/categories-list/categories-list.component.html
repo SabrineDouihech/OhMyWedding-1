@@ -1,79 +1,211 @@
 <header>
   <div class="container text-center">
+    <!-- Logo -->
     <div class="logo">
-      <h1><b>List of Categories</b></h1>
+      <h1><b>Bootstrap Profile Cards 2019</b></h1>
     </div>
-    <h1>Create you own package</h1>
+
+    <h1>Pure CSS Profile Cards with Bootstrap</h1>
   </div>
 </header>
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-4">
-      <hr />
-      <div class="profile-card-2">
-        <img
-          src="https://images.pexels.com/photos/3590401/pexels-photo-3590401.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" (click)="foodlist()"
-          class="img img-responsive"
-        />
-        <div class="profile-name">Category 1</div>
-        <div class="profile-username">Food</div>
-      </div>
-    </div>
+<button (click)="previousPage()" class="back">
+  Go back to the previous page
+</button>
 
-    <div class="col-md-4">
-      <hr />
-      <div class="profile-card-2">
-        <img
-          src="https://m.media-amazon.com/images/I/71cioMi+w2L._AC_SL1000_.jpg" (click)="invitationCardList()"
-          class="img img-responsive"
-        />
-        <div class="profile-name">Category 2</div>
-        <div class="profile-username">Invitation Cards</div>
+<div class="center">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h4 class="text-center"><strong></strong></h4>
+        <hr />
+        <div class="profile-card-6">
+          <img
+            src="https://images.pexels.com/photos/3014858/pexels-photo-3014858.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+            class="img img-responsive"
+            (click)="hosts()"
+          />
+          <div class="profile-name">HOSTS <br /></div>
+          <div class="profile-position"></div>
+          <div class="profile-overview">
+            <div class="profile-overview">
+              <div class="row text-center">
+                <div class="col-xs-4">
+                  <h3></h3>
+                  <p></p>
+                </div>
+                <div class="col-xs-4">
+                  <h3></h3>
+                  <p></p>
+                </div>
+                <div class="col-xs-4">
+                  <h3></h3>
+                  <p></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="col-md-4">
-      <hr />
-      <div class="profile-card-2">
-        <img
-          src="https://mocah.org/uploads/posts/583879-car-old-car.jpg" (click)="carsList()"
-          class="img img-responsive"
-        />
-        <div class="profile-name">Category 3</div>
-        <div class="profile-username">Luxury Cars</div>
+
+      <div class="col-md-4">
+        <h4 class="text-center"><strong></strong></h4>
+        <hr />
+        <div class="profile-card-6">
+          <img
+            src="https://images.pexels.com/photos/6358797/pexels-photo-6358797.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+            class="img img-responsive"
+            (click)="dressing()"
+          />
+          <div class="profile-name">DRESSING <br /></div>
+          <div class="profile-position"></div>
+          <div class="profile-overview">
+            <div class="profile-overview">
+              <div class="row text-center">
+                <div class="col-xs-4">
+                  <h3></h3>
+                  <p></p>
+                </div>
+                <div class="col-xs-4">
+                  <h3></h3>
+                  <p></p>
+                </div>
+                <div class="col-xs-4">
+                  <h3></h3>
+                  <p></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="col-md-4">
-      <hr />
-      <div class="profile-card-2">
-        <img
-          src="https://images.pexels.com/photos/2788488/pexels-photo-2788488.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" (click)="hosts()"
-          class="img img-responsive"
-        />
-        <div class="profile-name">Category 4</div>
-        <div class="profile-username">Hosts</div>
+
+      <div class="col-md-4">
+        <h4 class="text-center"><strong></strong></h4>
+        <hr />
+        <div class="profile-card-6">
+          <img
+            src="https://images.pexels.com/photos/3839651/pexels-photo-3839651.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+            class="img img-responsive"
+            (click)="invitationCardList()"
+          />
+          <div class="profile-name">INVITATION <br />CARDS</div>
+          <div class="profile-position"></div>
+          <div class="profile-overview">
+            <div class="profile-overview">
+              <div class="row text-center">
+                <div class="col-xs-4">
+                  <h3></h3>
+                  <p></p>
+                </div>
+                <div class="col-xs-4">
+                  <h3></h3>
+                  <p></p>
+                </div>
+                <div class="col-xs-4">
+                  <h3></h3>
+                  <p></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="col-md-4">
-      <hr />
-      <div class="profile-card-2">
-        <img
-          src="https://images.pexels.com/photos/3755706/pexels-photo-3755706.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" (click)="dressing()"
-          class="img img-responsive"
-        />
-        <div class="profile-name">Category 5</div>
-        <div class="profile-username">Dressing</div>
+
+      <div class="col-md-4">
+        <h4 class="text-center"><strong></strong></h4>
+        <hr />
+        <div class="profile-card-6">
+          <img
+            src="https://images.pexels.com/photos/239581/pexels-photo-239581.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+            class="img img-responsive"
+            (click)="foodlist()"
+          />
+          <div class="profile-name">FOOD <br /></div>
+          <div class="profile-position"></div>
+          <div class="profile-overview">
+            <div class="profile-overview">
+              <div class="row text-center">
+                <div class="col-xs-4">
+                  <h3></h3>
+                  <p></p>
+                </div>
+                <div class="col-xs-4">
+                  <h3></h3>
+                  <p></p>
+                </div>
+                <div class="col-xs-4">
+                  <h3></h3>
+                  <p></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="col-md-4">
-      <hr />
-      <div class="profile-card-2">
-        <img
-          src="https://images.pexels.com/photos/3361381/pexels-photo-3361381.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" (click)="musicalBandList()"
-          class="img img-responsive"
-        />
-        <div class="profile-name">Category 6</div>
-        <div class="profile-username">Musical Band</div>
+
+      <div class="col-md-4">
+        <h4 class="text-center"><strong></strong></h4>
+        <hr />
+        <div class="profile-card-6">
+          <img
+            src="https://images.pexels.com/photos/2922140/pexels-photo-2922140.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+            class="img img-responsive"
+            (click)="carsList()"
+          />
+          <div class="profile-name">CARS <br /></div>
+          <div class="profile-position"></div>
+          <div class="profile-overview">
+            <div class="profile-overview">
+              <div class="row text-center">
+                <div class="col-xs-4">
+                  <h3></h3>
+                  <p></p>
+                </div>
+                <div class="col-xs-4">
+                  <h3></h3>
+                  <p></p>
+                </div>
+                <div class="col-xs-4">
+                  <h3></h3>
+                  <p></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <h4 class="text-center"><strong></strong></h4>
+        <hr />
+        <div class="profile-card-6">
+          <img
+            src="https://images.pexels.com/photos/1813124/pexels-photo-1813124.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+            class="img img-responsive"
+            (click)="musicalBandList()"
+          />
+          <div class="profile-name">MUSICAL <br />BAND</div>
+          <div class="profile-position"></div>
+          <div class="profile-overview">
+            <div class="profile-overview">
+              <div class="row text-center">
+                <div class="col-xs-4">
+                  <h3></h3>
+                  <p></p>
+                </div>
+                <div class="col-xs-4">
+                  <h3></h3>
+                  <p></p>
+                </div>
+                <div class="col-xs-4">
+                  <h3></h3>
+                  <p></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

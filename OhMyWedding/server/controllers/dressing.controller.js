@@ -1,3 +1,4 @@
+var Dressing = require("../../models/Dressing");
 var db = require("../../config/db.confing");
 
 const getDressing = async function (req, res) {
@@ -79,3 +80,4 @@ const updateDress = async function (req, res) {
 }
 
 module.exports = { getDressing, postDressing, getOneclothe, deleteDress, updateDress };
+module.exports = { getDressing };

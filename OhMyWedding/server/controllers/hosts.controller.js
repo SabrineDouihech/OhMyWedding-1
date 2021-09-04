@@ -1,12 +1,4 @@
-
-var db = require('../../config/db.confing');
-
-
-
-
-
-
-
+var db = require("../../config/db.confing");
 
 const getHostes = async function (req, res) {
     try {

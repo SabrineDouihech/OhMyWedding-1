@@ -1,4 +1,3 @@
-
 var db = require("../../config/db.confing");
 
 const gettheBand = async function (req, res) {

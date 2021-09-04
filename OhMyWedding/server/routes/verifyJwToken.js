@@ -1,7 +1,6 @@
-const jwt = require("jsonwebtoken");
 require("dotenv").config();
+const jwt = require("jsonwebtoken");
 const db = require("../../config/db.confing.js");
-const Role = db.role;
 const User = db.user;
 
 verifyToken = (req, res, next) => {
@@ -27,8 +26,6 @@ verifyToken = (req, res, next) => {
 };
 
 isAdmin = (req, res, next) => {
-  let token = req.headers["x-access-token"];
-
   User.findByPk(req.userId).then((user) => {
     user.getRoles().then((roles) => {
       for (let i = 0; i < roles.length; i++) {
@@ -46,8 +43,6 @@ isAdmin = (req, res, next) => {
 };
 
 isPmOrAdmin = (req, res, next) => {
-  let token = req.headers["x-access-token"];
-
   User.findByPk(req.userId).then((user) => {
     user.getRoles().then((roles) => {
       for (let i = 0; i < roles.length; i++) {

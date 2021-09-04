@@ -27,7 +27,7 @@ db.sequelize = sequelize;
 db.user = require("../models/User")(sequelize, Sequelize);
 db.role = require("../models/Role")(sequelize, Sequelize);
 db.dressing = require("../models/Dressing")(sequelize, Sequelize);
-db.fouvrite = require("../models/Favourite")(sequelize, Sequelize);
+db.favorite = require("../models/Favourite")(sequelize, Sequelize);
 db.food = require("../models/Food")(sequelize, Sequelize);
 db.host = require("../models/Hosts")(sequelize, Sequelize);
 db.invitationcard = require("../models/InvitationCard")(sequelize, Sequelize);
@@ -54,6 +54,7 @@ db.invitationcard.hasMany(db.packages);
 db.luxurycars.hasMany(db.packages);
 db.musicalband.hasMany(db.packages);
 db.packages.hasMany(db.reservation);
-db.user.hasMany(db.fouvrite);
+db.user.hasMany(db.favorite);
+db.favorite.belongsTo(db.user);
 
 module.exports = db;
