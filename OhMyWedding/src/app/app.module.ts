@@ -29,7 +29,7 @@ import { SigninComponent } from './signin/signin.component';
 import { NavComponent } from './nav/nav.component';
 import { HostsComponent } from './hosts/hosts.component';
 import { DressingComponent } from './dressing/dressing.component';
-
+import { httpInterceptorProvider } from './auth/auth.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,7 +68,7 @@ import { DressingComponent } from './dressing/dressing.component';
     HttpClientModule,
     FormsModule,
   ],
-  providers: [],
+  providers: [httpInterceptorProvider],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

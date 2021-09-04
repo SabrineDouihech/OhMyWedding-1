@@ -12,7 +12,7 @@ module.exports = (sequelize, Sequelize) => {
         type: Sequelize.STRING,
       },
 
-      eMail: {
+      email: {
         type: Sequelize.STRING,
       },
       password: {
