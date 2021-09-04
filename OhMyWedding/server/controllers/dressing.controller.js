@@ -80,4 +80,3 @@ const updateDress = async function (req, res) {
 }
 
 module.exports = { getDressing, postDressing, getOneclothe, deleteDress, updateDress };
-module.exports = { getDressing };

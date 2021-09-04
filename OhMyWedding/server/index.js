@@ -2,9 +2,7 @@ const express = require("express");
 const db = require("../config/db.confing");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const Packages = require("../models/Packages");
-const Food = require("../models/Food");
-const Admin = require("../models/Admin");
+
 // const upload = require("./routes/uploader");
 
 const nodemailer = require("nodemailer");
@@ -28,7 +26,7 @@ app.use(function (req, res, next) {
 
 const userRoutes = require("./routes/user.routes");
 const packagesRouter = require("./routes/packages.routes");
-const adminRouter = require("./routes/admin.routes");
+// const adminRouter = require("./routes/admin.routes"); 
 const reservationRoutes = require("./routes/reservation.routes");
 const carsRoutes = require("./routes/cars.routes");
 const hostsRoutes = require("./routes/hosts.routes");
@@ -40,7 +38,7 @@ const dressingRouter = require("./routes/dressing.routes");
 
 app.use("/api/package", packagesRouter);
 app.use("/api/user", userRoutes);
-app.use("/api/admin", adminRouter);
+// app.use("/api/admin", adminRouter);
 app.use("/api/resrvation", reservationRoutes);
 app.use("/api/cars", carsRoutes);
 app.use("/api/hosts", hostsRoutes);
@@ -78,54 +76,52 @@ app.post("/upload", upload.any(0), (req, res) => {
     res.send({ status: false, msg: err });
   }
 });
-db.sequelize.sync().then(() => {
-  const Packages = require("../models/Packages");
-  const Food = require("../models/Food");
 
-  var transporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-      user: process.env.EMAIL,
-      pass: process.env.PASSWORD,
-    },
-  });
 
-  var mailOptions = {
-    from: "OhMyWedding <mjoiblia10@gmail.com>",
-    to: "testmajdi115@gmail.com",
-    subject: "testing my email sending",
-    text: "here your rservation",
-  };
+var transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: process.env.EMAIL,
+    pass: process.env.PASSWORD,
+  },
+});
 
-  transporter.sendMail(mailOptions, function (err, info) {
-    if (err) {
-      console.log(err);
-    } else {
-      console.log("Email sent" + info.response);
-    }
-  });
+var mailOptions = {
+  from: "OhMyWedding <mjoiblia10@gmail.com>",
+  to: "testmajdi115@gmail.com",
+  subject: "testing my email sending",
+  text: "here your rservation",
+};
 
-  db.sequelize.sync({ force: true }).then(() => {
-    console.log("Database connection established with success");
-    initial();
-  });
-
-  app.listen(port, () => {
-    console.log(`listening on port ${port}`);
-  });
-
-  function initial() {
-    Role.create({
-      id: 1,
-      name: "USER",
-    });
-    Role.create({
-      id: 2,
-      name: "PM",
-    });
-
-    Role.create({
-      id: 3,
-      name: "ADMIN",
-    });
+transporter.sendMail(mailOptions, function (err, info) {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log("Email sent" + info.response);
   }
+});
+
+db.sequelize.sync({ force: false }).then(() => {
+  console.log("Database connection established with success");
+  // initial();
+});
+
+app.listen(port, () => {
+  console.log(`listening on port ${port}`);
+});
+
+// function initial() {
+//   Role.create({
+//     id: 1,
+//     name: "USER",
+//   });
+//   Role.create({
+//     id: 2,
+//     name: "PM",
+//   });
+
+//   Role.create({
+//     id: 3,
+//     name: "ADMIN",
+//   });
+// }

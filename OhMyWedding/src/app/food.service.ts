@@ -21,6 +21,6 @@ export class FoodService {
 }
 
 updateFood(id:string,data:any){
-  return this.http.put(`http://localhost:3000/api/cars/${id}`,data)
+  return this.http.put(`http://localhost:3000/api/food/${id}`,data)
 }
 }
