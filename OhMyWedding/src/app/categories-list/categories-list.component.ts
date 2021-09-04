@@ -33,4 +33,7 @@ export class CategoriesListComponent implements OnInit {
   hosts() {
     this.router.navigateByUrl('/hosts');
   }
+  previousPage() {
+    this.router.navigateByUrl('/packages');
+  }
 }

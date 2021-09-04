@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FoodService } from '../food.service';
-
+import { DetailsService } from '../details.service';
 @Component({
   selector: 'app-food',
   templateUrl: './food.component.html',
@@ -16,7 +16,11 @@ export class FoodComponent implements OnInit {
   safefood: any;
   safeprice: any;
 
-  constructor(private foodService: FoodService, private router: Router) {}
+  constructor(
+    private foodService: FoodService,
+    private router: Router,
+    private detailsService: DetailsService
+  ) {}
 
   ngOnInit(): void {
     this.getFood();
@@ -53,8 +57,15 @@ export class FoodComponent implements OnInit {
   }
   foodPrice() {
     this.food = this.food.filter((response: any) => {
-      // return response.price === this.price * 1
       return response.price === parseInt(this.price);
     });
+  }
+
+  showDetails(element: any) {
+    this.detailsService.selectedItem = element;
+    this.router.navigateByUrl('/details');
+  }
+  goBacktoCategories() {
+    this.router.navigateByUrl('/categorieslist');
   }
 }

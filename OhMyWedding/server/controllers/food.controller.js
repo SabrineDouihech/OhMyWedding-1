@@ -1,14 +1,11 @@
 var Food = require("../../models/Food");
-var db = require('../../config/db.confing');
-
-
+var db = require("../../config/db.confing");
 
 const getFood = async function (req, res) {
   try {
     const packages = await db.food.findAll({});
     res.status(200).send(packages);
-  }
-  catch (error) {
+  } catch (error) {
     res.status(400).send(error);
   }
 };
@@ -17,9 +14,5 @@ const getFood = async function (req, res) {
 //     id: re
 //   });
 // }
-
-
-
-
 
 module.exports = { getFood };

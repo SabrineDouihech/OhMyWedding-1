@@ -8,6 +8,6 @@ export class InvitationCardsService {
   constructor(private http: HttpClient) {}
 
   getSomeInvitationCards() {
-    return this.http.get('http://localhost:3000/cards');
+    return this.http.get('http://localhost:3000/api/invitationcards');
   }
 }

@@ -28,6 +28,8 @@ const hostsRoutes = require("./routes/hosts.routes");
 const CardsRoutes = require("./routes/InvitationCard.routes");
 const favouriteRouter = require("./routes/favourite.routes");
 const foodRouter = require("./routes/food.routes");
+const musicalBandRouter = require("./routes/mucsicalBand.routes");
+const dressingRouter = require("./routes/dressing.routes");
 
 app.use("/api/package", packagesRouter);
 app.use("/api/user", userRoutes);
@@ -38,12 +40,14 @@ app.use("/api/hosts", hostsRoutes);
 app.use("/api/invitationcards", CardsRoutes);
 app.use("/api/favorites", favouriteRouter);
 app.use("/api/food", foodRouter);
+app.use("/api/musicalband", musicalBandRouter);
+app.use("/api/dressing", dressingRouter);
 
 const Packages = require("../models/Packages");
 const Food = require("../models/Food");
 const Admin = require("../models/Admin");
 
-db.sequelize.sync().then(() => {
+db.sequelize.sync({ force: false }).then(() => {
   console.log("Database connection established with success");
 });
 
@@ -53,7 +57,7 @@ db.sequelize.sync().then(() => {
 //         return db.sync({ force: true });
 //     }).then(async () => {
 //         //         try {
-//         //             const pack1 = Packages.create ({name:"pack2", image: "https://images.pexels.com/photos/1045541/pexels-photo-1045541.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", price: 30000, persons:100})
+//         //   const pack1 = Packages.create ({name:"pack2", image: "https://images.pexels.com/photos/1045541/pexels-photo-1045541.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", price: 30000, persons:100})
 //         //   const pack2 = Packages.create ({name:"pack2", image: "https://images.pexels.com/photos/1045541/pexels-photo-1045541.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", price: 30000, persons:100})
 //         //   const food1 = Food.create ({name:"food1", image: "https://images.pexels.com/photos/1070850/pexels-photo-1070850.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", price: 30000, foodtype: "Dinner"})
 //         //   const food2 = Food.create ({name:"food2", image: "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", price: 20000, foodtype: "Dinner"})
