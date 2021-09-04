@@ -2,9 +2,9 @@ const express = require("express");
 const db = require("../config/db.confing");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const Packages = require("../models/Packages");
-const Food = require("../models/Food");
-const Admin = require("../models/Admin");
+// const Packages = require("../models/Packages");
+// const Food = require("../models/Food");
+// const Admin = require("../models/Admin");
 // const upload = require("./routes/uploader");
 
 const nodemailer = require("nodemailer");
@@ -104,7 +104,7 @@ transporter.sendMail(mailOptions, function (err, info) {
   }
 });
 
-db.sequelize.sync({ force: true }).then(() => {
+db.sequelize.sync({ force: false }).then(() => {
   console.log("Database connection established with success");
   initial();
 });

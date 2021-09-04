@@ -9,36 +9,25 @@
 </header>
 <div class="dropi">
   <div class="dropdown">
-    <label for="cars"> You Budget : </label>
-    <select name="cars" [(ngModel)]="price">
-      <option value="">all</option>
+    <p>Your Budget:</p>
 
-      <option value="10000">10000</option>
-      <option value="20000">20000</option>
-      <option value="30000">30000</option>
-      <option value="40000">40000</option>
-    </select>
-    <button
-      type="button"
-      class="btn btn-light"
-      style="margin: 17px"
-      (click)="searchforAHost()"
-    >
-      Search
-    </button>
+    <div>
+      <input
+        type="range"
+        id="volume"
+        name="budget"
+        min="1"
+        max="40000"
+        [(ngModel)]="price"
+        (input)="searchforAHost()"
+      />
+      {{ this.price }}
+    </div>
+
     <button class="back" (click)="goBacktoCategories()">
       Go back to categories
     </button>
 
-    <!-- <label for="cars"> Food choices </label>
-        <select name="cars"  [(ngModel)]="foodtype" >
-          <option value="">all</option>
-  
-          <option value="Dinner">Dinner</option>
-          <option value="Sweet food">Sweet food</option>
-          <option value="Cake">Cake</option>
-        </select>
-   -->
     <form action="">
       <label for="birthday">Your Wedding date</label>
       <input type="date" name="birthday" />

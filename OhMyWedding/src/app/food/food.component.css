@@ -693,3 +693,11 @@ body {
   margin-left: 80%;
   margin-top: 0%;
 }
+p,
+label {
+  font: 1rem "Fira Sans", sans-serif;
+}
+
+input {
+  margin: 0.4rem;
+}

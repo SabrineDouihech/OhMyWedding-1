@@ -12,33 +12,38 @@
 </header>
 <div class="dropi">
   <div class="dropdown">
-    <label for="cars"> You Budget : </label>
-    <select name="cars" [(ngModel)]="price">
-      <option value="">all</option>
+    <div>
+      <div>
+        Your Budget:
+        <input
+          type="range"
+          id="filterBudget"
+          name="budget"
+          min="1"
+          max="4000"
+          [(ngModel)]="price"
+          (input)="searchforABand()"
+        />
+        {{ this.price }}
+      </div>
+      <label for="cars"> Band choices </label>
+      <select name="cars" [(ngModel)]="bandtype">
+        <option value="">all</option>
 
-      <option value="1000">1000</option>
-      <option value="2000">2000</option>
-      <option value="3000">3000</option>
-      <option value="4000">4000</option>
-    </select>
+        <option value="Classic">Classic</option>
+        <option value="Mezwed">Mezwed</option>
+        <option value="Rboukh">Rboukh</option>
+      </select>
 
-    <label for="cars"> Band choices </label>
-    <select name="cars" [(ngModel)]="bandtype">
-      <option value="">all</option>
-
-      <option value="Classic">Classic</option>
-      <option value="Mezwed">Mezwed</option>
-      <option value="Rboukh">Rboukh</option>
-    </select>
-
-    <button
-      type="button"
-      class="btn btn-light"
-      style="margin: 17px"
-      (click)="searchforMusicalBand()"
-    >
-      Search
-    </button>
+      <button
+        type="button"
+        class="btn btn-warning"
+        style="margin: 17px"
+        (click)="searchforMusicalBand()"
+      >
+        Search
+      </button>
+    </div>
 
     <form action="">
       <label for="birthday">Your Wedding date</label>
@@ -46,7 +51,11 @@
       <input type="submit" />
     </form>
 
-    <button class="back" (click)="goBacktoCategories()">
+    <button
+      class="btn btn-warning"
+      style="margin-left: 80%; margin-top: 0%"
+      (click)="goBacktoCategories()"
+    >
       Go back to categories
     </button>
   </div>

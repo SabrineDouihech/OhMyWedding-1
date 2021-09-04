@@ -9,35 +9,46 @@
 </header>
 <div class="dropi">
   <div class="dropdown">
-    <label for="cars"> You Budget : </label>
-    <select name="cars" [(ngModel)]="price">
-      <option value="">all</option>
+    <div>
+      <div>
+        Your Budget:
+        <input
+          type="range"
+          id="filterBudget"
+          name="budget"
+          min="1"
+          max="4000"
+          [(ngModel)]="price"
+          (input)="searchforAFood()"
+        />
+        {{ this.price }}
+      </div>
 
-      <option value="1000">1000</option>
-      <option value="2000">2000</option>
-      <option value="3000">3000</option>
-      <option value="4000">4000</option>
-    </select>
+      <label> Food choices </label>
+      <select name="cars" [(ngModel)]="foodtype">
+        <option value="">all</option>
 
-    <label for="cars"> Food choices </label>
-    <select name="cars" [(ngModel)]="foodtype">
-      <option value="">all</option>
+        <option value="Dinner">Dinner</option>
+        <option value="Sweet food">Sweet food</option>
+        <option value="Cake">Cake</option>
+      </select>
 
-      <option value="Dinner">Dinner</option>
-      <option value="Sweet food">Sweet food</option>
-      <option value="Cake">Cake</option>
-    </select>
+      <button
+        type="button"
+        class="btn btn-warning"
+        style="margin: 17px"
+        (click)="search()"
+      >
+        Search
+      </button>
+    </div>
 
     <button
       type="button"
-      class="btn btn-light"
-      style="margin: 17px"
-      (click)="search()"
+      class="btn btn-warning"
+      style="margin-left: 80%; margin-top: 0%"
+      (click)="goBacktoCategories()"
     >
-      Search
-    </button>
-
-    <button class="back" (click)="goBacktoCategories()">
       Go back to categories
     </button>
 
