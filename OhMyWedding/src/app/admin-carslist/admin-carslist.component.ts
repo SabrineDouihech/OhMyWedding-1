@@ -24,8 +24,6 @@ export class AdminCarslistComponent implements OnInit {
   getCars() {
     this.cs.getCars().subscribe((myData) => {
       this.Cars = myData
-      console.log("dzzadzdazda", this.Cars);
-
     })
   }
   insertACar(myData:any =[]) {

@@ -46,7 +46,8 @@ const deleteCards = async function (req, res) {
         id: req.params.id
       }
     }).then(() => {
-      res.send("card deleted")
+      res.send({ message: "deleted card" })
+
     })
   } catch (error) {
     res.status(404).send(error)
