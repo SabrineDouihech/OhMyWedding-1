@@ -1,46 +1,162 @@
-const { user: User } = require("../../config/db.confing");
+const db = require("../../config/db.confing.js");
+require("dotenv").config();
+const User = db.user;
+const Role = db.role;
 
-const SelectAll = async function (req, res) {
-  try {
-    const user = await User.findAll();
-    res.status(200).send(user);
-  } catch (error) {
-    res.status(404).send(error);
-  }
+const Op = db.Sequelize.Op;
+
+var jwt = require("jsonwebtoken");
+var bcrypt = require("bcryptjs");
+
+exports.signup = (req, res) => {
+  // Save User to Database
+  console.log("Processing func -> SignUp");
+  User.create({
+    username: req.body.username,
+    eMail: req.body.email,
+    phoneNumber: req.body.phoneNumber,
+    Identitycard: req.body.Identitycard,
+    password: bcrypt.hashSync(req.body.password, 8),
+  })
+    .then((user) => {
+      Role.findAll({
+        where: {
+          name: {
+            [Op.or]: req.body.roles,
+          },
+        },
+      })
+        .then((roles) => {
+          user.setRoles(roles).then(() => {
+            res.send("User registered successfully!");
+          });
+        })
+        .catch((err) => {
+          res.status(500).send("Error -> " + err);
+        });
+    })
+    .catch((err) => {
+      res.status(500).send("Fail! Error -> " + err);
+    });
 };
 
-const CreateUser = async function (req, res) {
-  try {
-    console.log("my data hereeeee", req.body);
-    const data = await User.create({
+exports.signin = (req, res) => {
+  // console.log("Sign-In");
+
+  User.findOne({
+    where: {
       username: req.body.username,
-      eMail: req.body.eMail,
-      password: req.body.password,
-      identityCard: req.body.identityCard,
-      phoneNumber: req.body.phoneNumber,
+    },
+  })
+    .then((user) => {
+      console.log(user);
+      if (!user) {
+        return res.status(404).send("User Not Found.");
+      }
+
+      var passwordIsValid = bcrypt.compareSync(
+        req.body.password,
+        user.password
+      );
+      if (!passwordIsValid) {
+        return res.status(401).send({
+          auth: false,
+          accessToken: null,
+          reason: "Invalid Password!",
+        });
+      }
+
+      var token = jwt.sign({ id: user.id }, process.env.DB_SECRET, {
+        expiresIn: 86400, // expires in 24 hours
+      });
+
+      res.status(200).send({ auth: true, accessToken: token });
+    })
+    .catch((err) => {
+      res.status(500).send("Error -> " + err);
     });
-    res.status(200).send(data);
-  } catch (err) {
-    res.status(500).send(err);
-  }
 };
 
-const UserLogin = async function (req, res) {
-  try {
-    const result = await User.findAll({
-      where: {
-        username: req.body.username,
-        password: req.body.password,
+exports.userContent = (req, res) => {
+  User.findOne({
+    where: { id: req.userId },
+    attributes: ["username", "email"],
+    include: [
+      {
+        model: Role,
+        attributes: ["id"],
+        through: {
+          attributes: ["userId", "roleId"],
+        },
       },
+    ],
+  })
+    .then((user) => {
+      res.status(200).json({
+        description: "User Content Page",
+        user: user,
+      });
+    })
+    .catch((err) => {
+      res.status(500).json({
+        description: "Can not access User Page",
+        error: err,
+      });
     });
-    if (result.length > 0) {
-      res.send(result);
-    } else {
-      res.send({ msg: "username wrong" });
-    }
-  } catch (err) {
-    res.status(500).send(err);
-  }
 };
 
-module.exports = { SelectAll, CreateUser, UserLogin };
+exports.adminBoard = (req, res) => {
+  User.findOne({
+    where: { id: req.userId },
+    attributes: ["username"],
+    include: [
+      {
+        model: Role,
+        attributes: ["id"],
+        through: {
+          attributes: ["userId", "roleId"],
+        },
+      },
+    ],
+  })
+    .then((user) => {
+      res.status(200).json({
+        description: "Admin Board",
+        user: user,
+      });
+    })
+    .catch((err) => {
+      res.status(500).json({
+        description: "Can not access Admin Board",
+        error: err,
+      });
+    });
+};
+
+exports.managementBoard = (req, res) => {
+  User.findOne({
+    where: { id: req.userId },
+    attributes: ["username"],
+    include: [
+      {
+        model: Role,
+        attributes: ["id"],
+        through: {
+          attributes: ["userId", "roleId"],
+        },
+      },
+    ],
+  })
+    .then((user) => {
+      res.status(200).json({
+        description: "Management Board",
+        user: user,
+      });
+    })
+    .catch((err) => {
+      res.status(500).json({
+        description: "Can not access Management Board",
+        error: err,
+      });
+    });
+};
