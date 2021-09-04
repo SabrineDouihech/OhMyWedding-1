@@ -1,42 +1,51 @@
-import { UserService } from '../user.service';
+import { AuthService } from '../auth/auth.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-
+import { SignUpInfo } from '../auth/sign-up-info';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css']
+  styleUrls: ['./signup.component.css'],
 })
-
 export class SignupComponent implements OnInit {
+  form: any = {};
+  signupInfo: SignUpInfo = {
+    username: '',
+    password: '',
+    email: '',
+    phoneNumber: 0,
+    IdentityCard: 0,
+    role: [],
+  };
+  isSignedUp: boolean = false;
+  isSignedUpFailed: boolean = false;
+  errorMessage: string = '';
+  password: string = '';
 
-  constructor(private us: UserService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  onSubmit() {
+    this.signupInfo = {
+      username: this.form.username,
+      email: this.form.email,
+      password: this.form.password,
+      phoneNumber: this.form.phoneNumber,
+      IdentityCard: this.form.IdentityCard,
+      role: [],
+    };
+    console.log(this.signupInfo);
+    this.authService.signUp(this.signupInfo).subscribe(
+      (data) => {
+        this.isSignedUp = true;
+        this.isSignedUpFailed = false;
+      },
+      (error) => {
+        console.log('error', error);
+        this.errorMessage = error.error.message;
+        this.isSignedUpFailed = true;
+      }
+    );
   }
-
-  insertUser(
-    username: string,
-    email: string,
-    password: string,
-    identitycard: any,
-    phonenumber: any) {
-
-    this.us.CreateUser(
-
-      {
-        username: username,
-        eMail: email,
-        password: password,
-        identityCard: parseInt(identitycard),
-        phoneNumber: parseInt(phonenumber)
-
-      })
-      .subscribe((data: any) => {
-
-        console.log(data)
-        alert('done')
-      })
-  }
-
 }

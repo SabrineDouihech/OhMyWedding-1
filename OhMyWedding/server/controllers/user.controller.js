@@ -1,8 +1,7 @@
-const db = require("../../config/db.confing.js");
 require("dotenv").config();
+const db = require("../../config/db.confing.js");
 const User = db.user;
 const Role = db.role;
-
 const Op = db.Sequelize.Op;
 
 var jwt = require("jsonwebtoken");
@@ -13,9 +12,9 @@ exports.signup = (req, res) => {
   console.log("Processing func -> SignUp");
   User.create({
     username: req.body.username,
-    eMail: req.body.email,
+    email: req.body.email,
     phoneNumber: req.body.phoneNumber,
-    Identitycard: req.body.Identitycard,
+    IdentityCard: req.body.IdentityCard,
     password: bcrypt.hashSync(req.body.password, 8),
   })
     .then((user) => {
@@ -28,7 +27,7 @@ exports.signup = (req, res) => {
       })
         .then((roles) => {
           user.setRoles(roles).then(() => {
-            res.send("User registered successfully!");
+            res.send({ message: "User registered successfully!" });
           });
         })
         .catch((err) => {
@@ -70,10 +69,22 @@ exports.signin = (req, res) => {
         expiresIn: 86400, // expires in 24 hours
       });
 
-      res.status(200).send({ auth: true, accessToken: token });
+      var authorities = [];
+      user.getRoles().then((roles) => {
+        for (let i = 0; i < roles.length; i++) {
+          authorities.push("Role_" + roles[i].name.toUpperCase());
+        }
+      });
+
+      res.status(200).send({
+        auth: true,
+        accessToken: token,
+        username: user.name,
+        authorities: authorities,
+      });
     })
     .catch((err) => {
-      res.status(500).send("Error -> " + err);
+      res.status(500).send({ reason: err.message });
     });
 };
 
@@ -84,7 +95,7 @@ exports.userContent = (req, res) => {
     include: [
       {
         model: Role,
-        attributes: ["id"],
+        attributes: ["id", "name"],
         through: {
           attributes: ["userId", "roleId"],
         },
@@ -93,7 +104,7 @@ exports.userContent = (req, res) => {
   })
     .then((user) => {
       res.status(200).json({
-        description: "User Content Page",
+        description: ">>> User Content Page",
         user: user,
       });
     })
@@ -108,11 +119,11 @@ exports.userContent = (req, res) => {
 exports.adminBoard = (req, res) => {
   User.findOne({
     where: { id: req.userId },
-    attributes: ["username"],
+    attributes: ["username", "email"],
     include: [
       {
         model: Role,
-        attributes: ["id"],
+        attributes: ["id", "name"],
         through: {
           attributes: ["userId", "roleId"],
         },
@@ -121,7 +132,7 @@ exports.adminBoard = (req, res) => {
   })
     .then((user) => {
       res.status(200).json({
-        description: "Admin Board",
+        description: " >>> Admin Contents",
         user: user,
       });
     })
@@ -140,7 +151,7 @@ exports.managementBoard = (req, res) => {
     include: [
       {
         model: Role,
-        attributes: ["id"],
+        attributes: ["id", "name"],
         through: {
           attributes: ["userId", "roleId"],
         },
@@ -149,7 +160,7 @@ exports.managementBoard = (req, res) => {
   })
     .then((user) => {
       res.status(200).json({
-        description: "Management Board",
+        description: ">>>Management Board",
         user: user,
       });
     })

@@ -32,7 +32,7 @@ module.exports = (sequelize, Sequelize) => {
     },
     {
       // options
-      //     timestamps: false
+      timestamps: false,
     }
   );
   return Food;

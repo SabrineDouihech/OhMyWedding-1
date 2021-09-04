@@ -2,7 +2,9 @@ const express = require("express");
 const db = require("../config/db.confing");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-
+const nodemailer = require("nodemailer");
+require("dotenv").config();
+const Role = db.role;
 const app = express();
 
 const port = 3000;
@@ -19,34 +21,64 @@ app.use(function (req, res, next) {
   next();
 });
 
-const userRoutes = require("./routes/user.routes");
-const packagesRouter = require("./routes/packages.routes");
-const adminRouter = require("./routes/admin.routes");
-const reservationRoutes = require("./routes/reservation.routes");
-const carsRoutes = require("./routes/cars.routes");
-const hostsRoutes = require("./routes/hosts.routes");
-const CardsRoutes = require("./routes/InvitationCard.routes");
-const favouriteRouter = require("./routes/favourite.routes");
-const foodRouter = require("./routes/food.routes");
-
-app.use("/api/package", packagesRouter);
-app.use("/api/user", userRoutes);
-app.use("/api/admin", adminRouter);
-app.use("/api/resrvation", reservationRoutes);
-app.use("/api/cars", carsRoutes);
-app.use("/api/hosts", hostsRoutes);
-app.use("/api/invitationcards", CardsRoutes);
-app.use("/api/favorites", favouriteRouter);
-app.use("/api/food", foodRouter);
-
+app.use("/api/package", require("./routes/packages.routes"));
+app.use("/api", require("./routes/user.routes"));
+app.use("/api/test/user", require("./routes/user.routes"));
+app.use("/api/test/admin", require("./routes/user.routes"));
+app.use("/api/test/pm", require("./routes/user.routes"));
+app.use("/", require("./routes/reservation.routes"));
+app.use("/", require("./routes/cars.routes"));
+app.use("/", require("./routes/hosts.routes"));
+app.use("/", require("./routes/InvitionCards.routes"));
+app.use("/api/favorites", require("./routes/favourite.routes"));
+app.use("/api/food", require("./routes/food.routes"));
 const Packages = require("../models/Packages");
 const Food = require("../models/Food");
-const Admin = require("../models/Admin");
 
-db.sequelize.sync().then(() => {
+var transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: process.env.EMAIL,
+    pass: process.env.PASSWORD,
+  },
+});
+
+var mailOptions = {
+  from: "OhMyWedding <mjoiblia10@gmail.com>",
+  to: "testmajdi115@gmail.com",
+  subject: "testing my email sending",
+  text: "here your rservation",
+};
+
+transporter.sendMail(mailOptions, function (err, info) {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log("Email sent" + info.response);
+  }
+});
+
+db.sequelize.sync({ force: true }).then(() => {
   console.log("Database connection established with success");
+  initial();
 });
 
 app.listen(port, () => {
   console.log(`listening on port ${port}`);
 });
+
+function initial() {
+  Role.create({
+    id: 1,
+    name: "USER",
+  });
+  Role.create({
+    id: 2,
+    name: "PM",
+  });
+
+  Role.create({
+    id: 3,
+    name: "ADMIN",
+  });
+}
