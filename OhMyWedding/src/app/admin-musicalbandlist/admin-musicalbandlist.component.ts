@@ -27,7 +27,7 @@ export class AdminMusicalbandlistComponent implements OnInit {
   }
   insertABand(myData:any =[]) {
     this.ms.postABand(myData).subscribe((data) => {
-      alert('You Have New Car');
+      alert('You Have New Band');
       this.ngOnInit();
     });
   }
@@ -60,14 +60,14 @@ export class AdminMusicalbandlistComponent implements OnInit {
   }
   openAdd(){
     this.image = ""
-    this.title = "New Car"
+    this.title = "New Band"
     this.band = {}
     this.bandAddUpdate = true
    }
 
    openUpdate(band : any){
     this.image = ""
-    this.title = "Update Car"
+    this.title = "Update The Band"
     this.band = band 
    this.bandAddUpdate = false
   }

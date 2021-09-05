@@ -1,5 +1,5 @@
-<!-- <button type="button" class="btn btn-primary" (click)="openAdd()" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Add
-    Hostes</button>
+<button type="button" class="btn btn-primary" (click)="openAdd()" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Add
+    Wedding Suits/Dress </button>
 
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -14,9 +14,12 @@
             </div>
             <div class="modal-body">
                 <form>
+                    <div class="alert alert-success">
+                        <strong>Success!</strong> This alert box could indicate a successful or positive action.
+                      </div>
                     <div class="form-group">
                         <label for="recipient-name"  class="col-form-label">Name:</label>
-                        <input type="text" value={{host?.name}} class="form-control" id="recipient-name" #name >
+                        <input type="text" value={{dress?.name}} class="form-control" id="recipient-name" #name >
                     </div>
                     <div class="form-group">
                         <label for="recipient-name" class="col-form-label">image:</label>
@@ -24,18 +27,21 @@
                         <input type="file"  class="form-control" id="recipient-name" (change)="imgUpload($event)" >
                     </div>
                     <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">Persons:</label>
-                        <input type="number" value={{host?.brand}} class="form-control" id="recipient-name"#persons>
+                        <label for="message-text" class="col-form-label"> Description:</label>
+                        <textarea class="form-control" value={{dress?.description}} id="message-text" #description></textarea>
                     </div>
+                   <div class="form-group">
+    <label for="recipient-name" class="col-form-label">Genre:</label>
+    <br/>
+    <select #genre>
+        <option selected value="Dinner">Men</option>
+        <option value="Suits">Women</option>
+      </select>
+</div>
 
                     <div class="form-group">
-                        <label for="message-text" class="col-form-label"> Description:</label>
-                        <textarea class="form-control" value={{host?.description}} id="message-text" #description></textarea>
-                    </div>
-s
-                    <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Price:</label>
-                        <input type="number" value={{host?.price}} class="form-control" id="recipient-name" #price>
+                        <input type="number" value={{dress?.price}} class="form-control" id="recipient-name" #price>
                     </div>
                     <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Available Date:</label>
@@ -45,15 +51,15 @@ s
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button *ngIf="!hostAddUpdate" type="button" class="btn btn-primary" (click)="upsateHost(host.id,{ name: name.value, image:this.image,description: description.value , price: price.value,persons:persons.value,availabledate:date.value})">Update A Host</button>
-                <button *ngIf="hostAddUpdate"  type="button" class="btn btn-primary" (click)="insertAHost({ name: name.value, image:this.image,description: description.value , price: price.value,persons:persons.value,availabledate:date.value})">Add A Host</button>
+                <button *ngIf="!dressAddUpdate" type="button" class="btn btn-primary" (click)="updatesateDress(dress.id,{ name: name.value, image:this.image,description: description.value , price: price.value,availabledate:date.value,genre:genre.value})">Update A dress</button>
+                <button *ngIf="dressAddUpdate"  type="button" class="btn btn-primary" (click)="insertADress({ name: name.value, image:this.image,description: description.value , price: price.value,availabledate:date.value,genre:genre.value})" data-dismiss="modal">Add A dress</button>
             </div>
         </div>
     </div>
 </div>
 <div class="card">
     <div class="card-header">
-        <h3 class="card-title">Hosts</h3>
+        <h3 class="card-title"> List of Dressing OR Suits</h3>
 
         <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -69,33 +75,40 @@ s
             <thead>
                 <tr>
                     <th style="width: 20%">
-                        Hostes Name
+                         Suits/Dres Name
                     </th>
                     <th style="width: 20%">
-                        Hostes Image
+                         Suits/Dres Image
                     </th>
                     <th style="width: 20%">
-                        Hostes Persons
+                         Suits/Dres Description
                     </th>
                     <th style="width: 20%">
-                        Hostes Description
-                    </th>
-                    <th style="width: 20%">
-                        Hostes Price
+                        Suits/Dres Price
                     </th>
 
                     <th class="text-center">
-                        Hostes States
+                        Suits/Dres genre
+                    </th>
+                     <th class="text-center">
+                        Suits/Dres Availebel Date
                     </th>
 
                 </tr>
             </thead>
             <tbody>
 
-                <tr *ngFor="let hos of Hostes">
+                <tr *ngFor="let dress of Clotheses">
                     <td>
                         <a>
-                            {{hos.name}}
+                            {{dress.name}}
+                        </a>
+                        <br />
+
+                    </td>
+                      <td>
+                        <a>
+                            {{dress.genre}}
                         </a>
                         <br />
 
@@ -103,28 +116,29 @@ s
                     <td>
                         <ul class="list-inline">
                             <li class="list-inline-item">
-                                <img style="width: 80%" src="{{hos.image}}">
+                                <img style="width: 80%" src="{{dress.image}}">
                             </li>
 
                         </ul>
                     </td>
+                   
                     <td>
                         <a>
-                            {{hos.persons}}
+                            {{dress.description}}
                         </a>
                         <br />
 
                     </td>
                     <td>
                         <a>
-                            {{hos.description}}
+                            {{dress.price}}
                         </a>
                         <br />
 
                     </td>
-                    <td>
+                      <td>
                         <a>
-                            {{hos.price}}
+                            {{dress.availabledate.split('T')[0]}}
                         </a>
                         <br />
 
@@ -132,17 +146,17 @@ s
 
 
                     <td class="project-state">
-                        <span class="badge badge-success">{{hos.state}}</span>
+                        <span class="badge badge-success">{{dress.state}}</span>
                     </td>
                     <td class="project-actions text-right">
-                        <button type="button" (click)="openUpdate(hos)" class="btn btn-primary" data-toggle="modal" aria-label="Close" data-target="#exampleModal" data-whatever="@mdo">
+                        <button type="button" (click)="openUpdate(dress)" class="btn btn-primary" data-toggle="modal" aria-label="Close" data-target="#exampleModal" data-whatever="@mdo">
                             <i class="fas fa-pencil-alt" ></i>
                              edit
                             </button>
                     </td>
 
                     <td>
-                        <a class="btn btn-danger btn-sm"  (click)="deleteAHost(hos.id)">
+                        <a class="btn btn-danger btn-sm"  (click)="deleteADress(dress.id)">
                             <i class="fas fa-pencil-alt">s
                             </i>
                             Delete
@@ -156,4 +170,4 @@ s
         </table>
     </div>
 
-</div> -->
+</div>
