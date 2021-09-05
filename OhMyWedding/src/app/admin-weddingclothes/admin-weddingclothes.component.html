@@ -14,9 +14,6 @@
             </div>
             <div class="modal-body">
                 <form>
-                    <div class="alert alert-success">
-                        <strong>Success!</strong> This alert box could indicate a successful or positive action.
-                      </div>
                     <div class="form-group">
                         <label for="recipient-name"  class="col-form-label">Name:</label>
                         <input type="text" value={{dress?.name}} class="form-control" id="recipient-name" #name >
@@ -44,8 +41,10 @@
                         <input type="number" value={{dress?.price}} class="form-control" id="recipient-name" #price>
                     </div>
                     <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">Available Date:</label>
-                        <input type="date" class="form-control" id="recipient-name" #date>
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Available Date:</label>
+                            <input type="date" class="form-control" id="recipient-name" #date>
+                        </div>
                     </div>
                 </form>
             </div>
@@ -77,8 +76,11 @@
                     <th style="width: 20%">
                          Suits/Dres Name
                     </th>
+                    <th class="text-center">
+                        Suits/Dres genre
+                    </th>
                     <th style="width: 20%">
-                         Suits/Dres Image
+                         Suits/Dres <br/>Image
                     </th>
                     <th style="width: 20%">
                          Suits/Dres Description
@@ -87,9 +89,6 @@
                         Suits/Dres Price
                     </th>
 
-                    <th class="text-center">
-                        Suits/Dres genre
-                    </th>
                      <th class="text-center">
                         Suits/Dres Availebel Date
                     </th>

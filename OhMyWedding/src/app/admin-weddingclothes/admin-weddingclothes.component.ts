@@ -1,19 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { DressingService } from "../dressing.service";
+import { FormControl, FormGroup } from '@angular/forms';
+
+
+
 @Component({
   selector: 'app-admin-weddingclothes',
   templateUrl: './admin-weddingclothes.component.html',
-  styleUrls: ['./admin-weddingclothes.component.css']
+  styleUrls: ['./admin-weddingclothes.component.css'],
 })
 export class AdminWeddingclothesComponent implements OnInit {
-
-  constructor(private ds: DressingService) { }
+  dateRange = new FormGroup({
+    start: new FormControl(),
+    end: new FormControl()
+  });
+  constructor(private ds: DressingService) { 
+  }
   myData: any = [];
   Clotheses: any = [];
   title : any = "New Clo/Dres"
   dress :any = ""
   dressAddUpdate : any
   image : any 
+
   ngOnInit(): void {
     this.getDress()
   }
@@ -70,5 +79,6 @@ export class AdminWeddingclothesComponent implements OnInit {
     this.dress = dress 
    this.dressAddUpdate = false
   }
+   
 
 }

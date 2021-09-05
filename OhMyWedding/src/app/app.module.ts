@@ -30,6 +30,9 @@ import { NavComponent } from './nav/nav.component';
 import { HostsComponent } from './hosts/hosts.component';
 import { DressingComponent } from './dressing/dressing.component';
 import { httpInterceptorProvider } from './auth/auth.interceptor';
+import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
+import {DemoMaterialModule} from '../app/admin-weddingclothes/material-module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,6 +60,8 @@ import { httpInterceptorProvider } from './auth/auth.interceptor';
     NavComponent,
     HostsComponent,
     DressingComponent,
+   
+
   ],
 
   imports: [
@@ -67,8 +72,10 @@ import { httpInterceptorProvider } from './auth/auth.interceptor';
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
+    DemoMaterialModule
   ],
-  providers: [httpInterceptorProvider],
+  providers: [httpInterceptorProvider,
+    { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
