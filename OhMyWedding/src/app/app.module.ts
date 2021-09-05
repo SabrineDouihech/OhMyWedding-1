@@ -31,7 +31,7 @@ import { HostsComponent } from './hosts/hosts.component';
 import { DressingComponent } from './dressing/dressing.component';
 import { httpInterceptorProvider } from './auth/auth.interceptor';
 import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
-import {DemoMaterialModule} from '../app/admin-weddingclothes/material-module';
+import {DemoMaterialModule} from './material-module';
 
 @NgModule({
   declarations: [

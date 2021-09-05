@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { DressingService } from "../dressing.service";
-import { FormControl, FormGroup } from '@angular/forms';
-
 
 
 @Component({
@@ -10,11 +8,9 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./admin-weddingclothes.component.css'],
 })
 export class AdminWeddingclothesComponent implements OnInit {
-  dateRange = new FormGroup({
-    start: new FormControl(),
-    end: new FormControl()
-  });
+ 
   constructor(private ds: DressingService) { 
+
   }
   myData: any = [];
   Clotheses: any = [];
