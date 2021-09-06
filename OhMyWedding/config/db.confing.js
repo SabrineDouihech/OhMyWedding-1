@@ -56,5 +56,6 @@ db.musicalband.hasMany(db.packages);
 db.packages.hasMany(db.reservation);
 db.user.hasMany(db.favorite);
 db.favorite.belongsTo(db.user);
+db.user.hasMany(db.reservation)
 
 module.exports = db;

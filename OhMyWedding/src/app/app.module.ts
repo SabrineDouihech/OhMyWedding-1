@@ -30,6 +30,7 @@ import { NavComponent } from './nav/nav.component';
 import { HostsComponent } from './hosts/hosts.component';
 import { DressingComponent } from './dressing/dressing.component';
 import { httpInterceptorProvider } from './auth/auth.interceptor';
+import { ReservationsComponent } from './reservations/reservations.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,6 +58,7 @@ import { httpInterceptorProvider } from './auth/auth.interceptor';
     NavComponent,
     HostsComponent,
     DressingComponent,
+    ReservationsComponent,
   ],
 
   imports: [

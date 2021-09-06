@@ -14,19 +14,18 @@ exports.signup = (req, res) => {
     username: req.body.username,
     email: req.body.email,
     phoneNumber: req.body.phoneNumber,
-    IdentityCard: req.body.IdentityCard,
     password: bcrypt.hashSync(req.body.password, 8),
   })
     .then((user) => {
       Role.findAll({
         where: {
           name: {
-            [Op.or]: req.body.roles,
+            [Op.or]: req.body.role,
           },
         },
       })
-        .then((roles) => {
-          user.setRoles(roles).then(() => {
+        .then((role) => {
+          user.setRoles(role).then(() => {
             res.send({ message: "User registered successfully!" });
           });
         })
@@ -50,7 +49,7 @@ exports.signin = (req, res) => {
     .then((user) => {
       console.log(user);
       if (!user) {
-        return res.status(404).send("User Not Found.");
+        return res.status(404).send({ message: "User Not Found." });
       }
 
       var passwordIsValid = bcrypt.compareSync(
