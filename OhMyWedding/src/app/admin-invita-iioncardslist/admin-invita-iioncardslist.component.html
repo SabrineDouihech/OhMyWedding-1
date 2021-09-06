@@ -46,8 +46,8 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button *ngIf="!invicardAddUpdate" type="button" class="btn btn-primary" (click)="upsateInvi(invicard.id,{ name: name.value, description: description.value , image:this.image, persons:persons.value,price: price.value , availabledate:date.value})">Update A Card</button>
-                    <button *ngIf="invicardAddUpdate"  type="button" class="btn btn-primary" (click)="insertAInvicard({ name: name.value, description: description.value , image:this.image, persons:persons.value,price: price.value,availabledate:date.value})">Add A Card</button>
+                    <button *ngIf="!invicardAddUpdate" type="button" class="btn btn-primary" (click)="upsateInvi(invicard.id,{ name: name.value, description: description.value , image:this.image, persons:persons.value,price: price.value , availabledate:date.value})" data-dismiss="modal">Update A Card</button>
+                    <button *ngIf="invicardAddUpdate"  type="button" class="btn btn-primary" (click)="insertAInvicard({ name: name.value, description: description.value , image:this.image, persons:persons.value,price: price.value,availabledate:date.value})" data-dismiss="modal">Add A Card</button>
                 </div>
               
             </div>

@@ -112,25 +112,10 @@ transporter.sendMail(mailOptions, function (err, info) {
 
 db.sequelize.sync({ force: false }).then(() => {
   console.log("Database connection established with success");
-  initial();
+
 });
 
 app.listen(port, () => {
   console.log(`listening on port ${port}`);
 });
 
-function initial() {
-  Role.create({
-    id: 1,
-    name: "USER",
-  });
-  Role.create({
-    id: 2,
-    name: "PM",
-  });
-
-  Role.create({
-    id: 3,
-    name: "ADMIN",
-  });
-}
