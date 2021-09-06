@@ -71,7 +71,7 @@ const deletefood = async function (req, res) {
         id: req.params.id
       }
     })
-    res.send("deleted")
+    res.send({ message: "deleted" })
   } catch (error) {
     res.status(404).send(error)
   }
