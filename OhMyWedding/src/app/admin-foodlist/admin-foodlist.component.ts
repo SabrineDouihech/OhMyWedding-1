@@ -6,9 +6,9 @@ import { FoodService } from "../food.service";
   styleUrls: ['./admin-foodlist.component.scss']
 })
 export class AdminFoodlistComponent implements OnInit {
+  constructor( private fs:FoodService) { }
   mYdata: any = [];
   Foods: any = [];
-  constructor( private fs:FoodService) { }
   title : any = "New Food"
   food :any = ""
   foodAddUpdate : any
@@ -16,17 +16,16 @@ export class AdminFoodlistComponent implements OnInit {
   ngOnInit(): void {
     this.getFoods()
   }
-
-
+  
+  
   getFoods() {
-    this.fs.getSomeFood().subscribe((myData) => {
-      this.Foods = myData
-      console.log("dzzadzdazda", this.Foods);
-
+    this.fs.getSomeFood().subscribe((mYdata) => {
+      this.Foods = mYdata
+      console.log("ffffff",this.Foods)
     })
   }
-  insertAFood(myData:any =[]) {
-    this.fs.postSomeFood(myData).subscribe((data) => {
+  insertAFood(mYdata:any =[]) {
+    this.fs.postSomeFood(mYdata).subscribe((data) => {
       alert('Yumyyy We Have new Food');
       this.ngOnInit();
     });

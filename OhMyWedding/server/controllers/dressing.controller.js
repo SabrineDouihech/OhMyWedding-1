@@ -48,7 +48,7 @@ const deleteDress = async function (req, res) {
         id: req.params.id
       }
     }).then(() => {
-      res.send("deleted perfectly")
+      res.send({ message: "deleted Dress" })
     })
 
   } catch (error) {
@@ -80,4 +80,3 @@ const updateDress = async function (req, res) {
 }
 
 module.exports = { getDressing, postDressing, getOneclothe, deleteDress, updateDress };
-module.exports = { getDressing };

@@ -49,7 +49,7 @@ const deleteHoste = async function (req, res) {
                 id: req.params.id
             }
         }).then(() => {
-            res.send("deleted host")
+            res.send({ message: "deleted host" })
         })
     } catch (error) {
         res.status(404).send(error)
