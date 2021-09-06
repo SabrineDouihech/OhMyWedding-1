@@ -1,4 +1,3 @@
-
 var db = require("../../config/db.confing");
 
 const getReservation = async function (req, res) {

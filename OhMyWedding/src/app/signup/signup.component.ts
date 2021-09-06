@@ -14,7 +14,7 @@ export class SignupComponent implements OnInit {
     password: '',
     email: '',
     phoneNumber: 0,
-    IdentityCard: 0,
+
     role: [],
   };
   isSignedUp: boolean = false;
@@ -32,7 +32,6 @@ export class SignupComponent implements OnInit {
       email: this.form.email,
       password: this.form.password,
       phoneNumber: this.form.phoneNumber,
-      IdentityCard: this.form.IdentityCard,
       role: [],
     };
     console.log(this.signupInfo);
