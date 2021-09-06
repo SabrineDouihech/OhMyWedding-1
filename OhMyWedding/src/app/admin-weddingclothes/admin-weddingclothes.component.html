@@ -50,7 +50,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button *ngIf="!dressAddUpdate" type="button" class="btn btn-primary" (click)="updatesateDress(dress.id,{ name: name.value, image:this.image,description: description.value , price: price.value,availabledate:date.value,genre:genre.value})">Update A dress</button>
+                <button *ngIf="!dressAddUpdate" type="button" class="btn btn-primary" (click)="updatesateDress(dress.id,{ name: name.value, image:this.image,description: description.value , price: price.value,availabledate:date.value,genre:genre.value})"  data-dismiss="modal">Update A dress</button>
                 <button *ngIf="dressAddUpdate"  type="button" class="btn btn-primary" (click)="insertADress({ name: name.value, image:this.image,description: description.value , price: price.value,availabledate:date.value,genre:genre.value})" data-dismiss="modal">Add A dress</button>
             </div>
         </div>
