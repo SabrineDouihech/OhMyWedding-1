@@ -2,6 +2,9 @@ const express = require("express");
 const db = require("../config/db.confing");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+// const Packages = require("../models/Packages");
+// const Food = require("../models/Food");
+// const Admin = require("../models/Admin");
 
 // const upload = require("./routes/uploader");
 
@@ -26,7 +29,7 @@ app.use(function (req, res, next) {
 
 const userRoutes = require("./routes/user.routes");
 const packagesRouter = require("./routes/packages.routes");
-// const adminRouter = require("./routes/admin.routes"); 
+// const adminRouter = require("./routes/admin.routes");
 const reservationRoutes = require("./routes/reservation.routes");
 const carsRoutes = require("./routes/cars.routes");
 const hostsRoutes = require("./routes/hosts.routes");
@@ -36,8 +39,13 @@ const foodRouter = require("./routes/food.routes");
 const musicalBandRouter = require("./routes/mucsicalBand.routes");
 const dressingRouter = require("./routes/dressing.routes");
 
+// const categorycarRouter = require("./routes/packages.routes");
+
 app.use("/api/package", packagesRouter);
 app.use("/api/user", userRoutes);
+
+// app.use("/api/detailscar", categorycarRouter);
+
 // app.use("/api/admin", adminRouter);
 app.use("/api/resrvation", reservationRoutes);
 app.use("/api/cars", carsRoutes);
@@ -102,7 +110,7 @@ transporter.sendMail(mailOptions, function (err, info) {
   }
 });
 
-db.sequelize.sync({ force: true }).then(() => {
+db.sequelize.sync({ force: false }).then(() => {
   console.log("Database connection established with success");
   initial();
 });

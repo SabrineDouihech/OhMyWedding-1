@@ -9,7 +9,21 @@
 </header>
 <div class="dropi">
   <div class="dropdown">
-    <label for="cars"> You Budget : </label>
+    <div>
+      Your Budget:
+      <input
+        type="range"
+        id="filterBudget"
+        name="budget"
+        min="1"
+        max="600"
+        [(ngModel)]="price"
+        (input)="searchforACard()"
+      />
+      {{ this.price }}
+    </div>
+
+    <!-- <label for="cars"> You Budget : </label>
     <select name="cars" [(ngModel)]="price">
       <option value="">all</option>
 
@@ -17,17 +31,13 @@
       <option value="200">200</option>
       <option value="300">300</option>
       <option value="400">400</option>
-    </select>
-    <button
-      type="button"
-      class="btn btn-light"
-      style="margin: 17px"
-      (click)="searchACard()"
-    >
-      Search
-    </button>
+    </select> -->
 
-    <button class="back" (click)="goBacktoCategories()">
+    <button
+      class="btn btn-warning"
+      style="margin-left: 80%; margin-top: 0%"
+      (click)="goBacktoCategories()"
+    >
       Go back to categories
     </button>
 

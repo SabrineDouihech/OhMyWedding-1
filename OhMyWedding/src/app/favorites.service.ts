@@ -7,8 +7,8 @@ import { HttpClient } from '@angular/common/http';
 export class FavoritesService {
   constructor(private http: HttpClient) {}
 
-  getFavorites(userid: number) {
-    return this.http.get(`http://localhost:3000/api/favorites/${userid}`); // TODO: add the current user id to this request
+  getFavorites(userId: number) {
+    return this.http.get(`http://localhost:3000/api/favorites/${userId}`); // TODO: add the current user id to this request
   }
 
   addtofavorites(data: { type: string; userId: number; itemId: number }) {

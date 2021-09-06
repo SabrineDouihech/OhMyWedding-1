@@ -71,10 +71,20 @@ export class DressingComponent implements OnInit {
   clothesPrice() {
     var mock = [];
     for (var i = 0; i < this.clothes.length; i++) {
-      if (this.clothes[i].price === this.price * 1) {
+      if (
+        this.clothes[i].price === this.price * 1 ||
+        this.clothes[i].price < this.price * 1
+      ) {
         mock.push(this.clothes[i]);
       }
     }
     this.clothes = mock;
+  }
+
+  searchforthePrice() {
+    this.clothes = this.safeclothes;
+    if (this.price) {
+      this.clothesPrice();
+    }
   }
 }

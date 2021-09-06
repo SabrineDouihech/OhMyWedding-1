@@ -72,10 +72,20 @@ export class MusicalBandComponent implements OnInit {
   musicalBandPrice() {
     var mock = [];
     for (var i = 0; i < this.musicalBand.length; i++) {
-      if (this.musicalBand[i].price === this.price * 1) {
+      if (
+        this.musicalBand[i].price === this.price * 1 ||
+        this.musicalBand[i].price < this.price * 1
+      ) {
         mock.push(this.musicalBand[i]);
       }
     }
     this.musicalBand = mock;
+  }
+
+  searchforABand() {
+    this.musicalBand = this.safeband;
+    if (this.price) {
+      this.musicalBandPrice();
+    }
   }
 }
