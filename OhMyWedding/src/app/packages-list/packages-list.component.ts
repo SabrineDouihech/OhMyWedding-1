@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PackagesService } from '../packages.service';
 import { Router } from '@angular/router';
 import { FavoritesService } from '../favorites.service';
-
+import { DetailsService } from '../details.service';
 @Component({
   selector: 'app-packages-list',
   templateUrl: './packages-list.component.html',
@@ -12,17 +12,19 @@ export class PackagesListComponent implements OnInit {
   constructor(
     private packagesService: PackagesService,
     private favoritesService: FavoritesService,
+    private detailsService: DetailsService,
     private router: Router
   ) {}
 
   data: any = [];
   packages: any = [];
-  // package : any =[];
+  carpackage: any = [];
   price: any;
   safeprice: any;
   safepackage: any = [];
   ngOnInit(): void {
     this.getAPackage();
+    // this.getAPackagecar();
   }
 
   getAPackage() {
@@ -33,6 +35,11 @@ export class PackagesListComponent implements OnInit {
     });
   }
 
+  // getAPackagecar() {
+  //   this.packagesService.getoneCar().subscribe((data) => {
+  //     this.carpackage = data;
+  //   });
+  // }
   // addAFavorite(data: any){
   //   this.fs.addtofavorites(this.package).subscribe(data)
 
@@ -44,9 +51,9 @@ export class PackagesListComponent implements OnInit {
   //   })
   // }
 
-  details() {
-    this.router.navigateByUrl('/details');
-  }
+  // details() {
+  //   this.router.navigateByUrl('/details');
+  // }
 
   categoriesList() {
     this.router.navigateByUrl('/categorieslist');
@@ -74,5 +81,10 @@ export class PackagesListComponent implements OnInit {
 
   previousPage() {
     this.router.navigateByUrl('/packages');
+  }
+
+  showDetails(element: any) {
+    this.detailsService.selectedItem = element;
+    this.router.navigateByUrl('/details');
   }
 }

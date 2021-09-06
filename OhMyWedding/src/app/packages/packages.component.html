@@ -105,13 +105,32 @@
     </div>
   </div>
 </div>
+
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css"
+/>
+<link
+  href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap"
+  rel="stylesheet"
+/>
 <button
+  type="button"
+  class="slide"
+  (click)="packageslist()"
+  style="margin-left: 80%"
+>
+  <div>Show more packages</div>
+  <i class="icon-arrow-right"></i>
+</button>
+
+<!-- <button
   class="btn btn-warning"
   style="margin-left: 80%"
   (click)="packageslist()"
 >
   Show more packages
-</button>
+</button> -->
 <hr />
 
 <div class="container">
@@ -211,10 +230,42 @@
   </div>
 </div>
 
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css"
+/>
+<link
+  href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap"
+  rel="stylesheet"
+/>
 <button
+  type="button"
+  class="slide"
+  (click)="categorieslist()"
+  style="margin-left: 80%"
+>
+  <div>Show more categories</div>
+  <i class="icon-arrow-right"></i>
+</button>
+
+<hr />
+<!-- <button
   class="btn btn-warning"
   (click)="categorieslist()"
   style="margin-left: 80%"
 >
   Show more categories
-</button>
+</button> -->
+<footer class="w3-center w3-black w3-padding-16">
+  <p>
+    Powered by
+    <a
+      href="https://www.w3schools.com/w3css/default.asp"
+      title="W3.CSS"
+      target="_blank"
+      class="w3-hover-text-green"
+      >MSW</a
+    >
+  </p>
+</footer>
+<div class="w3-hide-small" style="margin-bottom: 32px"> </div>

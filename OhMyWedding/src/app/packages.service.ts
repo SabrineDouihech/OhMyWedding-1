@@ -11,11 +11,11 @@ export class PackagesService {
     return this.http.get('http://localhost:3000/api/package');
   }
 
-  // addtofavorites(data: any) {
-  //   return this.http.post('http://localhost:3000/api/addtofavorites', data);
-  // }
-
   addtofavorites(data: any) {
     return this.http.post('http://localhost:3000/api/favorites', data);
   }
+
+  // getoneCar() {
+  //   return this.http.get('http://localhost:3000/api/detailscar');
+  // }
 }

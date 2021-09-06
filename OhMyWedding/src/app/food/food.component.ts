@@ -80,6 +80,7 @@ export class FoodComponent implements OnInit {
     this.detailsService.selectedItem = element;
     this.router.navigateByUrl('/details');
   }
+
   goBacktoCategories() {
     this.router.navigateByUrl('/categorieslist');
   }

@@ -38,8 +38,12 @@ const foodRouter = require("./routes/food.routes");
 const musicalBandRouter = require("./routes/mucsicalBand.routes");
 const dressingRouter = require("./routes/dressing.routes");
 
+// const categorycarRouter = require("./routes/packages.routes");
+
 app.use("/api/package", packagesRouter);
 app.use("/api/user", userRoutes);
+
+// app.use("/api/detailscar", categorycarRouter);
 
 app.use("/api/resrvation", reservationRoutes);
 app.use("/api/cars", carsRoutes);
