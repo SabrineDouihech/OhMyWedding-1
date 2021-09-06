@@ -3,11 +3,10 @@ import { Router } from '@angular/router';
 import { FoodService } from '../food.service';
 import { DetailsService } from '../details.service';
 
-
 @Component({
   selector: 'app-food',
   templateUrl: './food.component.html',
-  styleUrls: ['./food.component.css'],
+  styleUrls: ['./food.component.scss'],
 })
 export class FoodComponent implements OnInit {
   data: any = [];
@@ -17,8 +16,6 @@ export class FoodComponent implements OnInit {
   price: any;
   safefood: any;
   safeprice: any;
-
-  
 
   constructor(
     private foodService: FoodService,
@@ -88,6 +85,4 @@ export class FoodComponent implements OnInit {
   goBacktoCategories() {
     this.router.navigateByUrl('/categorieslist');
   }
-
-  
 }
