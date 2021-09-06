@@ -8,7 +8,7 @@ import { LuxuryCarsSercice } from "../cars.service";
 })
 export class AdminCarslistComponent implements OnInit {
 
-  constructor(private cs: LuxuryCarsSercice) { }
+  constructor(private luxuryCarsSercice: LuxuryCarsSercice) { }
   myData: any = [];
   Cars: any = [];
   title : any = "New Car"
@@ -22,12 +22,12 @@ export class AdminCarslistComponent implements OnInit {
   
   
   getCars() {
-    this.cs.getCars().subscribe((myData) => {
+    this.luxuryCarsSercice.getCars().subscribe((myData) => {
       this.Cars = myData
     })
   }
   insertACar(myData:any =[]) {
-    this.cs.postCars(myData).subscribe((data) => {
+    this.luxuryCarsSercice.postCars(myData).subscribe((data) => {
       alert('You Have New Car');
       this.ngOnInit();
     });
@@ -40,20 +40,20 @@ export class AdminCarslistComponent implements OnInit {
     // WE APPEND AN OBJECT WITH KEY OF img AND A VALUE OF OUR IMAGE FILE
     formData.append("img", img.target.files[0]);
     // SENDING OUR FORMDATA TO SERVICE
-    this.cs.uploadImg(formData).subscribe((resp:any) => {
+    this.luxuryCarsSercice.uploadImg(formData).subscribe((resp:any) => {
       // WE NEED TO EXTRACT THE RESPONSE IMG.URL AND ASSIGN IT TO VARIABLE TO SEND IT TO BACKEND ON FORM SUBMIT
       console.log("RESP====> ", resp["msg"].url);
       this.image = resp["msg"].url;
     });
   }
   deleteACar(id:string) {
-    this.cs.deleteCars(id).subscribe((data) => {
+    this.luxuryCarsSercice.deleteCars(id).subscribe((data) => {
       alert('done');
       this.ngOnInit();
     });
   }
   upsatecar(id:string,daty:any){
-    this.cs.uptCars(id,daty).subscribe((data) => {
+    this.luxuryCarsSercice.uptCars(id,daty).subscribe((data) => {
       alert('done');
       this.ngOnInit();
     });

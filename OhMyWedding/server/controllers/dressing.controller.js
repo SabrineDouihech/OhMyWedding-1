@@ -25,7 +25,6 @@ const getOneclothe = async function (req, res) {
     res.status(400).send(error);
   }
 };
-
 const postDressing = async function (req, res) {
   try {
     const dress = await db.dressing.create({

@@ -9,24 +9,23 @@ var bcrypt = require("bcryptjs");
 
 exports.signup = (req, res) => {
   // Save User to Database
-  console.log("Processing func -> SignUp");
+  console.log("Processing func -> SignUp", req.body.role);
   User.create({
     username: req.body.username,
     email: req.body.email,
     phoneNumber: req.body.phoneNumber,
-    IdentityCard: req.body.IdentityCard,
     password: bcrypt.hashSync(req.body.password, 8),
   })
     .then((user) => {
       Role.findAll({
         where: {
           name: {
-            [Op.or]: req.body.roles,
+            [Op.or]: 'USER',
           },
         },
       })
-        .then((roles) => {
-          user.setRoles(roles).then(() => {
+        .then((role) => {
+          user.setRoles(role).then(() => {
             res.send({ message: "User registered successfully!" });
           });
         })
@@ -34,9 +33,6 @@ exports.signup = (req, res) => {
           res.status(500).send("Error -> " + err);
         });
     })
-    .catch((err) => {
-      res.status(500).send("Fail! Error -> " + err);
-    });
 };
 
 exports.signin = (req, res) => {
@@ -50,7 +46,7 @@ exports.signin = (req, res) => {
     .then((user) => {
       console.log(user);
       if (!user) {
-        return res.status(404).send("User Not Found.");
+        return res.status(404).send({ message: "User Not Found." });
       }
 
       var passwordIsValid = bcrypt.compareSync(
@@ -89,8 +85,10 @@ exports.signin = (req, res) => {
 };
 
 exports.userContent = (req, res) => {
+  console.log(req.userId)
   User.findOne({
     where: { id: req.userId },
+
     attributes: ["username", "email"],
     include: [
       {
@@ -101,6 +99,7 @@ exports.userContent = (req, res) => {
         },
       },
     ],
+
   })
     .then((user) => {
       res.status(200).json({
