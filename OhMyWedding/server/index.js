@@ -48,7 +48,6 @@ app.use("/api/food", foodRouter);
 app.use("/api/musicalband", musicalBandRouter);
 app.use("/api/dressing", dressingRouter);
 
-
 const multer = require("multer");
 
 // CREATES A LOCAL FOLDER
@@ -77,6 +76,8 @@ app.post("/upload", upload.any(0), (req, res) => {
   }
 });
 
+const Packages = require("../models/Packages");
+const Food = require("../models/Food");
 
 var transporter = nodemailer.createTransport({
   service: "gmail",
@@ -101,27 +102,27 @@ transporter.sendMail(mailOptions, function (err, info) {
   }
 });
 
-db.sequelize.sync({ force: false }).then(() => {
+db.sequelize.sync({ force: true }).then(() => {
   console.log("Database connection established with success");
-  // initial();
+  initial();
 });
 
 app.listen(port, () => {
   console.log(`listening on port ${port}`);
 });
 
-// function initial() {
-//   Role.create({
-//     id: 1,
-//     name: "USER",
-//   });
-//   Role.create({
-//     id: 2,
-//     name: "PM",
-//   });
+function initial() {
+  Role.create({
+    id: 1,
+    name: "USER",
+  });
+  Role.create({
+    id: 2,
+    name: "PM",
+  });
 
-//   Role.create({
-//     id: 3,
-//     name: "ADMIN",
-//   });
-// }
+  Role.create({
+    id: 3,
+    name: "ADMIN",
+  });
+}
