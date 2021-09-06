@@ -49,8 +49,8 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button *ngIf="!bandAddUpdate" type="button" class="btn btn-primary" (click)="updatesateBand(band.id,{ name: name.value, image:this.image,description: description.value , price: price.value,availabledate:date.value , bandtype:bandT.value})" data-dismiss="modal">Update A Host</button>
-                <button *ngIf="bandAddUpdate"  type="button" class="btn btn-primary" (click)="insertABand({ name: name.value, image:this.image,description: description.value , price: price.value,availabledate:date.value ,bandtype:bandT.value})" data-dismiss="modal">Add A Host</button>
+                <button *ngIf="!bandAddUpdate" type="button" class="btn btn-primary" (click)="updatesateBand(band.id,{ name: name.value, image:this.image,description: description.value , price: price.value,availabledate:date.value , bandtype:bandT.value})" data-dismiss="modal">Update A Band</button>
+                <button *ngIf="bandAddUpdate"  type="button" class="btn btn-primary" (click)="insertABand({ name: name.value, image:this.image,description: description.value , price: price.value,availabledate:date.value ,bandtype:bandT.value})" data-dismiss="modal">Add A Band</button>
             </div>
         </div>
     </div>
@@ -85,7 +85,10 @@
                     <th style="width: 20%">
                         Hostes Price
                     </th>
-
+                    
+                    <th class="text-center">
+                        Hostes Available Date
+                    </th>
                     <th class="text-center">
                         Hostes States
                     </th>
@@ -121,6 +124,13 @@
                     <td>
                         <a>
                             {{band.price}}
+                        </a>
+                        <br />
+
+                    </td>
+                    <td>
+                        <a>
+                            {{band.availabledate.split('T')[0]}}
                         </a>
                         <br />
 
