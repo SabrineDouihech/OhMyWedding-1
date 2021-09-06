@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FoodService } from '../food.service';
 import { DetailsService } from '../details.service';
+
+
 @Component({
   selector: 'app-food',
   templateUrl: './food.component.html',
@@ -15,6 +17,8 @@ export class FoodComponent implements OnInit {
   price: any;
   safefood: any;
   safeprice: any;
+
+  
 
   constructor(
     private foodService: FoodService,
@@ -84,4 +88,6 @@ export class FoodComponent implements OnInit {
   goBacktoCategories() {
     this.router.navigateByUrl('/categorieslist');
   }
+
+  
 }
