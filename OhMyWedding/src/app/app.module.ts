@@ -36,6 +36,9 @@ import { DemoMaterialModule } from './material-module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
 // import { MDBBootstrapModule} from 'angular-boostrap-md';
+import { ReservationsComponent } from './reservations/reservations.component';
+import { UserComponent } from './user/user.component';
+// import { UserComponent } from './user/user.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +67,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     NavComponent,
     HostsComponent,
     DressingComponent,
+    ReservationsComponent,
+    UserComponent,
   ],
 
   imports: [

@@ -15,6 +15,7 @@ import { AdminDachComponent } from './admin-dach/admin-dach.component';
 import { SignupComponent } from './signup/signup.component';
 import { SigninComponent } from './signin/signin.component';
 import { FavoritesComponent } from './favorites/favorites.component';
+import { UserComponent } from './user/user.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -32,6 +33,7 @@ const routes: Routes = [
   { path: 'admin', component: AdminDachComponent },
   { path: 'Sign-Up', component: SignupComponent },
   { path: 'Log-in', component: SigninComponent },
+  { path: 'user', component: UserComponent },
 ];
 
 @NgModule({
