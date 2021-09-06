@@ -44,8 +44,8 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button *ngIf="!carAddUpdate" type="button" class="btn btn-primary" (click)="upsatecar(car.id,{ name: name.value, image:this.image,description: description.value , price: price.value,brand:brand.value,availabledate:date.value})">Update Car</button>
-                <button *ngIf="carAddUpdate"  type="button" class="btn btn-primary" (click)="insertACar({ name: name.value, image:this.image,description: description.value , price: price.value,brand:brand.value,availabledate:date.value})">Add Car</button>
+                <button *ngIf="!carAddUpdate" type="button" class="btn btn-primary" (click)="upsatecar(car.id,{ name: name.value, image:this.image,description: description.value , price: price.value,brand:brand.value,availabledate:date.value})"data-dismiss="modal">Update Car</button>
+                <button *ngIf="carAddUpdate"  type="button" class="btn btn-primary" (click)="insertACar({ name: name.value, image:this.image,description: description.value , price: price.value,brand:brand.value,availabledate:date.value})"data-dismiss="modal">Add Car</button>
             </div>
         </div>
     </div>
@@ -87,6 +87,9 @@
                     </th>
 
                     <th class="text-center">
+                       Available Date
+                   </th>
+                    <th class="text-center">
                         Car States
                     </th>
 
@@ -122,7 +125,7 @@
                     </td>
                     <td>
                         <a>
-                            {{car.description}}
+                            {{car.description.split('T')[0]}}
                         </a>
                         <br />
 
@@ -130,6 +133,13 @@
                     <td>
                         <a>
                             {{car.price}}
+                        </a>
+                        <br />
+
+                    </td>
+                    <td>
+                        <a>
+                            {{car.availabledate.split('T')[0]}}
                         </a>
                         <br />
 
