@@ -49,8 +49,8 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button *ngIf="!bandAddUpdate" type="button" class="btn btn-primary" (click)="updatesateBand(band.id,{ name: name.value, image:this.image,description: description.value , price: price.value,availabledate:date.value , bandtype:bandT.value})">Update A Host</button>
-                <button *ngIf="bandAddUpdate"  type="button" class="btn btn-primary" (click)="insertABand({ name: name.value, image:this.image,description: description.value , price: price.value,availabledate:date.value ,bandtype:bandT.value})">Add A Host</button>
+                <button *ngIf="!bandAddUpdate" type="button" class="btn btn-primary" (click)="updatesateBand(band.id,{ name: name.value, image:this.image,description: description.value , price: price.value,availabledate:date.value , bandtype:bandT.value})" data-dismiss="modal">Update A Host</button>
+                <button *ngIf="bandAddUpdate"  type="button" class="btn btn-primary" (click)="insertABand({ name: name.value, image:this.image,description: description.value , price: price.value,availabledate:date.value ,bandtype:bandT.value})" data-dismiss="modal">Add A Host</button>
             </div>
         </div>
     </div>

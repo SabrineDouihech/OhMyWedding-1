@@ -49,8 +49,8 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button *ngIf="!foodAddUpdate" type="button" class="btn btn-primary" (click)="upsatefood(food.id,{ name: name.value, description: description.value , image:this.image, persons:persons.value,price: price.value,foodtype:foodT.value})">Update Food</button>
-                <button *ngIf="foodAddUpdate"  type="button" class="btn btn-primary" (click)="insertAFood({ name: name.value, description: description.value , image:this.image, persons:persons.value,price: price.value,foodtype:foodT.value})">Add Food</button>
+                <button *ngIf="!foodAddUpdate" type="button" class="btn btn-primary" (click)="upsatefood(food.id,{ name: name.value, description: description.value , image:this.image, persons:persons.value,price: price.value,foodtype:foodT.value})"  data-dismiss="modal">Update Food</button>
+                <button *ngIf="foodAddUpdate"  type="button" class="btn btn-primary" (click)="insertAFood({ name: name.value, description: description.value , image:this.image, persons:persons.value,price: price.value,foodtype:foodT.value})"  data-dismiss="modal">Add Food</button>
             </div>
           
         </div>

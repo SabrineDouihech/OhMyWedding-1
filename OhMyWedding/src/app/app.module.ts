@@ -33,6 +33,8 @@ import { httpInterceptorProvider } from './auth/auth.interceptor';
 import { ReservationsComponent } from './reservations/reservations.component';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { DemoMaterialModule } from './material-module';
+import { UserComponent } from './user/user.component';
+// import { UserComponent } from './user/user.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +64,7 @@ import { DemoMaterialModule } from './material-module';
     HostsComponent,
     DressingComponent,
     ReservationsComponent,
+    UserComponent,
   ],
 
   imports: [
