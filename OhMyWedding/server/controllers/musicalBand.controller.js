@@ -37,8 +37,8 @@ const updateband = async function (req, res) {
       where: {
         id: req.params.id
       }
-    }).then((bandi) => {
-      res.status(200).send(bandi)
+    }).then((ban) => {
+      res.status(200).send({ message: "updating with success" })
     })
   } catch (error) {
     res.status(404).send(error)
@@ -58,7 +58,7 @@ const postbands = async function (req, res) {
       availabledate: req.body.availabledate,
       state: 'Not Reserved',
     })
-    res.send(200).send(bandes)
+    res.status(200).send(bandes)
   } catch (error) {
 
     res.status(404).send(error);
@@ -72,7 +72,7 @@ const deleteband = async function (req, res) {
         id: req.params.id
       }
     }).then(() => {
-      res.status(200).send("done deleting by by")
+      res.status(200).send({ message: "deleted " })
     })
   } catch (error) {
     res.status(404).send(error)

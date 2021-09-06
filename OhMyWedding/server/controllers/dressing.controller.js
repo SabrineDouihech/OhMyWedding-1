@@ -50,7 +50,7 @@ const deleteDress = async function (req, res) {
         },
       })
       .then(() => {
-        res.send("deleted perfectly");
+        res.send({ message: "deleted Dress" });
       });
   } catch (error) {
     res.status(404).send(error);

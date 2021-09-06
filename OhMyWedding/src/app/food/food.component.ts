@@ -55,16 +55,32 @@ export class FoodComponent implements OnInit {
         .match(this.foodtype.toLocaleLowerCase());
     });
   }
+
   foodPrice() {
-    this.food = this.food.filter((response: any) => {
-      return response.price === parseInt(this.price);
-    });
+    var mock = [];
+    for (var i = 0; i < this.food.length; i++) {
+      if (
+        this.food[i].price === this.price * 1 ||
+        this.food[i].price < this.price * 1
+      ) {
+        mock.push(this.food[i]);
+      }
+    }
+    this.food = mock;
+  }
+
+  searchforAFood() {
+    this.food = this.safefood;
+    if (this.price) {
+      this.foodPrice();
+    }
   }
 
   showDetails(element: any) {
     this.detailsService.selectedItem = element;
     this.router.navigateByUrl('/details');
   }
+
   goBacktoCategories() {
     this.router.navigateByUrl('/categorieslist');
   }

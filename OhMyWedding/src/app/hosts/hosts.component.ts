@@ -15,6 +15,7 @@ export class HostsComponent implements OnInit {
   price: any;
   safehosts: any = [];
   safeprice: any;
+  initialValuePrice: any;
   constructor(
     private hostsSercice: HostsSercice,
     private router: Router,
@@ -44,7 +45,10 @@ export class HostsComponent implements OnInit {
   hostPrice() {
     var mock = [];
     for (var i = 0; i < this.hosts.length; i++) {
-      if (this.hosts[i].price === this.price * 1) {
+      if (
+        this.hosts[i].price === this.price * 1 ||
+        this.hosts[i].price < this.price * 1
+      ) {
         mock.push(this.hosts[i]);
       }
     }

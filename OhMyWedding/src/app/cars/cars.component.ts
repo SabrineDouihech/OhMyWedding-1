@@ -71,10 +71,20 @@ export class CarsComponent implements OnInit {
   carPrice() {
     var mock = [];
     for (var i = 0; i < this.cars.length; i++) {
-      if (this.cars[i].price === this.price * 1) {
+      if (
+        this.cars[i].price === this.price * 1 ||
+        this.cars[i].price < this.price * 1
+      ) {
         mock.push(this.cars[i]);
       }
     }
     this.cars = mock;
+  }
+
+  searchfortheprice() {
+    this.cars = this.safecars;
+    if (this.price) {
+      this.carPrice();
+    }
   }
 }

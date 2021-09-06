@@ -8,6 +8,11 @@ require("dotenv").config();
 // const Admin = require("../models/Admin");
 const Packages = require("../models/Packages");
 const Food = require("../models/Food");
+// const Packages = require("../models/Packages");
+// const Food = require("../models/Food");
+// const Admin = require("../models/Admin");
+
+// const upload = require("./routes/uploader");
 
 const multer = require("multer");
 

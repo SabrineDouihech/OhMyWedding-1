@@ -44,14 +44,17 @@ export class InvitationCardsComponent implements OnInit {
   cardPrice() {
     var mock = [];
     for (var i = 0; i < this.cards.length; i++) {
-      if (this.cards[i].price === this.price * 1) {
+      if (
+        this.cards[i].price === this.price * 1 ||
+        this.cards[i].price < this.price * 1
+      ) {
         mock.push(this.cards[i]);
       }
     }
     this.cards = mock;
   }
 
-  searchACard() {
+  searchforACard() {
     this.cards = this.safecards;
     if (this.price) {
       this.cardPrice();
