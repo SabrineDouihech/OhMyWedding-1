@@ -10,7 +10,6 @@ import { DetailsService } from '../details.service';
 export class MusicalBandComponent implements OnInit {
   data: any = [];
   musicalBand: any = [];
-
   bandtype: string = '';
   price: any;
   safeband: any = [];

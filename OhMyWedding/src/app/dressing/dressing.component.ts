@@ -15,11 +15,7 @@ export class DressingComponent implements OnInit {
   price: any;
   safeclothes: any;
   safeprice: any;
-  constructor(
-    private dressingService: DressingService,
-    private router: Router,
-    private detailsService: DetailsService
-  ) {}
+  constructor(private dressingService: DressingService,private router: Router,private detailsService: DetailsService) {}
 
   ngOnInit(): void {
     this.getWeddingDressing();

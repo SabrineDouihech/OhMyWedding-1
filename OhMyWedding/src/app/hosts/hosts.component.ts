@@ -6,12 +6,11 @@ import { DetailsService } from '../details.service';
 @Component({
   selector: 'app-hosts',
   templateUrl: './hosts.component.html',
-  styleUrls: ['./hosts.component.css'],
+  styleUrls: ['./hosts.component.scss'],
 })
 export class HostsComponent implements OnInit {
   data: any = [];
   hosts: any = [];
-
   price: any;
   safehosts: any = [];
   safeprice: any;
@@ -41,7 +40,6 @@ export class HostsComponent implements OnInit {
   goBacktoCategories() {
     this.router.navigateByUrl('/categorieslist');
   }
-
   hostPrice() {
     var mock = [];
     for (var i = 0; i < this.hosts.length; i++) {

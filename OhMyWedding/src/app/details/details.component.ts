@@ -9,7 +9,7 @@ import { DetailsService } from '../details.service';
 export class DetailsComponent implements OnInit {
   item: any = {};
   car: any = {};
-  constructor(private detailsService: DetailsService, private router: Router) {}
+  constructor(private detailsService: DetailsService) {}
 
   ngOnInit(): void {
     this.item = this.detailsService.selectedItem;

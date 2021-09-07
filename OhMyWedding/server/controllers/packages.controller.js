@@ -1,6 +1,6 @@
+const { Op } = require("sequelize");
 var db = require("../../config/db.confing");
-var db = require("../../config/db.confing");
-var db = require("../../config/db.confing");
+const { food, musicalband, host, dressing, luxurycars, invitationcard } = require("../../config/db.confing");
 
 // const getpackagesCategoriesCar = async (req, res) => {
 //   try {
@@ -59,9 +59,28 @@ const postPackage = async function (req, res) {
   }
 };
 
+const searchCategory = async function (req, res) {
+  try {
+    const { q: query, category } = req.query;
+    const model = { food, band: musicalband, host, clothes: dressing, cars: luxurycars, invitationcard }[category]
+    if (!model) {
+      return res.status(404).send({ msg: "category does not exist" });
+    }
+    const result = await model.findAll({
+      where: {
+        [Op.substring]: query
+      }
+    })
+    res.status(200).send(result);
+  } catch (e) {
+    console.log(e)
+    res.status(404).send({ msg: "category does not exist" });
+  }
+}
+
 module.exports = {
   getPackages,
   postPackage,
-
+  searchCategory,
   getpackagesCategoriesClothes,
 };

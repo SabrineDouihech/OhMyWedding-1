@@ -1,6 +1,8 @@
 require("dotenv").config();
 const Sequelize = require("sequelize");
-
+const operatorsAliases = {
+  $like: Sequelize.Op.like,
+}
 const sequelize = new Sequelize(
   process.env.DB_DATABASE,
   process.env.DB_USER,
@@ -8,8 +10,7 @@ const sequelize = new Sequelize(
   {
     host: process.env.DB_HOST,
     dialect: process.env.DB_DIALECT,
-    operatorsAliases: false,
-
+    operatorsAliases,
     pool: {
       max: 5,
       min: 0,

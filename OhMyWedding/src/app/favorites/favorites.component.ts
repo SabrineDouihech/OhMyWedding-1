@@ -10,10 +10,7 @@ import { FavoritesService } from '../favorites.service';
 })
 export class FavoritesComponent implements OnInit {
   favourites: any = [];
-  constructor(
-    private favoritesService: FavoritesService,
-    private router: Router
-  ) {}
+  constructor(private favoritesService: FavoritesService) {}
 
   ngOnInit(): void {
     this.getAfavorite();
