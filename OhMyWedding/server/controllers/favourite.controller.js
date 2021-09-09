@@ -6,17 +6,19 @@ const {
 } = require("../../config/db.confing");
 
 const addToFavorites = async function (req, res) {
-  const { type, userId, itemId } = req.body;
+  const { type, itemId } = req.body;
+  //console.log("********userId inside addtofav*******", req.userId);
+  const userId = req.userId;
   try {
     if (
       ![
         "packages",
         "food",
-        "invitationcard",
-        "dressing",
-        "car",
+        "invitationcards",
+        "dressings",
+        "luxurycars",
         "hosts",
-        "musicalband",
+        "musicalbands",
       ].includes(type.toLowerCase())
     )
       throw new Error("INVALID TYPE");
@@ -28,6 +30,7 @@ const addToFavorites = async function (req, res) {
     if (destroyed) return res.status(204).send("unfavorited");
 
     const packages = await favorite.create({ type, UserId: userId, itemId });
+    console.log("message", packages);
     res.status(201).send(packages);
   } catch (error) {
     console.log(error);
@@ -37,7 +40,7 @@ const addToFavorites = async function (req, res) {
 
 const getFavorites = async function (req, res) {
   try {
-    const { userId: UserId } = req.params;
+    const UserId = req.userId;
     const favorites = await favorite.findAll({
       where: { UserId },
       include: User,
@@ -59,17 +62,19 @@ const getFavorites = async function (req, res) {
 };
 
 const deleteFavorites = async function (req, res) {
+  console.log(req.params.id);
   try {
-    db.favorite
-      .destroy({
-        where: { id: req.params.id },
-      })
-      .then(() => {
-        res.send("deleted favorite");
-      });
+    await favorite.destroy({
+      where: { id: req.params.id },
+    });
+    res.status(200).json("okay");
   } catch (err) {
     res.status(400).send(err);
   }
 };
 
-module.exports = { getFavorites, addToFavorites, deleteFavorites };
+module.exports = {
+  getFavorites,
+  addToFavorites,
+  deleteFavorites,
+};

@@ -30,9 +30,13 @@ import { NavComponent } from './nav/nav.component';
 import { HostsComponent } from './hosts/hosts.component';
 import { DressingComponent } from './dressing/dressing.component';
 import { httpInterceptorProvider } from './auth/auth.interceptor';
-import { ReservationsComponent } from './reservations/reservations.component';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { DemoMaterialModule } from './material-module';
+
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ReactiveFormsModule } from '@angular/forms';
+// import { MDBBootstrapModule} from 'angular-boostrap-md';
+import { ReservationsComponent } from './reservations/reservations.component';
 import { UserComponent } from './user/user.component';
 // import { UserComponent } from './user/user.component';
 
@@ -76,6 +80,10 @@ import { UserComponent } from './user/user.component';
     HttpClientModule,
     FormsModule,
     DemoMaterialModule,
+
+    NgbModule,
+    ReactiveFormsModule,
+    // MDBBootstrapModule
   ],
   providers: [
     httpInterceptorProvider,

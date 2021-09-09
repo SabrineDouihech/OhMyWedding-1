@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MusicalbandService } from '../musicalband.service';
 import { DetailsService } from '../details.service';
+import { FavoritesService } from '../favorites.service';
 @Component({
   selector: 'app-musical-band',
   templateUrl: './musical-band.component.html',
@@ -18,7 +19,8 @@ export class MusicalBandComponent implements OnInit {
   constructor(
     private musicalbandService: MusicalbandService,
     private router: Router,
-    private detailsService: DetailsService
+    private detailsService: DetailsService,
+    private favoritesService: FavoritesService
   ) {}
 
   ngOnInit(): void {
@@ -87,5 +89,14 @@ export class MusicalBandComponent implements OnInit {
     if (this.price) {
       this.musicalBandPrice();
     }
+  }
+
+  addAfavoriteBand(itemId: number) {
+    console.log('message musicalbands', itemId);
+    this.favoritesService
+      .addtofavorites({ type: 'musicalbands', itemId })
+      .subscribe((data) => {
+        console.log('getting test', data);
+      });
   }
 }

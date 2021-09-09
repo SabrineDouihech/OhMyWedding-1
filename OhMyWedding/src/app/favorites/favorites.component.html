@@ -12,12 +12,15 @@
 <div class="center">
   <div class="container">
     <div class="row">
-      <div class="col-md-4">
+      <div class="col-md-4" *ngFor="let element of favourites">
         <h4 class="text-center"><strong></strong></h4>
         <hr />
         <div class="profile-card-6">
-          <img src="        " class="img img-responsive" />
-          <div class="profile-name"><br /></div>
+          <img src="{{ element.item.image }}" class="img img-responsive" />
+          <div class="profile-name">
+            <p>{{ element.item.name }}</p>
+            <br />
+          </div>
           <div class="profile-position"></div>
           <div class="profile-overview">
             <div class="profile-overview">
@@ -27,24 +30,30 @@
                   <p></p>
                 </div>
                 <div class="col-xs-4">
-                  <h3></h3>
-                  <p></p>
+                  <h3>{{ element.item.price }}</h3>
+                  <p>Dinars</p>
                 </div>
                 <div class="col-xs-4">
-                  <h3></h3>
-                  <p></p>
+                  <h3>{{ element.item.persons }}</h3>
+
+                  <p>Person</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <button type="button" class="btn btn-warning" style="margin-left: 5%">
+        <button
+          type="button"
+          class="btn btn-warning"
+          style="margin-left: 5%"
+          (click)="deleteAfavorite(element.id)"
+        >
           Remove
-        </button>
-        <button type="button" class="btn btn-warning" style="margin-left: 5%">
-          Reserve Now
         </button>
       </div>
     </div>
   </div>
+  <button type="button" class="btn btn-warning" style="margin-left: 5%">
+    Reserve Now
+  </button>
 </div>

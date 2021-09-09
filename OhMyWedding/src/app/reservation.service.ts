@@ -8,6 +8,6 @@ export class ReservationService {
   constructor(private http: HttpClient) {}
 
   getReservation() {
-    return this.http.get('http://localhost:3000/api/resrvation');
+    return this.http.get('http://localhost:3000/api/reservation');
   }
 }

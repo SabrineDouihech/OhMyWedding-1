@@ -17,22 +17,21 @@ exports.signup = (req, res) => {
     password: bcrypt.hashSync(req.body.password, 8),
   })
     .then((user) => {
-      Role.findAll({
-        where: {
-          name: {
-            [Op.or]: 'USER',
-          },
-        },
-      })
-        .then((role) => {
-          user.setRoles(role).then(() => {
-            res.send({ message: "User registered successfully!" });
-          });
-        })
-        .catch((err) => {
-          res.status(500).send("Error -> " + err);
-        });
+      // Role.findAll({
+      //   where: {
+      //     name: {
+      //       [Op.or]: 'USER',
+      //     },
+      //   },
+      // })
+      //   .then((role) => {
+      user.setRoles("USER").then(() => {
+        res.send({ message: "User registered successfully!" });
+      });
     })
+    .catch((err) => {
+      res.status(500).send("Error -> " + err);
+    });
 };
 
 exports.signin = (req, res) => {
@@ -85,7 +84,7 @@ exports.signin = (req, res) => {
 };
 
 exports.userContent = (req, res) => {
-  console.log(req.userId)
+  console.log(req.userId);
   User.findOne({
     where: { id: req.userId },
 
@@ -99,7 +98,6 @@ exports.userContent = (req, res) => {
         },
       },
     ],
-
   })
     .then((user) => {
       res.status(200).json({
