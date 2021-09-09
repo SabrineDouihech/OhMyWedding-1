@@ -38,10 +38,10 @@ app.use("/api", require("./routes/user.routes"));
 app.use("/api/package", require("./routes/packages.routes"));
 app.use("/api/test/user", require("./routes/user.routes"));
 // app.use('/api/admin', adminRouter)
-app.use("/api", require("./routes/reservation.routes"));
-app.use("/api", require("./routes/cars.routes"));
-app.use("/api", require("./routes/hosts.routes"));
-app.use("/api", require("./routes/InvitationCard.routes"));
+app.use("/api/reservation", require("./routes/reservation.routes"));
+app.use("/api/cars", require("./routes/cars.routes"));
+app.use("/api/hosts", require("./routes/hosts.routes"));
+app.use("/api/InvitationCard", require("./routes/InvitationCard.routes"));
 app.use("/api/favorites", require("./routes/favourite.routes"));
 app.use("/api/food", require("./routes/food.routes"));
 app.use("/api/musicalband", require("./routes/mucsicalBand.routes"));

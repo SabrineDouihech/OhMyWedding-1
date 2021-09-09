@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -13,6 +13,12 @@ export class PackagesService {
 
   addtofavorites(data: any) {
     return this.http.post('http://localhost:3000/api/favorites', data);
+  }
+
+  searchByCategory(query: string, category: string) {
+    return this.http.get<any[]>(
+      `http://localhost:3000/api/package/search?q=${query}&category=${category}`
+    );
   }
 
   // getoneCar() {

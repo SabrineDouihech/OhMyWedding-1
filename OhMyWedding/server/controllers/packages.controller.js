@@ -68,7 +68,9 @@ const searchCategory = async function (req, res) {
     }
     const result = await model.findAll({
       where: {
-        [Op.substring]: query
+        name: {
+          [Op.substring]: query
+        }
       }
     })
     res.status(200).send(result);
