@@ -32,12 +32,12 @@ export class SigninComponent implements OnInit {
     };
     this.authService.attemptAuth(this.loginInfo).subscribe(
       (data: any) => {
-        console.log(data);
+        console.log('logininfo', this.loginInfo);
+        console.log('data', data);
         this.tokenStorage.saveToken(data.accessToken);
         this.tokenStorage.saveUsername(data.username);
         console.log(data.username);
         // this.tokenStorage.saveAuthorities(data.authrities);
-        console.log(data.authrities);
 
         this.isLoginFailed = false;
         this.isLoggedIn = true;

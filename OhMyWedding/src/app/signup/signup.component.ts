@@ -44,6 +44,7 @@ export class SignupComponent implements OnInit {
         console.log('error', error);
         this.errorMessage = error.error.message;
         this.isSignedUpFailed = true;
+        //this.router.navigateByUrl('/packages');
       }
     );
   }

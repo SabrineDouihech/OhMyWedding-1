@@ -1,10 +1,10 @@
-
-var db = require('../../config/db.confing');
+var db = require("../../config/db.confing");
 
 const getFood = async function (req, res) {
   try {
-    const packages = await db.food.findAll({});
-    res.status(200).send(packages);
+    const foodi = await db.food.findAll({});
+
+    res.status(200).send(foodi);
   } catch (error) {
     res.status(400).send(error);
   }
@@ -12,18 +12,19 @@ const getFood = async function (req, res) {
 
 const getOneFood = async function (req, res) {
   try {
-    db.food.findOne({
-      where: {
-        id: req.params.id
-      }
-    }).then((foodi) => {
-      res.send(foodi)
-    })
+    db.food
+      .findOne({
+        where: {
+          id: req.params.id,
+        },
+      })
+      .then((foodi) => {
+        res.send(foodi);
+      });
   } catch (error) {
-
-    res.status(404).send(error)
+    res.status(404).send(error);
   }
-}
+};
 
 const postFood = async function (req, res) {
   try {
@@ -34,49 +35,51 @@ const postFood = async function (req, res) {
       price: req.body.price,
       persons: req.body.persons,
       foodtype: req.body.foodtype,
-      state: 'Not Reserved',
-    })
+      state: "Not Reserved",
+    });
     res.status(200).send(createfoodi);
-  }
-  catch (error) {
+  } catch (error) {
     res.status(400).send(error);
   }
-}
+};
 
 const updateFood = async function (req, res) {
   try {
-    db.food.update({
-      name: req.body.name,
-      description: req.body.description,
-      image: req.body.image,
-      price: req.body.price,
-      persons: req.body.persons,
-      foodtype: req.body.foodtype,
-      state: 'Not Reserved',
-    }, {
-      where: {
-        id: req.params.id
-      }
-    }).then((fod) => {
-      res.status(200).send(fod)
-    })
+    db.food
+      .update(
+        {
+          name: req.body.name,
+          description: req.body.description,
+          image: req.body.image,
+          price: req.body.price,
+          persons: req.body.persons,
+          foodtype: req.body.foodtype,
+          state: "Not Reserved",
+        },
+        {
+          where: {
+            id: req.params.id,
+          },
+        }
+      )
+      .then((fod) => {
+        res.status(200).send(fod);
+      });
   } catch (error) {
-    res.status(404).send(error)
+    res.status(404).send(error);
   }
-}
+};
 const deletefood = async function (req, res) {
   try {
     db.food.destroy({
       where: {
-        id: req.params.id
-      }
-    })
-    res.send({ message: "deleted" })
+        id: req.params.id,
+      },
+    });
+    res.send({ message: "deleted" });
   } catch (error) {
-    res.status(404).send(error)
+    res.status(404).send(error);
   }
-}
+};
 
-
-
-module.exports = { getFood, postFood, getOneFood, updateFood, deletefood }
+module.exports = { getFood, postFood, getOneFood, updateFood, deletefood };

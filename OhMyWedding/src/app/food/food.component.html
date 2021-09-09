@@ -1,29 +1,32 @@
 <header>
   <div class="container text-center">
-    <!-- Logo -->
     <div class="logo">
       <h1><b>List of Food</b></h1>
     </div>
     <h1>What Do you want for food ?</h1>
   </div>
 </header>
+
+<button type="button" class="slide" (click)="goBacktoCategories()">
+  <i class="icon-arrow-left"></i>
+  <div>Categories</div>
+</button>
+<hr />
+
 <div class="dropi">
   <div class="dropdown">
     <div>
-      <div>
-        Your Budget:
-        <input
-          type="range"
-          id="filterBudget"
-          name="budget"
-          min="1"
-          max="4000"
-          [(ngModel)]="price"
-          (input)="searchforAFood()"
-        />
-        {{ this.price }}
-      </div>
-
+      Your Budget:
+      <input
+        type="range"
+        id="filterBudget"
+        name="budget"
+        min="1"
+        max="4000"
+        [(ngModel)]="price"
+        (input)="searchforAFood()"
+      />
+      {{ this.price }}
       <label> Food choices </label>
       <select name="foodchoices" [(ngModel)]="foodtype">
         <option value="">all</option>
@@ -42,31 +45,6 @@
       </button>
     </div>
 
-    <!-- <button
-      type="button"
-      class="btn btn-warning"
-      style="margin-left: 80%; margin-top: 0%"
-      (click)="goBacktoCategories()"
-    >
-      Go back to categories
-    </button> -->
-    <button
-      type="button"
-      class="slide"
-      (click)="goBacktoCategories()"
-      style="margin-left: 80%; margin-top: 0%"
-    >
-      <i class="icon-arrow-left"></i>
-      <div>Categories</div>
-    </button>
-    <!-- <button
-      type="button"
-      class="simple"
-      
-    >
-      Go back to categories
-    </button> -->
-
     <!-- <form action="">
       <label for="birthday">Your Wedding date</label>
       <input type="date" name="birthday" />
@@ -82,7 +60,7 @@
   <div class="center">
     <div class="container">
       <div class="row">
-        <div class="col-md-4" *ngFor="let element of food; let i = index">
+        <div class="col-md-4" *ngFor="let element of food">
           <h4 class="text-center"><strong></strong></h4>
           <hr />
           <div class="profile-card-6">
@@ -112,18 +90,14 @@
               </div>
             </div>
           </div>
-          <button type="button" class="btn btn-warning" style="margin-left: 0%">
-            Add to favorites
-          </button>
-
-          <!-- <button
+          <button
             type="button"
             class="btn btn-warning"
-            (click)="showDetails(element)"
-            style="margin-left: 12%"
+            style="margin-left: 0%"
+            (click)="addAfavoriteHost(element.id)"
           >
-            Show More
-          </button> -->
+            Add to favorites
+          </button>
         </div>
       </div>
     </div>
