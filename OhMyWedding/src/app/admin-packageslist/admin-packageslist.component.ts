@@ -10,6 +10,7 @@ import debounce from 'lodash.debounce';
 export class AdminPackageslistComponent implements OnInit {
   query = '';
   items: any[] = [];
+  selectedItemId: number = 0;
 
   categories = ['food', 'band', 'host', 'clothes', 'cars', 'invitationCard'];
   selectedCategory = 'food';
@@ -23,18 +24,20 @@ export class AdminPackageslistComponent implements OnInit {
   );
 
   constructor(private packagesService: PackagesService) {}
-  ngOnInit(): void {
-    console.log(this.filteredPackages);
-  }
+  ngOnInit(): void {}
+
   search() {
-    console.log('searching');
     this.packagesService
       .searchByCategory(this.query, this.selectedCategory)
       .subscribe((data) => (this.items = data));
   }
   debouncedSearch = debounce(this.search, 500);
 
-  update(e: any) {
-    // this.selected = e.target.value;
+  update(categoryId: number) {
+    this.packagesService
+      .updatePackage(2, this.selectedCategory, categoryId)
+      .subscribe(() => {
+        this.selectedItemId = categoryId;
+      });
   }
 }

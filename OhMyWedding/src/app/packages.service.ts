@@ -21,6 +21,13 @@ export class PackagesService {
     );
   }
 
+  updatePackage(packageId: number, categoryType: string, categoryId: number) {
+    return this.http.put(`http://localhost:3000/api/package/${packageId}`, {
+      categoryId,
+      type: categoryType,
+    });
+  }
+
   // getoneCar() {
   //   return this.http.get('http://localhost:3000/api/detailscar');
   // }

@@ -2,7 +2,7 @@ require("dotenv").config();
 const Sequelize = require("sequelize");
 const operatorsAliases = {
   $like: Sequelize.Op.like,
-}
+};
 const sequelize = new Sequelize(
   process.env.DB_DATABASE,
   process.env.DB_USER,
@@ -54,9 +54,13 @@ db.host.hasMany(db.packages);
 db.invitationcard.hasMany(db.packages);
 db.luxurycars.hasMany(db.packages);
 db.musicalband.hasMany(db.packages);
+
+db.packages.belongsTo(db.food);
+
 db.packages.hasMany(db.reservation);
+
 db.user.hasMany(db.favorite);
 db.favorite.belongsTo(db.user);
-db.user.hasMany(db.reservation)
+db.user.hasMany(db.reservation);
 
 module.exports = db;

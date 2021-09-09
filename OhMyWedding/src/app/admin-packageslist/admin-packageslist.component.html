@@ -73,7 +73,7 @@
         {{ item.description }}
       </p>
       <p>{{ item.price }}</p>
-      <input type="checkbox" />
+      <input type="checkbox" checked="{{ 3 > 5 }}" (click)="update(item.id)" />
     </div>
   </div>
 </div>
