@@ -1,38 +1,26 @@
 const { Op } = require("sequelize");
 var db = require("../../config/db.confing");
-const { food, musicalband, host, dressing, luxurycars, invitationcard } = require("../../config/db.confing");
+const { food, musicalband, host, dressing, luxurycars, invitationcard, packages } = require("../../config/db.confing");
 
-// const getpackagesCategoriesCar = async (req, res) => {
+// const getPackagesCategories = async function (req, res) {
 //   try {
-//     db.luxurycars
-//       .findOne({
-//         where: {
-//           name: "Vintage",
-//         },
-//       })
-//       .then((car) => {
-//         res.send(car);
-//       });
-//   } catch (error) {
-//     res.status(404).send(error);
-//   }
-// };
+//     const packlages = await favorite.findAll({
 
-const getpackagesCategoriesClothes = async function (req, res) {
-  try {
-    db.dressing
-      .findOne({
-        where: {
-          id: req.params.id,
-        },
-      })
-      .then((dress) => {
-        res.send(dress);
-      });
-  } catch (error) {
-    res.status(400).send(error);
-  }
-};
+//       include: food,
+//       // all the categories
+//     });
+//   }
+// }
+
+// const getpackagesDetails = async function (req, res) {
+//   try {
+//     // const { userId: UserId } = req.params;
+//     const getpackagesDetails = await .findAll({
+//       where: { packages },
+//       include: {food}
+//     });
+//   }
+// }
 
 const getPackages = async function (req, res) {
   try {
@@ -80,9 +68,23 @@ const searchCategory = async function (req, res) {
   }
 }
 
+const updatePackageWithCategory = async (req, res) => {
+  try {
+    // const { } = req.body
+    const package = await packages.findOne({ where: { id: 1 } });
+    console.log(Object.keys(package))
+    await package.setFoods({ id: 12 });
+    res.send(package);
+  }
+  catch (e) {
+    console.log(e)
+  }
+}
+
 module.exports = {
   getPackages,
   postPackage,
   searchCategory,
-  getpackagesCategoriesClothes,
+  updatePackageWithCategory
+  // getpackagesCategoriesClothes,
 };

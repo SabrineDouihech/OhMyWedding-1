@@ -1,13 +1,18 @@
 <app-nav></app-nav>
 <header>
   <div class="container text-center">
-    <!-- Logo -->
     <div class="logo">
       <h1><b>List of Cars</b></h1>
     </div>
     <h1>What is your wedding car ?</h1>
   </div>
 </header>
+
+<button type="button" class="slide" (click)="goBacktoCategories()">
+  <i class="icon-arrow-left"></i>
+  <div>Categories</div>
+</button>
+<hr />
 <div class="dropi">
   <div class="dropdown">
     <div>
@@ -42,19 +47,19 @@
       </button>
     </div>
 
-    <button
+    <!-- <button
       class="btn btn-warning"
       style="margin-left: 80%; margin-top: 0%"
       (click)="goBacktoCategories()"
     >
       Go back to categories
-    </button>
+    </button> -->
 
-    <form action="">
+    <!-- <form action="">
       <label for="birthday">Your Wedding date</label>
       <input type="date" name="birthday" />
       <input type="submit" />
-    </form>
+    </form> -->
   </div>
   <br />
 </div>
@@ -66,7 +71,11 @@
         <!-- <h4 class="text-center"><strong>STYLE 2</strong></h4> -->
         <hr />
         <div class="profile-card-6">
-          <img src="{{ element.image }}" class="img img-responsive" />
+          <img
+            src="{{ element.image }}"
+            class="img img-responsive"
+            (click)="showDetails(element)"
+          />
           <div class="profile-name">{{ element.name }} <br /></div>
           <div class="profile-position">Lorem Ipsum Donor</div>
           <div class="profile-overview">
@@ -88,16 +97,13 @@
             </div>
           </div>
         </div>
-        <button type="button" class="btn btn-warning" style="margin-left: 0%">
-          Add to favorites
-        </button>
         <button
           type="button"
           class="btn btn-warning"
-          (click)="showDetails(element)"
-          style="margin-left: 12%"
+          style="margin-left: 0%"
+          (click)="addAfavoriteCar(element.id)"
         >
-          Show More
+          Add to favorites
         </button>
       </div>
     </div>

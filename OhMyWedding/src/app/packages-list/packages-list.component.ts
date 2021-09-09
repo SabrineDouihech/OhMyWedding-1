@@ -18,7 +18,6 @@ export class PackagesListComponent implements OnInit {
 
   data: any = [];
   packages: any = [];
-  carpackage: any = [];
   price: any;
   safeprice: any;
   safepackage: any = [];
@@ -29,7 +28,7 @@ export class PackagesListComponent implements OnInit {
 
   getAPackage() {
     this.packagesService.getPackages().subscribe((data) => {
-      console.log(data);
+      console.log('data', data);
       this.packages = data;
       this.safeprice = data;
     });
@@ -59,23 +58,23 @@ export class PackagesListComponent implements OnInit {
     this.router.navigateByUrl('/categorieslist');
   }
 
-  hostPrice() {
+  packagePrice() {
     var mock = [];
+    console.log('packages', this.packages);
     for (var i = 0; i < this.packages.length; i++) {
-      if (
-        this.packages[i].price === this.price * 1 ||
-        this.packages[i].price < this.price * 1
-      ) {
+      if (this.packages[i].price <= +this.price) {
         mock.push(this.packages[i]);
       }
     }
-    this.packages = mock;
+    console.log('filetered', mock);
+    this.safeprice = mock;
   }
 
   searchforAPackage() {
-    this.packages = this.safepackage;
+    console.log('price', this.price);
+    // this.packages = this.safepackage;
     if (this.price) {
-      this.hostPrice();
+      this.packagePrice();
     }
   }
 

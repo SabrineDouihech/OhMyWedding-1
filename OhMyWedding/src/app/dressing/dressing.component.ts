@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DressingService } from '../dressing.service';
 import { DetailsService } from '../details.service';
+import { FavoritesService } from '../favorites.service';
 @Component({
   selector: 'app-dressing',
   templateUrl: './dressing.component.html',
@@ -15,7 +16,12 @@ export class DressingComponent implements OnInit {
   price: any;
   safeclothes: any;
   safeprice: any;
-  constructor(private dressingService: DressingService,private router: Router,private detailsService: DetailsService) {}
+  constructor(
+    private dressingService: DressingService,
+    private router: Router,
+    private detailsService: DetailsService,
+    private favoritesService: FavoritesService
+  ) {}
 
   ngOnInit(): void {
     this.getWeddingDressing();
@@ -82,5 +88,14 @@ export class DressingComponent implements OnInit {
     if (this.price) {
       this.clothesPrice();
     }
+  }
+
+  addAfavoriteDressing(itemId: number) {
+    // console.log('message Dressing', itemId);
+    this.favoritesService
+      .addtofavorites({ type: 'dressings', itemId })
+      .subscribe((data) => {
+        console.log('getting test', data);
+      });
   }
 }

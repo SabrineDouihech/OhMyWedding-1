@@ -10,11 +10,13 @@ import debounce from 'lodash.debounce';
 export class AdminPackageslistComponent implements OnInit {
   query = '';
   items: any[] = [];
+
   categories = ['food', 'band', 'host', 'clothes', 'cars', 'invitationCard'];
   selectedCategory = 'food';
+
   isChecked: boolean = false;
+
   packageQuery: string = '';
-  selected: string = '----';
   packages: string[] = ['7out', 'mo9li', 'felfel 7ar'];
   filteredPackages: string[] = this.packages.filter((pack) =>
     pack.includes(this.packageQuery)
@@ -33,6 +35,6 @@ export class AdminPackageslistComponent implements OnInit {
   debouncedSearch = debounce(this.search, 500);
 
   update(e: any) {
-    this.selected = e.target.value;
+    // this.selected = e.target.value;
   }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { InvitationCardsService } from '../invitationcard.service';
 import { DetailsService } from '../details.service';
+import { FavoritesService } from '../favorites.service';
 
 @Component({
   selector: 'app-invitation-cards',
@@ -18,7 +19,8 @@ export class InvitationCardsComponent implements OnInit {
   constructor(
     private invitationcardsService: InvitationCardsService,
     private router: Router,
-    private detailsService: DetailsService
+    private detailsService: DetailsService,
+    private favoritesService: FavoritesService
   ) {}
 
   ngOnInit(): void {
@@ -59,5 +61,14 @@ export class InvitationCardsComponent implements OnInit {
     if (this.price) {
       this.cardPrice();
     }
+  }
+
+  addAfavoriteCards(itemId: number) {
+    console.log('message cards', itemId);
+    this.favoritesService
+      .addtofavorites({ type: 'invitationcards', itemId })
+      .subscribe((data) => {
+        console.log('getting test', data);
+      });
   }
 }

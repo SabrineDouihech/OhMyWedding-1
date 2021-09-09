@@ -9,29 +9,31 @@ import { FavoritesService } from '../favorites.service';
   styleUrls: ['./favorites.component.css'],
 })
 export class FavoritesComponent implements OnInit {
-  favourites: any = [];
-  constructor(private favoritesService: FavoritesService) {}
+  favourites: any[] = [];
+  constructor(
+    private favoritesService: FavoritesService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.getAfavorite();
   }
 
   getAfavorite() {
-    this.favoritesService.getFavorites(1).subscribe((data) => {
+    this.favoritesService.getFavorites().subscribe((data) => {
       this.favourites = data;
     });
   }
 
-  addAFavorite(type: string, userId: number, itemId: number) {
+  addAFavorite(type: string, itemId: number) {
     this.favoritesService
-      .addtofavorites({ type, userId, itemId })
-      .subscribe((data) => {
-        console.log(data);
-      });
+      .addtofavorites({ type, itemId })
+      .subscribe((data) => {});
   }
+
   deleteAfavorite(id: number) {
     this.favoritesService.deleteAFavorite(id).subscribe((data) => {
-      this.ngOnInit();
+      this.favourites = this.favourites.filter((fav) => fav.id !== id);
     });
   }
 }

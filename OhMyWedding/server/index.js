@@ -1,6 +1,5 @@
 const express = require("express");
 const db = require("../config/db.confing");
-const bodyParser = require("body-parser");
 const cors = require("cors");
 const nodemailer = require("nodemailer");
 require("dotenv").config();
@@ -22,7 +21,7 @@ const app = express();
 const port = 3000;
 // const upload = require("./routes/uploader");
 
-app.use(bodyParser.json({ limit: "50mb" }));
+app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ extended: true, limit: "50mb" }));
 app.use(cors("*"));
 app.use(function (req, res, next) {
@@ -34,14 +33,14 @@ app.use(function (req, res, next) {
   next();
 });
 
-app.use("/api", require("./routes/user.routes"));
+app.use("/api/dressing", require("./routes/dressing.routes"));
+app.use("/api/user", require("./routes/user.routes"));
 app.use("/api/package", require("./routes/packages.routes"));
-app.use("/api/test/user", require("./routes/user.routes"));
 // app.use('/api/admin', adminRouter)
 app.use("/api/reservation", require("./routes/reservation.routes"));
 app.use("/api/cars", require("./routes/cars.routes"));
 app.use("/api/hosts", require("./routes/hosts.routes"));
-app.use("/api/InvitationCard", require("./routes/InvitationCard.routes"));
+app.use("/api/invitationcards", require("./routes/InvitationCard.routes"));
 app.use("/api/favorites", require("./routes/favourite.routes"));
 app.use("/api/food", require("./routes/food.routes"));
 app.use("/api/musicalband", require("./routes/mucsicalBand.routes"));
@@ -102,4 +101,3 @@ db.sequelize.sync().then(() => {
 app.listen(port, () => {
   console.log(`listening on port ${port}`);
 });
-

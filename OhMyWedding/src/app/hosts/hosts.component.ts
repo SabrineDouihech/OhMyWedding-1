@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HostsSercice } from '../hosts.service';
 import { DetailsService } from '../details.service';
+import { FavoritesService } from '../favorites.service';
 
 @Component({
   selector: 'app-hosts',
@@ -14,11 +15,14 @@ export class HostsComponent implements OnInit {
   price: any;
   safehosts: any = [];
   safeprice: any;
-  initialValuePrice: any;
+
+  itemId: any;
+  type: any;
   constructor(
     private hostsSercice: HostsSercice,
     private router: Router,
-    private detailsService: DetailsService
+    private detailsService: DetailsService,
+    private favoritesService: FavoritesService
   ) {}
 
   ngOnInit(): void {
@@ -58,5 +62,14 @@ export class HostsComponent implements OnInit {
     if (this.price) {
       this.hostPrice();
     }
+  }
+
+  addAfavoriteHost(itemId: number) {
+    console.log('message Host', itemId);
+    this.favoritesService
+      .addtofavorites({ type: 'hosts', itemId })
+      .subscribe((data) => {
+        console.log('getting test', data);
+      });
   }
 }
