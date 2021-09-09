@@ -37,6 +37,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 // import { MDBBootstrapModule} from 'angular-boostrap-md';
 import { ReservationsComponent } from './reservations/reservations.component';
 import { UserComponent } from './user/user.component';
+import { AdminListOfPackagesComponent } from './admin-list-of-packages/admin-list-of-packages.component';
 // import { UserComponent } from './user/user.component';
 
 @NgModule({
@@ -68,6 +69,7 @@ import { UserComponent } from './user/user.component';
     DressingComponent,
     ReservationsComponent,
     UserComponent,
+    AdminListOfPackagesComponent,
   ],
 
   imports: [

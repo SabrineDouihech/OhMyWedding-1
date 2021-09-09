@@ -14,10 +14,22 @@ export class AdminDachComponent implements OnInit {
   place: any = false
   car: any = false
   reservation: any = false
+  listofPack: any = false
+
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+  lp() {
+    this.food = false
+    this.invitation = false
+    this.packages = false
+    this.music = false
+    this.clothes = false
+    this.place = false
+    this.car = false
+    this.reservation = true
   }
   f() {
     this.food = true
