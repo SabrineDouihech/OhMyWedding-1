@@ -8,6 +8,7 @@ router.get("/", packagesController.getPackages);
 router.post("/", packagesController.postPackage);
 router.put("/:id", verifyToken, packagesController.updatePackageWithCategory);
 router.get("/search", packagesController.searchCategory);
+router.delete("/:id", packagesController.deletePackage)
 // router.post("/addtofavorites", packagesController.addToFavorites);
 
 module.exports = router;

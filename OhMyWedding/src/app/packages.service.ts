@@ -10,9 +10,15 @@ export class PackagesService {
   getPackages() {
     return this.http.get('http://localhost:3000/api/package');
   }
+  postPackages(data: any) {
+    return this.http.post('http://localhost:3000/api/package', data);
+  }
 
   addtofavorites(data: any) {
-    return this.http.post('http://localhost:3000/api/favorites', data);
+    return this.http.post('http://localhost:3000/api/package', data);
+  }
+  uploadImg(img: any) {
+    return this.http.post('http://localhost:3000/upload', img);
   }
 
   searchByCategory(query: string, category: string) {
@@ -27,8 +33,7 @@ export class PackagesService {
       type: categoryType,
     });
   }
-
-  // getoneCar() {
-  //   return this.http.get('http://localhost:3000/api/detailscar');
-  // }
+  deleteAPackage(id: string) {
+    return this.http.delete(`http://localhost:3000/api/package/${id}`);
+  }
 }

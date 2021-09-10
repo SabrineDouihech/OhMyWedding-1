@@ -403,7 +403,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/forms/advanced.html" class="nav-link">
+                <a class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p (click)="lp()">Advanced Elements</p>
                 </a>
@@ -860,17 +860,17 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <app-admin-foodlist *ngIf="food"></app-admin-foodlist>
+      <app-admin-foodlist *ngIf="food"></app-admin-foodlist>
     <app-admin-invita-iioncardslist
-      *ngIf="invitation"
+    *ngIf="invitation"
     ></app-admin-invita-iioncardslist>
     <app-admin-carslist *ngIf="car"></app-admin-carslist>
     <app-admin-musicalbandlist *ngIf="music"></app-admin-musicalbandlist>
     <app-admin-packageslist *ngIf="packages"></app-admin-packageslist>
+    <app-admin-list-of-packages *ngIf="listofPack"></app-admin-list-of-packages>
     <app-admin-reservation *ngIf="reservation"></app-admin-reservation>
     <app-admin-wedding-setting *ngIf="place"></app-admin-wedding-setting>
     <app-admin-weddingclothes *ngIf="clothes"></app-admin-weddingclothes>
-    <app-admin-list-of-packages *ngIf="listofPack"></app-admin-list-of-packages>
     <!-- Content Header (Page header) -->
     <!-- <div class="content-header">
             <div class="container-fluid">

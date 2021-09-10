@@ -19,17 +19,6 @@ export class AdminDachComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
-  lp() {
-    this.food = false;
-    this.invitation = false;
-    this.packages = false;
-    this.music = false;
-    this.clothes = false;
-    this.place = false;
-    this.car = false;
-    this.reservation = false;
-    this.listofPack = true;
-  }
   f() {
     this.food = true;
     this.invitation = false;
@@ -39,6 +28,7 @@ export class AdminDachComponent implements OnInit {
     this.place = false;
     this.car = false;
     this.reservation = false;
+    this.listofPack = false;
   }
   i() {
     this.food = false;
@@ -49,6 +39,7 @@ export class AdminDachComponent implements OnInit {
     this.place = false;
     this.car = false;
     this.reservation = false;
+    this.listofPack = false;
   }
   p() {
     this.food = false;
@@ -59,6 +50,7 @@ export class AdminDachComponent implements OnInit {
     this.place = false;
     this.car = false;
     this.reservation = false;
+    this.listofPack = false;
   }
   m() {
     this.food = false;
@@ -69,6 +61,7 @@ export class AdminDachComponent implements OnInit {
     this.place = false;
     this.car = false;
     this.reservation = false;
+    this.listofPack = false;
   }
   c() {
     this.food = false;
@@ -79,6 +72,7 @@ export class AdminDachComponent implements OnInit {
     this.place = false;
     this.car = false;
     this.reservation = false;
+    this.listofPack = false;
   }
   pl() {
     this.food = false;
@@ -89,6 +83,7 @@ export class AdminDachComponent implements OnInit {
     this.place = true;
     this.car = false;
     this.reservation = false;
+    this.listofPack = false;
   }
   ca() {
     this.food = false;
@@ -99,6 +94,7 @@ export class AdminDachComponent implements OnInit {
     this.place = false;
     this.car = true;
     this.reservation = false;
+    this.listofPack = false;
   }
   r() {
     this.food = false;
@@ -109,5 +105,17 @@ export class AdminDachComponent implements OnInit {
     this.place = false;
     this.car = false;
     this.reservation = true;
+    this.listofPack = false;
+  }
+  lp() {
+    this.food = false;
+    this.invitation = false;
+    this.packages = false;
+    this.music = false;
+    this.clothes = false;
+    this.place = false;
+    this.car = false;
+    this.reservation = false;
+    this.listofPack = true;
   }
 }
