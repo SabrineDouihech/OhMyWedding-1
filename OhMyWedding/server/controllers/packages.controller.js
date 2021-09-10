@@ -49,6 +49,12 @@ const postPackage = async function (req, res) {
       price: req.body.price,
       availabledate: req.body.availabledate,
       persons: req.body.persons,
+      FoodId: req.body.foodId,
+      DressingId: req.body.dressingId,
+      HostId: req.body.hostId,
+      InvitationCardId: req.body.invId,
+      LuxuryCarId: req.body.carId,
+      usicalBandId: req.body.bandId,
       state: "Not Reserved"
     });
     res.status(200).send(package);
