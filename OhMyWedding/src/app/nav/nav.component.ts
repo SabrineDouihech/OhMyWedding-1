@@ -8,25 +8,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./nav.component.scss'],
 })
 export class NavComponent implements OnInit {
-  private roles: any = [];
-  authority: string = '';
   constructor(
     private tokenStorage: TokenStorageService,
     private router: Router
   ) {}
   // user: any;
   ngOnInit(): void {
-    if (this.tokenStorage.getToken()) {
-      this.roles = this.tokenStorage.getAuthorities();
-      this.roles.every((role: string) => {
-        if (role === 'ROLE_ADMIN') {
-          this.authority = 'admin';
-          return false;
-        }
-        this.authority = 'user';
-        return true;
-      });
-    }
     // this.user = this.us.user;
     // console.log(this.user, this.us.user);
   }

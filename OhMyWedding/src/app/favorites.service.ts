@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class FavoritesService {
+  myFav: any;
   constructor(private http: HttpClient) {}
 
   getFavorites() {

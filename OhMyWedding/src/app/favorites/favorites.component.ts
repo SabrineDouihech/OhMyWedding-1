@@ -10,6 +10,8 @@ import { FavoritesService } from '../favorites.service';
 })
 export class FavoritesComponent implements OnInit {
   favourites: any[] = [];
+  myFav: any = {};
+
   constructor(
     private favoritesService: FavoritesService,
     private router: Router
@@ -17,6 +19,7 @@ export class FavoritesComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAfavorite();
+    this.myFav = this.favoritesService.myFav;
   }
 
   getAfavorite() {
@@ -35,5 +38,14 @@ export class FavoritesComponent implements OnInit {
     this.favoritesService.deleteAFavorite(id).subscribe((data) => {
       this.favourites = this.favourites.filter((fav) => fav.id !== id);
     });
+  }
+
+  // passFav() {
+  //   this.favourites = this.myFav;
+  // }
+
+  reserveNow() {
+    this.favoritesService.myFav = this.favourites;
+    this.router.navigateByUrl('/confirm');
   }
 }

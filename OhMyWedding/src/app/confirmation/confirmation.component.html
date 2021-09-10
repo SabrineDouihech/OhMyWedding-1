@@ -1,97 +1,76 @@
-<div class="col-md-4">
-  <h4 class="text-center"><strong>food</strong></h4>
-  <hr />
-  <div class="profile-card-6">
-    <img
-      src="https://images.pexels.com/photos/3776939/pexels-photo-3776939.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-      class="img img-responsive"
-    />
-
-    <div class="profile-name">FOOD<br /></div>
-    <div class="profile-position">Lorem Ipsum Donor</div>
-    <div class="profile-overview">
-      <div class="profile-overview">
-        <div class="row text-center">
-          <div class="col-xs-4"></div>
-          <div class="col-xs-4"></div>
-          <div class="col-xs-4"></div>
-          <div>
-            <label>price</label>
-            <h2>3000</h2>
+<div class="center">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4" *ngFor="let element of favorites">
+        <h4 class="text-center"><strong></strong></h4>
+        <hr />
+        <div class="profile-card-6">
+          <img src="{{ element?.item.image }}" class="img img-responsive" />
+          <div class="profile-name">
+            <p>{{ element?.item.name }}</p>
+            <br />
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div></div>
-<div>
-  <div class="col-md-4">
-    <h4 class="text-center"><strong>food</strong></h4>
-    <hr />
-    <div class="profile-card-6">
-      <img
-        src="https://images.pexels.com/photos/3776939/pexels-photo-3776939.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-        class="img img-responsive"
-      />
+          <div class="profile-position"></div>
+          <div class="profile-overview">
+            <div class="profile-overview">
+              <div class="row text-center">
+                <div class="col-xs-4">
+                  <h3></h3>
+                  <p></p>
+                </div>
+                <div class="col-xs-4">
+                  <h3>{{ element?.item.price }}</h3>
+                  <p>Dinars</p>
+                </div>
+                <div class="col-xs-4">
+                  <h3>{{ element?.persons }}</h3>
 
-      <div class="profile-name">FOOD<br /></div>
-      <div class="profile-position">Lorem Ipsum Donor</div>
-      <div class="profile-overview">
-        <div class="profile-overview">
-          <div class="row text-center">
-            <div class="col-xs-4"></div>
-            <div class="col-xs-4"></div>
-            <div class="col-xs-4"></div>
-            <div>
-              <label>price</label>
-              <h2>3000</h2>
+                  <p>Person</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div></div>
-  <div>
-    <br />
-    <div class="reserve">
-      <h1>Here Your Reservation</h1>
-      <!-- <br /> -->
-      <div>
-        <label>total</label>
-        <h3>{{ total }}</h3>
-      </div>
-      <!-- <br /> -->
-      <div>
-        <label>aarboun</label>
-        <h4>{{ aarboun }}</h4>
-      </div>
-      <div>
-        <select [(ngModel)]="selectedValue" name="selectedValue">
-          <option>10%</option>
-          <option>20%</option>
-          <option>30%</option>
-          <option>40%</option>
-          <option>50%</option>
-          <option>60%</option>
-          <option>70%</option>
-          <option>80%</option>
-          <option>90%</option>
-          <option>100%</option>
-        </select>
-      </div>
-      <!-- <br /> -->
+</div>
 
-      <!-- <br /> -->
-      <div>
-        <label>rest:</label>
-        <p>{{ rest }}</p>
-      </div>
-      <!-- <br /> -->
-      <div>
-        <button type="button" (click)="PaimentCalculate()">Booking</button>
-      </div>
-    </div>
+<div class="reserve">
+  <h1>Here Your Reservation</h1>
+  <!-- <br /> -->
+  <div>
+    <label>total</label>
+    <h3></h3>
+  </div>
+  <!-- <br /> -->
+  <div>
+    <label>aarboun</label>
+    <h4></h4>
+  </div>
+  <div>
+    <select [(ngModel)]="selectedValue" name="selectedValue">
+      <option>10%</option>
+      <option>20%</option>
+      <option>30%</option>
+      <option>40%</option>
+      <option>50%</option>
+      <option>60%</option>
+      <option>70%</option>
+      <option>80%</option>
+      <option>90%</option>
+      <option>100%</option>
+    </select>
+  </div>
+  <!-- <br /> -->
+
+  <!-- <br /> -->
+  <div>
+    <label>rest:</label>
+    <p></p>
+  </div>
+  <!-- <br /> -->
+  <div>
+    <button type="button">Booking</button>
   </div>
 </div>
