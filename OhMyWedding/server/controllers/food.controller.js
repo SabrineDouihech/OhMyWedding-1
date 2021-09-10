@@ -1,11 +1,14 @@
 
 var db = require('../../config/db.confing');
 
-const getFood = async function (req, res) {
+const getFood = async (req, res) => {
+  console.log('hello');
+  // console.log(req.body);
   try {
-    const packages = await db.food.findAll({});
+    const packages = await db.food.findAll();
     res.status(200).send(packages);
-  } catch (error) {
+  }
+  catch (error) {
     res.status(400).send(error);
   }
 };

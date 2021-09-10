@@ -30,11 +30,11 @@ import { NavComponent } from './nav/nav.component';
 import { HostsComponent } from './hosts/hosts.component';
 import { DressingComponent } from './dressing/dressing.component';
 import { httpInterceptorProvider } from './auth/auth.interceptor';
-import { ReservationsComponent } from './reservations/reservations.component';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { DemoMaterialModule } from './material-module';
 import { UserComponent } from './user/user.component';
-// import { UserComponent } from './user/user.component';
+import { ConfirmationComponent } from './confirmation/confirmation.component';
+import { UserinfoComponent } from './userinfo/userinfo.component';
 
 @NgModule({
   declarations: [
@@ -63,8 +63,9 @@ import { UserComponent } from './user/user.component';
     NavComponent,
     HostsComponent,
     DressingComponent,
-    ReservationsComponent,
     UserComponent,
+    ConfirmationComponent,
+    UserinfoComponent,
   ],
 
   imports: [

@@ -45,6 +45,7 @@ app.use("/api", require("./routes/InvitationCard.routes"));
 app.use("/api/favorites", require("./routes/favourite.routes"));
 app.use("/api/food", require("./routes/food.routes"));
 app.use("/api/musicalband", require("./routes/mucsicalBand.routes"));
+app.use("/api", require("./routes/confirmation.routes"))
 
 // CREATES A LOCAL FOLDER
 const upload = multer({ dest: "uploads" });
@@ -99,7 +100,21 @@ db.sequelize.sync().then(() => {
   console.log("Database connection established with success");
 });
 
+
 app.listen(port, () => {
   console.log(`listening on port ${port}`);
 });
 
+
+// function initial() {
+//   Role.create({
+//     name: "USER"
+//   });
+//   Role.create({
+//     name: "PM"
+//   });
+
+//   Role.create({
+//     name: "ADMIN",
+//   });
+// }

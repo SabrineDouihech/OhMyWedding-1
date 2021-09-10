@@ -3,7 +3,7 @@ const User = db.user;
 
 checkDuplicateUserNameOrEmail = (req, res, next) => {
   // -> Check Username is already in use
-  console.log("herre");
+  console.log(req.body);
   User.findOne({
     where: {
       username: req.body.username,
@@ -32,9 +32,9 @@ checkDuplicateUserNameOrEmail = (req, res, next) => {
 
 checkRolesExisted = (req, res, next) => {
   var ROLEs = ["USER", "ADMIN", "PM"];
-  for (let i = 0; i < req.body.role.length; i++) {
-    if (!ROLEs.includes(req.body.role[i].toUpperCase())) {
-      res.status(400).send("Fail -> Does NOT exist Role = " + req.body.role[i]);
+  for (let i = 0; i < req.body.roles.length; i++) {
+    if (!ROLEs.includes(req.body.roles[i].toUpperCase())) {
+      res.status(400).send("Fail -> Does NOT exist Role = " + req.body.roles[i]);
 
       return;
     }
