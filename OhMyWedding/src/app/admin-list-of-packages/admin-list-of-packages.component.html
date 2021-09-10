@@ -83,6 +83,44 @@
             >
             <input type="date" class="form-control" id="recipient-name" #date />
           </div>
+          <select #foodSelect name="food">
+            <option *ngFor="let food of foods" selected [value]="food.id">
+              {{ food.name }}
+            </option>
+          </select>
+          <select #carSelect name="car">
+            <option *ngFor="let car of cars" selected [value]="car.id">
+              {{ car.name }}
+            </option>
+          </select>
+          <select #dressSelect name="dress">
+            <option *ngFor="let dress of dresses" selected [value]="dress.id">
+              {{ dress.name }}
+            </option>
+          </select>
+          <select #SelectHots name="host">
+            <option *ngFor="let host of hosts" selected [value]="host.id">
+              {{ host.name }}
+            </option>
+          </select>
+          <select #SelectInvi name="invi">
+            <option
+              *ngFor="let invi of invitationcards"
+              selected
+              [value]="invi.id"
+            >
+              {{ invi.name }}
+            </option>
+          </select>
+          <select #SelectMusic name="music">
+            <option
+              *ngFor="let music of musicBands"
+              selected
+              [value]="music.id"
+            >
+              {{ music.name }}
+            </option>
+          </select>
         </form>
       </div>
       <div class="modal-footer">
@@ -98,7 +136,13 @@
               image: this.image,
               description: description.value,
               price: price.value,
-              availabledate: date.value
+              availabledate: date.value,
+              foodId: foodSelect.value,
+              carId: carSelect.value,
+              dressId: dressSelect.value,
+              hostId: SelectHots.value,
+              inviId: SelectInvi.value,
+              bandId: SelectInvi.value
             })
           "
           data-dismiss="modal"
