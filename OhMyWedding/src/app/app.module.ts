@@ -38,6 +38,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { UserComponent } from './user/user.component';
 import { ConfirmationComponent } from './confirmation/confirmation.component';
 import { UserinfoComponent } from './userinfo/userinfo.component';
+import { AdminListOfPackagesComponent } from './admin-list-of-packages/admin-list-of-packages.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +70,7 @@ import { UserinfoComponent } from './userinfo/userinfo.component';
     UserComponent,
     ConfirmationComponent,
     UserinfoComponent,
+    AdminListOfPackagesComponent,
   ],
 
   imports: [
@@ -80,10 +82,9 @@ import { UserinfoComponent } from './userinfo/userinfo.component';
     HttpClientModule,
     FormsModule,
     DemoMaterialModule,
-
     NgbModule,
     ReactiveFormsModule,
-    // MDBBootstrapModule
+    // MDBBootstrapModule,
   ],
   providers: [
     httpInterceptorProvider,

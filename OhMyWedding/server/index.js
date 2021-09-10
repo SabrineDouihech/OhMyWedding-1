@@ -95,7 +95,7 @@ cloudinary.config({
 //   }
 // });
 
-db.sequelize.sync().then(() => {
+db.sequelize.sync({ force: 0 }).then(() => {
   console.log("Database connection established with success");
 });
 

@@ -1,159 +1,79 @@
-<!-- <button type="button" class="btn btn-primary" (click)="openAdd()" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Add
-    Hostes</button>
+<!-- <label for="categories">Choose a Categories:</label>
 
-
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">{{title}}</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+<select name="categories"  [(ngModel)]="selectedCategory">
+  <option *ngFor="let cat of categories"  >{{cat}}</option>
+</select>
+<form style="margin:auto;max-width:300px">
+  <input type="text" placeholder="Search" name="query" [(ngModel)]="query" (ngModelChange)="debouncedSearch()">
+  <button type="submit" ><i class="fa fa-search"></i></button>
+</form> -->
+<div class="gridi">
+  <input type="text" name="city" list="cityname" [(ngModel)]="packageQuery" />
+  <datalist id="cityname">
+    <option *ngFor="let pack of filteredPackages" [value]="pack">
+      {{ pack }}
+    </option>
+  </datalist>
+  <div class="container-fluid">
+    <h2 class="text-center display-4">Enhanced Search</h2>
+    <form action="enhanced-results.html">
+      <div class="row">
+        <div class="col-md-10 offset-md-1">
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group">
+                <select
+                  class="form-select"
+                  aria-label="Default select example"
+                  name="categories"
+                  [(ngModel)]="selectedCategory"
+                >
+                  <option *ngFor="let cat of categories" selected>
+                    {{ cat }}
+                  </option>
+                </select>
+              </div>
             </div>
-            <div class="modal-body">
-                <form>
-                    <div class="form-group">
-                        <label for="recipient-name"  class="col-form-label">Name:</label>
-                        <input type="text" value={{host?.name}} class="form-control" id="recipient-name" #name >
-                    </div>
-                    <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">image:</label>
-                        <img *ngIf="image" src={{image}} style="width:50px;height: 50px;">
-                        <input type="file"  class="form-control" id="recipient-name" (change)="imgUpload($event)" >
-                    </div>
-                    <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">Persons:</label>
-                        <input type="number" value={{host?.brand}} class="form-control" id="recipient-name"#persons>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="message-text" class="col-form-label"> Description:</label>
-                        <textarea class="form-control" value={{host?.description}} id="message-text" #description></textarea>
-                    </div>
-s
-                    <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">Price:</label>
-                        <input type="number" value={{host?.price}} class="form-control" id="recipient-name" #price>
-                    </div>
-                    <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">Available Date:</label>
-                        <input type="date" class="form-control" id="recipient-name" #date>
-                    </div>
-                </form>
+            <div class="col-3">
+              <!-- Search form -->
+              <input
+                class="form-control"
+                type="text"
+                placeholder="Search Fot Items"
+                aria-label="Search"
+                name="query"
+                [(ngModel)]="query"
+                (ngModelChange)="debouncedSearch()"
+              />
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button *ngIf="!hostAddUpdate" type="button" class="btn btn-primary" (click)="upsateHost(host.id,{ name: name.value, image:this.image,description: description.value , price: price.value,persons:persons.value,availabledate:date.value})">Update A Host</button>
-                <button *ngIf="hostAddUpdate"  type="button" class="btn btn-primary" (click)="insertAHost({ name: name.value, image:this.image,description: description.value , price: price.value,persons:persons.value,availabledate:date.value})">Add A Host</button>
-            </div>
+          </div>
         </div>
-    </div>
+      </div>
+    </form>
+  </div>
 </div>
-<div class="card">
-    <div class="card-header">
-        <h3 class="card-title">Hosts</h3>
-
-        <div class="card-tools">
-            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                <i class="fas fa-minus"></i>
-            </button>
-            <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
+<!-- [ngClass]="{
+    'btn-check': isChecked,
+    '': !isChecked
+ }" [(ngModel)]="isChecked" -->
+<div class="contcard">
+  <div
+    class="card"
+    style="width: 18rem; display: grid"
+    *ngFor="let item of items"
+  >
+    <img
+      src="https://www.imagejournal.org/wp-content/uploads/2015/03/5367076891_da41235a47_b-300x200.jpg"
+      class="card-img-top"
+      alt="..."
+    />
+    <div class="card-body">
+      <h5 class="card-title">{{ item.name }}</h5>
+      <p class="card-text">
+        {{ item.description }}
+      </p>
+      <p>{{ item.price }}</p>
+      <input type="checkbox" checked="{{ 3 > 5 }}" (click)="update(item.id)" />
     </div>
-    <div class="card-body p-0">
-        <table class="table projects">
-            <thead>
-                <tr>
-                    <th style="width: 20%">
-                        Hostes Name
-                    </th>
-                    <th style="width: 20%">
-                        Hostes Image
-                    </th>
-                    <th style="width: 20%">
-                        Hostes Persons
-                    </th>
-                    <th style="width: 20%">
-                        Hostes Description
-                    </th>
-                    <th style="width: 20%">
-                        Hostes Price
-                    </th>
-
-                    <th class="text-center">
-                        Hostes States
-                    </th>
-
-                </tr>
-            </thead>
-            <tbody>
-
-                <tr *ngFor="let hos of Hostes">
-                  
-                    <td>
-                        <a>
-                            {{hos.name}}
-                        </a>
-                        <br />
-
-                    </td>
-                    <td>
-                        <ul class="list-inline">
-                            <li class="list-inline-item">
-                                <img style="width: 80%" src="{{hos.image}}">
-                            </li>
-
-                        </ul>
-                    </td>
-                    <td>
-                        <a>
-                            {{hos.persons}}
-                        </a>
-                        <br />
-
-                    </td>
-                    <td>
-                        <a>
-                            {{hos.description}}
-                        </a>
-                        <br />
-
-                    </td>
-                    <td>
-                        <a>
-                            {{hos.price}}
-                        </a>
-                        <br />
-
-                    </td>
-
-
-                    <td class="project-state">
-                        <span class="badge badge-success">{{hos.state}}</span>
-                    </td>
-                    <td class="project-actions text-right">
-                        <button type="button" (click)="openUpdate(hos)" class="btn btn-primary" data-toggle="modal" aria-label="Close" data-target="#exampleModal" data-whatever="@mdo">
-                            <i class="fas fa-pencil-alt" ></i>
-                             edit
-                            </button>
-                    </td>
-
-                    <td>
-                        <a class="btn btn-danger btn-sm"  (click)="deleteAHost(hos.id)">
-                            <i class="fas fa-pencil-alt">s
-                            </i>
-                            Delete
-                        </a>
-
-
-                    </td>
-                </tr>
-
-            </tbody>
-        </table>
-    </div>
-</div> -->
+  </div>
+</div>
