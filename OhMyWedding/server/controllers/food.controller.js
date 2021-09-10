@@ -37,6 +37,7 @@ const postFood = async function (req, res) {
       price: req.body.price,
       persons: req.body.persons,
       foodtype: req.body.foodtype,
+      availabledate: req.body.availabledate,
       state: "Not Reserved",
     });
     res.status(200).send(createfoodi);
@@ -56,6 +57,7 @@ const updateFood = async function (req, res) {
           price: req.body.price,
           persons: req.body.persons,
           foodtype: req.body.foodtype,
+          availabledate: req.body.availabledate,
           state: "Not Reserved",
         },
         {

@@ -49,12 +49,29 @@ const postPackage = async function (req, res) {
       price: req.body.price,
       availabledate: req.body.availabledate,
       persons: req.body.persons,
+      state: "Not Reserved"
     });
     res.status(200).send(package);
   } catch (error) {
     res.send(404).send(error);
   }
 };
+const deletePackage = async (req, res) => {
+  try {
+    db.packages.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(() => {
+      res.send({ message: "deleted with success" })
+    })
+
+  } catch (error) {
+    res.status(404).send(error);
+  }
+}
+
+
 
 const searchCategory = async function (req, res) {
   try {
@@ -113,5 +130,6 @@ module.exports = {
   postPackage,
   searchCategory,
   updatePackageWithCategory,
+  deletePackage
   // getpackagesCategoriesClothes,
 };

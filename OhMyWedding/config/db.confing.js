@@ -37,6 +37,7 @@ db.luxurycars = require("../models/LuxuryCars")(sequelize, Sequelize);
 db.musicalband = require("../models/MusicalBand")(sequelize, Sequelize);
 db.packages = require("../models/Packages")(sequelize, Sequelize);
 db.reservation = require("../models/Reservation")(sequelize, Sequelize);
+db.rating = require("../models/Rating")(sequelize, Sequelize);
 
 db.role.belongsToMany(db.user, {
   through: "user_roles",
@@ -48,6 +49,8 @@ db.user.belongsToMany(db.role, {
   foreignKey: "userId",
   otherKey: "roleId",
 });
+db.user.hasOne(db.rating);
+db.rating.belongsTo(db.user);
 
 db.dressing.hasMany(db.packages);
 db.packages.belongsTo(db.dressing);
