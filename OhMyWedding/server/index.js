@@ -13,7 +13,7 @@ const Food = require("../models/Food");
 
 // const upload = require("./routes/uploader");
 
-const multer = require("multer");
+
 
 const Role = db.role;
 const app = express();
@@ -46,9 +46,9 @@ app.use("/api/food", require("./routes/food.routes"));
 app.use("/api/musicalband", require("./routes/mucsicalBand.routes"));
 app.use("/api", require("./routes/confirmation.routes"))
 
+const multer = require("multer");
 // CREATES A LOCAL FOLDER
 const upload = multer({ dest: "uploads" });
-
 const cloudinary = require("cloudinary").v2;
 cloudinary.config({
   cloud_name: "unsplashclone",
@@ -57,9 +57,8 @@ cloudinary.config({
 });
 app.post("/api", upload.single("picture"), async (req, res) => {
   console.log(res.json({ picture: req.file.path }))
-  // return res.json({ picture: req.file.path });
+  return res.json({ picture: req.file.path });
 });
-
 app.post("/upload", upload.any(0), (req, res) => {
   let image = req.files[0].path;
   try {
@@ -95,7 +94,7 @@ app.post("/upload", upload.any(0), (req, res) => {
 //   }
 // });
 
-db.sequelize.sync().then(() => {
+db.sequelize.sync({ force: 0 }).then(() => {
   console.log("Database connection established with success");
 });
 

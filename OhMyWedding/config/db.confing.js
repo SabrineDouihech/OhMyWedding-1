@@ -1,6 +1,8 @@
 require("dotenv").config();
 const Sequelize = require("sequelize");
-
+const operatorsAliases = {
+  $like: Sequelize.Op.like,
+};
 const sequelize = new Sequelize(
   process.env.DB_DATABASE,
   process.env.DB_USER,
@@ -8,8 +10,7 @@ const sequelize = new Sequelize(
   {
     host: process.env.DB_HOST,
     dialect: process.env.DB_DIALECT,
-    operatorsAliases: false,
-
+    operatorsAliases,
     pool: {
       max: 5,
       min: 0,
@@ -36,6 +37,7 @@ db.luxurycars = require("../models/LuxuryCars")(sequelize, Sequelize);
 db.musicalband = require("../models/MusicalBand")(sequelize, Sequelize);
 db.packages = require("../models/Packages")(sequelize, Sequelize);
 db.reservation = require("../models/Reservation")(sequelize, Sequelize);
+db.rating = require("../models/Rating")(sequelize, Sequelize);
 
 db.role.belongsToMany(db.user, {
   through: "user_roles",
@@ -47,6 +49,8 @@ db.user.belongsToMany(db.role, {
   foreignKey: "userId",
   otherKey: "roleId",
 });
+db.user.hasOne(db.rating);
+db.rating.belongsTo(db.user);
 
 db.dressing.hasMany(db.packages);
 db.packages.belongsTo(db.dressing);
@@ -64,11 +68,13 @@ db.luxurycars.hasMany(db.packages);
 db.packages.belongsTo(db.luxurycars);
 
 db.musicalband.hasMany(db.packages);
-db.packages.belongsTo(db.musicalband);
+
+db.packages.belongsTo(db.food);
 
 db.packages.hasMany(db.reservation);
+
 db.user.hasMany(db.favorite);
 db.favorite.belongsTo(db.user);
-db.user.hasMany(db.reservation)
+db.user.hasMany(db.reservation);
 
 module.exports = db;

@@ -11,7 +11,6 @@ import { FavoritesService } from '../favorites.service';
 export class FoodComponent implements OnInit {
   data: any = [];
   food: any = [];
-
   foodtype: string = '';
   price: any;
   safefood: any;
