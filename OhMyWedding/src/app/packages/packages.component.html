@@ -1,13 +1,17 @@
+<app-nav></app-nav>
 <header>
   <div class="container text-center">
     <!-- Logo -->
     <div class="logo">
-      <h1><b>Packages and Categories</b></h1>
+      <h1 style="margin-left: 300px">Packages and Categories</h1>
     </div>
 
     <h1></h1>
   </div>
 </header>
+<br />
+<br />
+<br />
 <div class="center">
   <div class="container">
     <div class="row">
@@ -106,7 +110,7 @@
     </div>
   </div>
 </div>
-<link
+<!-- <link
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css"
 />
@@ -122,15 +126,15 @@
 >
   <div>Show more packages</div>
   <i class="icon-arrow-right"></i>
-</button>
+</button> -->
 
-<!-- <button
+<button
   class="btn btn-warning"
   style="margin-left: 80%"
   (click)="packageslist()"
 >
   Show more packages
-</button> -->
+</button>
 
 <div class="center">
   <div class="container">
@@ -142,6 +146,7 @@
           <img
             src="https://images.pexels.com/photos/3776939/pexels-photo-3776939.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
             class="img img-responsive"
+            (click)="foodlist()"
           />
           <div class="profile-name">FOOD<br /></div>
           <div class="profile-position">Lorem Ipsum Donor</div>
@@ -173,6 +178,7 @@
           <img
             src="https://images.pexels.com/photos/6400831/pexels-photo-6400831.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
             class="img img-responsive"
+            (click)="carsList()"
           />
           <div class="profile-name">CARS<br /></div>
           <div class="profile-position">Lorem Ipsum Donor</div>
@@ -204,6 +210,7 @@
           <img
             src="https://images.pexels.com/photos/1616113/pexels-photo-1616113.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
             class="img img-responsive"
+            (click)="hosts()"
           />
           <div class="profile-name">HOSTS<br /></div>
           <div class="profile-position">Lorem Ipsum Donor</div>
@@ -230,15 +237,8 @@
     </div>
   </div>
 </div>
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css"
-/>
-<link
-  href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap"
-  rel="stylesheet"
-/>
-<button
+
+<!-- <button
   type="button"
   class="slide"
   (click)="categorieslist()"
@@ -246,6 +246,14 @@
 >
   <div>Show more categories</div>
   <i class="icon-arrow-right"></i>
+</button> -->
+
+<button
+  class="btn btn-warning"
+  style="margin-left: 80%"
+  (click)="packageslist()"
+>
+  Show more categories
 </button>
 
 <h2>Five Star Rating</h2>
@@ -296,16 +304,10 @@
     </div>
   </form>
 </div>
-
-<hr />
-<!-- <button
-  class="btn btn-warning"
-  (click)="categorieslist()"
-  style="margin-left: 80%"
->
-  Show more categories
-</button> -->
-<footer class="w3-center w3-black w3-padding-16">
+<br />
+<br />
+<br />
+<!-- <footer class="w3-center w3-black w3-padding-16">
   <p>
     Powered by
     <a
@@ -317,4 +319,44 @@
     >
   </p>
 </footer>
-<div class="w3-hide-small" style="margin-bottom: 32px"> </div>
+<div class="w3-hide-small" style="margin-bottom: 32px"> </div> -->
+
+<div class="footer-dark">
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6 col-md-3 item">
+          <h3>Services</h3>
+          <ul>
+            <li><a href="#">Web design</a></li>
+            <li><a href="#">Development</a></li>
+            <li><a href="#">Hosting</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-6 col-md-3 item">
+          <h3>About Us</h3>
+          <ul>
+            <li><a href="#">Company</a></li>
+            <li><a href="#">Team</a></li>
+            <li><a href="#">Careers</a></li>
+          </ul>
+        </div>
+        <div class="col-md-6 item text">
+          <h3>Wedding Planner</h3>
+          <p>
+            Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus
+            ac sem lacus. Ut vehicula rhoncus elementum. Etiam quis tristique
+            lectus. Aliquam in arcu eget velit pulvinar dictum vel in justo.
+          </p>
+        </div>
+        <div class="col item social">
+          <a href="#"><i class="icon ion-social-facebook"></i></a
+          ><a href="#"><i class="icon ion-social-twitter"></i></a
+          ><a href="#"><i class="icon ion-social-snapchat"></i></a
+          ><a href="#"><i class="icon ion-social-instagram"></i></a>
+        </div>
+      </div>
+      <p class="copyright">MSW</p>
+    </div>
+  </footer>
+</div>

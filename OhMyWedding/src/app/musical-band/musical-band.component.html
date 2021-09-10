@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-=======
 <app-nav></app-nav>
-<p>musical-band works!</p>
-<hr />
-<hr />
->>>>>>> 6cfbe709f5e0bda4820fb4399f3cb770c76127e8
+
 <header>
   <div class="container text-center">
     <!-- Logo -->
@@ -15,17 +10,26 @@
   </div>
 </header>
 
-<button type="button" class="slide" (click)="goBacktoCategories()">
-  <i class="icon-arrow-left"></i>
-  <div>Categories</div>
+<button
+  class="btn btn-warning"
+  style="margin-left: 2%"
+  (click)="goBacktoCategories()"
+>
+  Go back to Categories
 </button>
-<hr />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 
 <div class="dropi">
   <div class="dropdown">
     <div>
-      <div>
+      <div style="margin-left: 2%">
         Your Budget:
+        <br />
         <input
           type="range"
           id="filterBudget"
@@ -36,9 +40,10 @@
           (input)="searchforABand()"
         />
         {{ this.price }}
-        <label for="cars"> Band choices </label>
+        <br />
+        <!-- <label for="cars"> Band choices </label> -->
         <select name="cars" [(ngModel)]="bandtype">
-          <option value="">all</option>
+          <option value="">all the bands</option>
 
           <option value="Classic">Classic</option>
           <option value="Mezwed">Mezwed</option>
@@ -54,13 +59,6 @@
         </button>
       </div>
     </div>
-
-    <!-- <form action="">
-      <label for="birthday">Your Wedding date</label>
-      <input type="date" name="birthday" />
-      <input type="submit" />
-    </form>
-  </div> -->
     <br />
   </div>
 
@@ -120,4 +118,46 @@
       </div>
     </div>
   </div>
+</div>
+<br />
+<br />
+<br />
+<div class="footer-dark">
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6 col-md-3 item">
+          <h3>Services</h3>
+          <ul>
+            <li><a href="#">Web design</a></li>
+            <li><a href="#">Development</a></li>
+            <li><a href="#">Hosting</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-6 col-md-3 item">
+          <h3>About Us</h3>
+          <ul>
+            <li><a href="#">Company</a></li>
+            <li><a href="#">Team</a></li>
+            <li><a href="#">Careers</a></li>
+          </ul>
+        </div>
+        <div class="col-md-6 item text">
+          <h3>Wedding Planner</h3>
+          <p>
+            Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus
+            ac sem lacus. Ut vehicula rhoncus elementum. Etiam quis tristique
+            lectus. Aliquam in arcu eget velit pulvinar dictum vel in justo.
+          </p>
+        </div>
+        <div class="col item social">
+          <a href="#"><i class="icon ion-social-facebook"></i></a
+          ><a href="#"><i class="icon ion-social-twitter"></i></a
+          ><a href="#"><i class="icon ion-social-snapchat"></i></a
+          ><a href="#"><i class="icon ion-social-instagram"></i></a>
+        </div>
+      </div>
+      <p class="copyright">MSW</p>
+    </div>
+  </footer>
 </div>

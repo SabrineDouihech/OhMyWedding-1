@@ -7,7 +7,7 @@ import { FavoritesService } from '../favorites.service';
 @Component({
   selector: 'app-hosts',
   templateUrl: './hosts.component.html',
-  styleUrls: ['./hosts.component.css'],
+  styleUrls: ['./hosts.component.scss'],
 })
 export class HostsComponent implements OnInit {
   data: any = [];
@@ -38,7 +38,7 @@ export class HostsComponent implements OnInit {
   }
 
   showDetails(element: any) {
-    this.detailsService.selectedItem = element;
+    this.detailsService.selectedItem = { element, type: 'hosts' };
     this.router.navigateByUrl('/details');
   }
 

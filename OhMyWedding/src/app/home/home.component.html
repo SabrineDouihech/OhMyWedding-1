@@ -1,31 +1,66 @@
-<nav class="navbar navbar-expand-lg ftco_navbar ftco-navbar-light" id="ftco-navbar">
+<nav
+  class="navbar navbar-expand-lg ftco_navbar ftco-navbar-light"
+  id="ftco-navbar"
+>
   <div class="container">
-    <a class="navbar-brand" href="index.html">Digital</a>
+    <a class="navbar-brand" (click)="homePage()" style="cursor: pointer"
+      >OH MY WEDDING</a
+    >
     <div class="social-media order-lg-last">
       <p class="mb-0 d-flex">
-        <a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook"><i class="sr-only">Facebook</i></span></a>
-        <a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-twitter"><i class="sr-only">Twitter</i></span></a>
-        <a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram"><i class="sr-only">Instagram</i></span></a>
-        <a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-dribbble"><i class="sr-only">Dribbble</i></span></a>
+        <a href="#" class="d-flex align-items-center justify-content-center"
+          ><span class="fa fa-facebook"
+            ><i class="sr-only">Facebook</i></span
+          ></a
+        >
+        <a href="#" class="d-flex align-items-center justify-content-center"
+          ><span class="fa fa-twitter"><i class="sr-only">Twitter</i></span></a
+        >
+        <a href="#" class="d-flex align-items-center justify-content-center"
+          ><span class="fa fa-instagram"
+            ><i class="sr-only">Instagram</i></span
+          ></a
+        >
+        <a href="#" class="d-flex align-items-center justify-content-center"
+          ><span class="fa fa-dribbble"
+            ><i class="sr-only">Dribbble</i></span
+          ></a
+        >
       </p>
     </div>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#ftco-nav"
+      aria-controls="ftco-nav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
       <span class="fa fa-bars"></span> Menu
     </button>
     <div class="collapse navbar-collapse" id="ftco-nav">
       <ul class="navbar-nav ml-auto mr-md-3">
-        <li class="nav-item active"><a href="#" class="nav-link">Home</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+        <li class="nav-item active">
+          <a class="nav-link" (click)="homePage()">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="aboutUsHome()">About Us</a>
+        </li>
         <!-- <li class="nav-item"><a href="#" class="nav-link">Work</a></li> -->
-        <li class="nav-item"><a href="#" class="nav-link">Log In</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">Sing in</a></li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="logIn()">Log In</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="signup()">Sing up</a>
+        </li>
       </ul>
     </div>
   </div>
 </nav>
 <section class="home">
   <img
-    src="https://chrisandruth.com/wp-content/uploads/2020/04/tulum-wedding-photographer-2-1.jpg"
+    src="https://www.rawleyresort.com/wp-content/uploads/2020/10/Micro-Wedding-Rawley-Resort.jpg"
   />
   <div class="homecontent">
     <h1>
@@ -37,7 +72,9 @@
 </section>
 <div class="w3-container w3-padding-64 w3-pale-red w3-grayscale-min" id="us">
   <div class="w3-content">
-    <h1 class="w3-center w3-text-grey"><b>Plan Your Wedding Today</b></h1>
+    <h1 class="w3-center w3-text-grey">
+      <b>Plan Your Wedding with US</b>
+    </h1>
     <img
       class="w3-round w3-grayscale-min"
       src="https://media-api.xogrp.com/images/a4828959-39d1-4461-887a-f42e2a1b87f3"
@@ -61,7 +98,7 @@
       <a
         href="#wedding"
         class="w3-button w3-black w3-round w3-padding-large w3-large"
-        >Ower Packages Details</a
+        >About US</a
       >
     </p>
   </div>
@@ -98,16 +135,51 @@
     </div>
   </div>
 </div>
+
 <footer class="w3-center w3-black w3-padding-16">
   <p>
     Powered by
-    <a
-      href="https://www.w3schools.com/w3css/default.asp"
-      title="W3.CSS"
-      target="_blank"
-      class="w3-hover-text-green"
-      >MSW</a
-    >
+    <a title="W3.CSS" target="_blank" class="w3-hover-text-green">MSW</a>
   </p>
 </footer>
-<div class="w3-hide-small" style="margin-bottom: 32px"> </div>
+<div class="w3-hide-small" style="margin-bottom: 32px"></div>
+
+<!-- <div class="footer-dark">
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6 col-md-3 item">
+          <h3>Services</h3>
+          <ul>
+            <li><a href="#">Web design</a></li>
+            <li><a href="#">Development</a></li>
+            <li><a href="#">Hosting</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-6 col-md-3 item">
+          <h3>About Us</h3>
+          <ul>
+            <li><a href="#">Company</a></li>
+            <li><a href="#">Team</a></li>
+            <li><a href="#">Careers</a></li>
+          </ul>
+        </div>
+        <div class="col-md-6 item text">
+          <h3>Wedding Planner</h3>
+          <p>
+            Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus
+            ac sem lacus. Ut vehicula rhoncus elementum. Etiam quis tristique
+            lectus. Aliquam in arcu eget velit pulvinar dictum vel in justo.
+          </p>
+        </div>
+        <div class="col item social">
+          <a href="#"><i class="icon ion-social-facebook"></i></a
+          ><a href="#"><i class="icon ion-social-twitter"></i></a
+          ><a href="#"><i class="icon ion-social-snapchat"></i></a
+          ><a href="#"><i class="icon ion-social-instagram"></i></a>
+        </div>
+      </div>
+      <p class="copyright">MSW</p>
+    </div>
+  </footer>
+</div> -->

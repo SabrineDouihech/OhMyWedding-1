@@ -35,7 +35,7 @@ export class DressingComponent implements OnInit {
     });
   }
   showDetails(element: any) {
-    this.detailsService.selectedItem = element;
+    this.detailsService.selectedItem = { element, type: 'dressings' };
     this.router.navigateByUrl('/details');
   }
 

@@ -21,9 +21,9 @@ export class DetailsComponent implements OnInit {
     console.log(this.item);
   }
 
-  // addAfavoriteDetails(itemId: number) {
-  //   this.favoritesService
-  //     .addtofavorites({ type: '', itemId })
-  //     .subscribe((data) => {});
-  // }
+  addAfavoriteDetails(itemId: number, type: string) {
+    this.favoritesService
+      .addtofavorites({ itemId, type })
+      .subscribe((data) => {});
+  }
 }

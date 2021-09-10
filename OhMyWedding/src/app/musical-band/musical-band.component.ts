@@ -37,7 +37,7 @@ export class MusicalBandComponent implements OnInit {
   }
 
   showDetails(element: any) {
-    this.detailsService.selectedItem = element;
+    this.detailsService.selectedItem = { element, type: 'musicalbands' };
     this.router.navigateByUrl('/details');
   }
 

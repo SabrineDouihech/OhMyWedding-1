@@ -1,3 +1,4 @@
+<app-nav></app-nav>
 <header>
   <div class="container text-center">
     <!-- Logo -->
@@ -7,6 +8,33 @@
     <h1>What package do you want ?</h1>
   </div>
 </header>
+<br />
+<br />
+<br />
+<!-- <button type="button" class="slide" (click)="previousPage()">
+  <div>Go back to Packages & Categories</div>
+  <i class="icon-arrow-left"></i>
+</button> -->
+<button
+  class="btn btn-warning"
+  style="margin-left: 2%"
+  (click)="previousPage()"
+>
+  Go back to Packages & Categories
+</button>
+
+<button
+  (click)="categoriesList()"
+  type="button"
+  class="btn btn-warning"
+  style="margin-left: 80%"
+>
+  Create your own Package
+</button>
+
+<br />
+<br />
+<br />
 <div class="dropi">
   <div class="dropdown">
     <div>
@@ -22,14 +50,6 @@
           (input)="searchforAPackage()"
         />
         {{ this.price }}
-
-        <button
-          (click)="categoriesList()"
-          type="button"
-          class="btn btn-warning"
-        >
-          Create your own Package
-        </button>
       </div>
 
       <!-- <label for="cars"> You place : </label>
@@ -48,14 +68,6 @@
     >
       Look for a specific package
     </button> -->
-
-      <button
-        class="btn btn-warning"
-        style="margin-left: 80%; margin-top: 0%"
-        (click)="previousPage()"
-      >
-        Go back to the previous page
-      </button>
     </div>
     <br />
   </div>
@@ -63,7 +75,6 @@
     <div class="container">
       <div class="row">
         <div class="col-md-4" *ngFor="let element of safeprice; let i = index">
-          <h4 class="text-center"><strong>STYLE 2</strong></h4>
           <hr />
           <div class="profile-card-6">
             <img
@@ -100,3 +111,13 @@
     </div>
   </div>
 </div>
+<br />
+<br />
+<br />
+<footer class="w3-center w3-black w3-padding-16">
+  <p>
+    Powered by
+    <a title="W3.CSS" target="_blank" class="w3-hover-text-green">MSW</a>
+  </p>
+</footer>
+<div class="w3-hide-small" style="margin-bottom: 32px"> </div>

@@ -38,6 +38,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 // import { MDBBootstrapModule} from 'angular-boostrap-md';
 import { ReservationsComponent } from './reservations/reservations.component';
 import { UserComponent } from './user/user.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 // import { UserComponent } from './user/user.component';
 
 @NgModule({
@@ -69,6 +70,7 @@ import { UserComponent } from './user/user.component';
     DressingComponent,
     ReservationsComponent,
     UserComponent,
+    AboutUsComponent,
   ],
 
   imports: [
