@@ -37,7 +37,7 @@
                         <td>{{reserve.UserId?.name}}</td>
                         <td> {{reserve.UserId?.phone}} </td>
                         <td>{{reserve.item_id}}</td>
-                        <td>{{reserve.reserveDate}}</td>
+                        <td>{{reserve.reserveDate.split('T')[0]}}</td>
                         <td><span class="badge badge-success">{{reserve.total}}</span></td>
                         <td>
                             <div class="sparkbar" data-color="#00a65a" data-height="20">

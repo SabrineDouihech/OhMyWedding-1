@@ -7,11 +7,12 @@ import { HttpClient } from '@angular/common/http';
 export class FavoritesService {
   constructor(private http: HttpClient) {}
 
-  getFavorites(userId: number) {
-    return this.http.get(`http://localhost:3000/api/favorites/${userId}`); // TODO: add the current user id to this request
+  getFavorites() {
+    return this.http.get<any[]>('http://localhost:3000/api/favorites');
   }
 
-  addtofavorites(data: { type: string; userId: number; itemId: number }) {
+  addtofavorites(data: any) {
+    console.log('inside fav service', data);
     return this.http.post('http://localhost:3000/api/favorites', data);
   }
 

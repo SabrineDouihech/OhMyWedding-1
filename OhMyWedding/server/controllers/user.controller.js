@@ -88,7 +88,7 @@ exports.signin = (req, res) => {
 }
 
 exports.userContent = (req, res) => {
-  console.log(req.userId)
+  console.log(req.userId);
   User.findOne({
     where: { id: req.userId },
 
@@ -102,7 +102,6 @@ exports.userContent = (req, res) => {
         },
       },
     ],
-
   })
     .then(user => {
       res.status(200).send(">>> User Contents")

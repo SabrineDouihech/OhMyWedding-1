@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LuxuryCarsSercice } from '../cars.service';
 import { DetailsService } from '../details.service';
+import { FavoritesService } from '../favorites.service';
 @Component({
   selector: 'app-cars',
   templateUrl: './cars.component.html',
@@ -18,7 +19,8 @@ export class CarsComponent implements OnInit {
   constructor(
     private luxurycarsSercice: LuxuryCarsSercice,
     private router: Router,
-    private detailsService: DetailsService
+    private detailsService: DetailsService,
+    private favoritesService: FavoritesService
   ) {}
 
   ngOnInit(): void {
@@ -86,5 +88,14 @@ export class CarsComponent implements OnInit {
     if (this.price) {
       this.carPrice();
     }
+  }
+
+  addAfavoriteCar(itemId: number) {
+    console.log('message cars', itemId);
+    this.favoritesService
+      .addtofavorites({ type: 'luxurycars', itemId })
+      .subscribe((data) => {
+        console.log('getting test', data);
+      });
   }
 }

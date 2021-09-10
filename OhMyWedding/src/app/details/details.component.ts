@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DetailsService } from '../details.service';
+import { FavoritesService } from '../favorites.service';
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
@@ -8,11 +9,21 @@ import { DetailsService } from '../details.service';
 })
 export class DetailsComponent implements OnInit {
   item: any = {};
-  car: any = {};
-  constructor(private detailsService: DetailsService, private router: Router) {}
+
+  constructor(
+    private detailsService: DetailsService,
+    private router: Router,
+    private favoritesService: FavoritesService
+  ) {}
 
   ngOnInit(): void {
     this.item = this.detailsService.selectedItem;
-    this.car = this.detailsService.selectedItem;
+    console.log(this.item);
   }
+
+  // addAfavoriteDetails(itemId: number) {
+  //   this.favoritesService
+  //     .addtofavorites({ type: '', itemId })
+  //     .subscribe((data) => {});
+  // }
 }

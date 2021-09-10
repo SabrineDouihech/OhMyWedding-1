@@ -1,3 +1,4 @@
+<app-nav></app-nav>
 <header>
   <div class="container text-center">
     <!-- Logo -->
@@ -17,7 +18,7 @@
           id="filterBudget"
           name="budget"
           min="1"
-          max="4000"
+          max="40000"
           [(ngModel)]="price"
           (input)="searchforAPackage()"
         />
@@ -62,7 +63,7 @@
   <div class="center">
     <div class="container">
       <div class="row">
-        <div class="col-md-4" *ngFor="let element of packages; let i = index">
+        <div class="col-md-4" *ngFor="let element of safeprice; let i = index">
           <h4 class="text-center"><strong>STYLE 2</strong></h4>
           <hr />
           <div class="profile-card-6">

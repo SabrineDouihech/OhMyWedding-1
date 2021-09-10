@@ -13,8 +13,8 @@ const httpOptions = {
   providedIn: 'root',
 })
 export class AuthService {
-  private signinUrl = 'http://localhost:3000/api/auth/signin';
-  private signupUrl = 'http://localhost:3000/api/test/user/auth/signup';
+  private signinUrl = 'http://localhost:3000/api/user/auth/signin';
+  private signupUrl = 'http://localhost:3000/api/user/auth/signup';
 
   constructor(private http: HttpClient) {}
 

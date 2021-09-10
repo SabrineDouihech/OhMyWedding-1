@@ -1,3 +1,4 @@
+<app-nav></app-nav>
 <header>
   <div class="container text-center">
     <!-- Logo -->
@@ -7,6 +8,13 @@
     <h1>Invitation Cards?</h1>
   </div>
 </header>
+
+<button type="button" class="slide" (click)="goBacktoCategories()">
+  <i class="icon-arrow-left"></i>
+  <div>Categories</div>
+</button>
+<hr />
+
 <div class="dropi">
   <div class="dropdown">
     <div>
@@ -33,22 +41,14 @@
       <option value="400">400</option>
     </select> -->
 
-    <button
-      class="btn btn-warning"
-      style="margin-left: 80%; margin-top: 0%"
-      (click)="goBacktoCategories()"
-    >
-      Go back to categories
-    </button>
-
-    <form action="">
+    <!-- <form action="">
       <label for="birthday">Your Wedding date</label>
       <input type="date" name="birthday" />
 
       <button type="button" class="btn btn-light" style="margin: 17px">
         Submit
       </button>
-    </form>
+    </form> -->
   </div>
   <br />
 </div>
@@ -60,7 +60,11 @@
         <h4 class="text-center"><strong></strong></h4>
         <hr />
         <div class="profile-card-6">
-          <img src="{{ element.image }}" class="img img-responsive" />
+          <img
+            src="{{ element.image }}"
+            class="img img-responsive"
+            (click)="showDetails(element)"
+          />
           <div class="profile-name">{{ element.name }} <br /></div>
           <div class="profile-position"></div>
           <div class="profile-overview">
@@ -82,17 +86,22 @@
             </div>
           </div>
         </div>
-        <button type="button" class="btn btn-warning" style="margin-left: 0%">
+        <button
+          type="button"
+          class="btn btn-warning"
+          style="margin-left: 0%"
+          (click)="addAfavoriteCards(element.id)"
+        >
           Add to favorites
         </button>
-        <button
+        <!-- <button
           type="button"
           class="btn btn-warning"
           (click)="showDetails(element)"
           style="margin-left: 12%"
         >
           Show More
-        </button>
+        </button> -->
       </div>
     </div>
   </div>
