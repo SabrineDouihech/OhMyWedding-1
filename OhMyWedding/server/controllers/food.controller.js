@@ -1,6 +1,8 @@
 var db = require("../../config/db.confing");
 
-const getFood = async function (req, res) {
+const getFood = async (req, res) => {
+  console.log('hello');
+  // console.log(req.body);
   try {
     const foodi = await db.food.findAll({});
 
