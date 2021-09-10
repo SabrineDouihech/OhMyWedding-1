@@ -38,7 +38,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ReservationsComponent } from './reservations/reservations.component';
 import { UserComponent } from './user/user.component';
 import { AdminListOfPackagesComponent } from './admin-list-of-packages/admin-list-of-packages.component';
-// import { UserComponent } from './user/user.component';
 
 @NgModule({
   declarations: [
