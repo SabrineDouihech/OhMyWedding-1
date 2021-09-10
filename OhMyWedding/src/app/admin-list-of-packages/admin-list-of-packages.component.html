@@ -1,0 +1,214 @@
+<button
+  type="button"
+  class="btn btn-primary"
+  (click)="openAdd()"
+  data-toggle="modal"
+  data-target="#exampleModal"
+  data-whatever="@mdo"
+>
+  Add Package
+</button>
+
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{ title }}</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Name:</label>
+            <input
+              type="text"
+              value="{{ pack?.name }}"
+              class="form-control"
+              id="recipient-name"
+              #name
+            />
+          </div>
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">image:</label>
+            <img
+              *ngIf="image"
+              src="{{ image }}"
+              style="width: 50px; height: 50px"
+            />
+            <input
+              type="file"
+              class="form-control"
+              id="recipient-name"
+              (change)="imgUpload($event)"
+            />
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">
+              Description:</label
+            >
+            <textarea
+              class="form-control"
+              value="{{ pack?.description }}"
+              id="message-text"
+              #description
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Price:</label>
+            <input
+              type="number"
+              value="{{ pack?.price }}"
+              class="form-control"
+              id="recipient-name"
+              #price
+            />
+          </div>
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label"
+              >Available Date:</label
+            >
+            <input type="date" class="form-control" id="recipient-name" #date />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Close
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="
+            insertAPack({
+              name: name.value,
+              image: this.image,
+              description: description.value,
+              price: price.value,
+              availabledate: date.value
+            })
+          "
+          data-dismiss="modal"
+        >
+          Add Package
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-header">
+    <h3 class="card-title">Packages List</h3>
+
+    <div class="card-tools">
+      <button
+        type="button"
+        class="btn btn-tool"
+        data-card-widget="collapse"
+        title="Collapse"
+      >
+        <i class="fas fa-minus"></i>
+      </button>
+      <button
+        type="button"
+        class="btn btn-tool"
+        data-card-widget="remove"
+        title="Remove"
+      >
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+  </div>
+  <div class="card-body p-0">
+    <table class="table projects">
+      <thead>
+        <tr>
+          <!-- <th style="width: 8%">
+                        #
+                    </th> -->
+          <th style="width: 20%">Package Name</th>
+          <th style="width: 20%">Package Image</th>
+          <th style="width: 20%">Package Description</th>
+          <th style="width: 20%">Package Price</th>
+          <th class="text-center">Available Date</th>
+          <th class="text-center">Package States</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pac of Packs">
+          <!-- <td>
+                        #
+                    </td> -->
+          <td>
+            <a>
+              {{ pac.name }}
+            </a>
+            <br />
+          </td>
+          <td>
+            <ul class="list-inline">
+              <li class="list-inline-item">
+                <img style="width: 80%" src="{{ pac.image }}" />
+              </li>
+            </ul>
+          </td>
+          <td>
+            <a>
+              {{ pac.brand }}
+            </a>
+            <br />
+          </td>
+          <td>
+            <a>
+              {{ pac.description.split("T")[0] }}
+            </a>
+            <br />
+          </td>
+          <td>
+            <a>
+              {{ pac.price }}
+            </a>
+            <br />
+          </td>
+          <td>
+            <a>
+              {{ pac.availabledate.split("T")[0] }}
+            </a>
+            <br />
+          </td>
+
+          <td class="project-state">
+            <span class="badge badge-success">{{ pac.state }}</span>
+          </td>
+          <td class="project-actions text-right">
+            <!-- <a class="btn btn-info btn-sm"  data-dismiss="modal" aria-label="Close" data-target="#exampleModal" data-whatever="@mdo">
+                            <span aria-hidden="true">&times;</span>
+                            <i class="fas fa-pencil-alt" ></i>
+                            Edit
+                        </a> -->
+          </td>
+          <td>
+            <a class="btn btn-danger btn-sm" (click)="deleteACar(pac.id)">
+              <i class="fas fa-pencil-alt"> </i>
+              Delete
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- /.card-body -->
+</div>

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -10,12 +10,30 @@ export class PackagesService {
   getPackages() {
     return this.http.get('http://localhost:3000/api/package');
   }
-
-  addtofavorites(data: any) {
-    return this.http.post('http://localhost:3000/api/favorites', data);
+  postPackages(data: any) {
+    return this.http.post('http://localhost:3000/api/package', data);
   }
 
-  // getoneCar() {
-  //   return this.http.get('http://localhost:3000/api/detailscar');
-  // }
+  addtofavorites(data: any) {
+    return this.http.post('http://localhost:3000/api/package', data);
+  }
+  uploadImg(img: any) {
+    return this.http.post('http://localhost:3000/upload', img);
+  }
+
+  searchByCategory(query: string, category: string) {
+    return this.http.get<any[]>(
+      `http://localhost:3000/api/package/search?q=${query}&category=${category}`
+    );
+  }
+
+  updatePackage(packageId: number, categoryType: string, categoryId: number) {
+    return this.http.put(`http://localhost:3000/api/package/${packageId}`, {
+      categoryId,
+      type: categoryType,
+    });
+  }
+  deleteAPackage(id: string) {
+    return this.http.delete(`http://localhost:3000/api/package/${id}`);
+  }
 }

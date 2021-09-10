@@ -22,12 +22,11 @@ module.exports = (sequelize, Sequelize) => {
         persons: {
             type: Sequelize.INTEGER
         },
+        state: {
+            type: Sequelize.STRING
+        },
         availabledate: {
             type: Sequelize.DATE
-        },
-
-        persons: {
-            type: Sequelize.INTEGER
         },
     }, { // options
         timestamps: false

@@ -11,7 +11,6 @@ import { FavoritesService } from '../favorites.service';
 export class MusicalBandComponent implements OnInit {
   data: any = [];
   musicalBand: any = [];
-
   bandtype: string = '';
   price: any;
   safeband: any = [];

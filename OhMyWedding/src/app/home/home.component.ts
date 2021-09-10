@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { TokenStorageService } from '../auth/token-storage.service';
 
 @Component({
   selector: 'app-home',
@@ -7,12 +8,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  constructor(private router: Router) {}
-
+  private roles: any = [];
+  authority: string = '';
+  constructor(
+    private router: Router,
+    private tokenStorage: TokenStorageService
+  ) {}
   ngOnInit(): void {}
-  dis() {
-    this.router.navigateByUrl('/Sign-Up');
-  }
+
   logIn() {
     this.router.navigateByUrl('/Log-in');
   }
@@ -24,5 +27,19 @@ export class HomeComponent implements OnInit {
   }
   aboutUsHome() {
     this.router.navigateByUrl('/aboutus');
+  }
+
+  vrifyAuthority() {
+    if (this.tokenStorage.getToken()) {
+      this.roles = this.tokenStorage.getAuthorities();
+      this.roles.every((role: string) => {
+        if (role === 'ROLE_ADMIN') {
+          this.authority = 'admin';
+          return false;
+        }
+        this.authority = 'user';
+        return true;
+      });
+    }
   }
 }

@@ -1,6 +1,8 @@
 var db = require("../../config/db.confing");
 
-const getFood = async function (req, res) {
+const getFood = async (req, res) => {
+  console.log('hello');
+  // console.log(req.body);
   try {
     const foodi = await db.food.findAll({});
 
@@ -35,6 +37,7 @@ const postFood = async function (req, res) {
       price: req.body.price,
       persons: req.body.persons,
       foodtype: req.body.foodtype,
+      availabledate: req.body.availabledate,
       state: "Not Reserved",
     });
     res.status(200).send(createfoodi);
@@ -54,6 +57,7 @@ const updateFood = async function (req, res) {
           price: req.body.price,
           persons: req.body.persons,
           foodtype: req.body.foodtype,
+          availabledate: req.body.availabledate,
           state: "Not Reserved",
         },
         {

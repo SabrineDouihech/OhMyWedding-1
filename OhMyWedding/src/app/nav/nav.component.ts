@@ -1,14 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-// import { UserService } from '../user.service';
+import { TokenStorageService } from '../auth/token-storage.service';
 import { Router } from '@angular/router';
-
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.scss'],
 })
 export class NavComponent implements OnInit {
-  constructor(private router: Router) {}
+  constructor(
+    private tokenStorage: TokenStorageService,
+    private router: Router
+  ) {}
   // user: any;
   ngOnInit(): void {
     // this.user = this.us.user;
@@ -28,5 +30,9 @@ export class NavComponent implements OnInit {
 
   aboutUs() {
     this.router.navigateByUrl('/aboutus');
+  }
+  logOut() {
+    this.tokenStorage.signOut();
+    this.router.navigateByUrl('/');
   }
 }

@@ -36,12 +36,12 @@ export class SigninComponent implements OnInit {
         console.log('data', data);
         this.tokenStorage.saveToken(data.accessToken);
         this.tokenStorage.saveUsername(data.username);
-        console.log(data.username);
-        // this.tokenStorage.saveAuthorities(data.authrities);
+        console.log('my data', data.authorities);
+        this.tokenStorage.saveAuthorities(data.authorities);
 
         this.isLoginFailed = false;
         this.isLoggedIn = true;
-        // this.roles = this.tokenStorage.getAuthorities();
+        this.roles = this.tokenStorage.getAuthorities();
         this.router.navigateByUrl('/packages');
       },
       (error) => {

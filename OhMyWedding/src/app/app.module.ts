@@ -32,14 +32,15 @@ import { DressingComponent } from './dressing/dressing.component';
 import { httpInterceptorProvider } from './auth/auth.interceptor';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { DemoMaterialModule } from './material-module';
-
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
 // import { MDBBootstrapModule} from 'angular-boostrap-md';
-import { ReservationsComponent } from './reservations/reservations.component';
 import { UserComponent } from './user/user.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 // import { UserComponent } from './user/user.component';
+import { ConfirmationComponent } from './confirmation/confirmation.component';
+import { UserinfoComponent } from './userinfo/userinfo.component';
+import { AdminListOfPackagesComponent } from './admin-list-of-packages/admin-list-of-packages.component';
 
 @NgModule({
   declarations: [
@@ -68,9 +69,11 @@ import { AboutUsComponent } from './about-us/about-us.component';
     NavComponent,
     HostsComponent,
     DressingComponent,
-    ReservationsComponent,
     UserComponent,
     AboutUsComponent,
+    ConfirmationComponent,
+    UserinfoComponent,
+    AdminListOfPackagesComponent,
   ],
 
   imports: [
@@ -82,10 +85,9 @@ import { AboutUsComponent } from './about-us/about-us.component';
     HttpClientModule,
     FormsModule,
     DemoMaterialModule,
-
     NgbModule,
     ReactiveFormsModule,
-    // MDBBootstrapModule
+    // MDBBootstrapModule,
   ],
   providers: [
     httpInterceptorProvider,

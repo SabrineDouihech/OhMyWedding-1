@@ -29,6 +29,9 @@ module.exports = (sequelize, Sequelize) => {
       state: {
         type: Sequelize.STRING,
       },
+      availabledate: {
+        type: Sequelize.DATE
+      },
     },
     {
       // options
