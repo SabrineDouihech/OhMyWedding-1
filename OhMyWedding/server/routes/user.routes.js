@@ -21,7 +21,7 @@ router.get(
 
 router.get(
   "/test/admin",
-  [authJwt.verifyToken, authJwt.isAdmin],
+  authJwt.verifyToken, authJwt.isAdmin,
   controller.adminBoard
 );
 

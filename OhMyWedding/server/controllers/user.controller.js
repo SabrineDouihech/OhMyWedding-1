@@ -9,30 +9,34 @@ var bcrypt = require("bcryptjs");
 
 exports.signup = (req, res) => {
   // Save User to Database
-  console.log("Processing func -> SignUp", req.body.role);
+  console.log("Processing func -> SignUp", req.body);
   User.create({
     username: req.body.username,
     email: req.body.email,
     phoneNumber: req.body.phoneNumber,
     password: bcrypt.hashSync(req.body.password, 8),
   })
-    .then((user) => {
-      // Role.findAll({
-      //   where: {
-      //     name: {
-      //       [Op.or]: 'USER',
-      //     },
-      //   },
-      // })
-      //   .then((role) => {
-      user.setRoles("USER").then(() => {
-        res.send({ message: "User registered successfully!" });
-      });
+    .then(user => {
+      Role.findAll({
+        where: {
+          name: {
+            [Op.or]: req.body.roles,
+          },
+        },
+      })
+        .then(roles => {
+          user.setRoles(roles).then(() => {
+            res.send({ message: "registered successfully!" });
+          });
+        }).catch((err) => {
+          res.status(500).send("Fail! Error -> " + err);
+
+        })
+        .catch((err) => {
+          res.status(500).send("Fail! Error -> " + err);
+        });
     })
-    .catch((err) => {
-      res.status(500).send("Error -> " + err);
-    });
-};
+}
 
 exports.signin = (req, res) => {
   // console.log("Sign-In");
@@ -65,23 +69,23 @@ exports.signin = (req, res) => {
       });
 
       var authorities = [];
-      user.getRoles().then((roles) => {
+      user.getRoles().then(roles => {
         for (let i = 0; i < roles.length; i++) {
           authorities.push("Role_" + roles[i].name.toUpperCase());
         }
-      });
 
-      res.status(200).send({
-        auth: true,
-        accessToken: token,
-        username: user.name,
-        authorities: authorities,
-      });
-    })
-    .catch((err) => {
-      res.status(500).send({ reason: err.message });
+        res.status(200).send({
+          auth: true,
+          accessToken: token,
+          username: user.username,
+          authorities: authorities,
+        });
+      })
+        .catch(err => {
+          res.status(500).send({ reason: err.message });
+        });
     });
-};
+}
 
 exports.userContent = (req, res) => {
   console.log(req.userId);
@@ -99,16 +103,15 @@ exports.userContent = (req, res) => {
       },
     ],
   })
-    .then((user) => {
-      res.status(200).json({
-        description: ">>> User Content Page",
-        user: user,
-      });
+    .then(user => {
+      res.status(200).send(">>> User Contents")
+
+
     })
     .catch((err) => {
-      res.status(500).json({
-        description: "Can not access User Page",
-        error: err,
+      res.status(500).send({
+        "description": "Can not access User Page",
+        "error": err,
       });
     });
 };
@@ -129,8 +132,8 @@ exports.adminBoard = (req, res) => {
   })
     .then((user) => {
       res.status(200).json({
-        description: " >>> Admin Contents",
-        user: user,
+        "description": " >>> Admin Contents",
+        "user": user,
       });
     })
     .catch((err) => {
@@ -167,4 +170,10 @@ exports.managementBoard = (req, res) => {
         error: err,
       });
     });
+
+
+
+
+
+
 };

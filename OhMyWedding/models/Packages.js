@@ -25,10 +25,6 @@ module.exports = (sequelize, Sequelize) => {
         availabledate: {
             type: Sequelize.DATE
         },
-
-        persons: {
-            type: Sequelize.INTEGER
-        },
     }, { // options
         timestamps: false
     });

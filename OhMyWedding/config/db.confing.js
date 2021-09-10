@@ -25,6 +25,7 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
+db.admin = require("../models/Admin")(sequelize, Sequelize);
 db.user = require("../models/User")(sequelize, Sequelize);
 db.role = require("../models/Role")(sequelize, Sequelize);
 db.dressing = require("../models/Dressing")(sequelize, Sequelize);
@@ -49,10 +50,20 @@ db.user.belongsToMany(db.role, {
 });
 
 db.dressing.hasMany(db.packages);
+db.packages.belongsTo(db.dressing);
+
 db.food.hasMany(db.packages);
+db.packages.belongsTo(db.food);
+
 db.host.hasMany(db.packages);
+db.packages.belongsTo(db.host);
+
 db.invitationcard.hasMany(db.packages);
+db.packages.belongsTo(db.invitationcard);
+
 db.luxurycars.hasMany(db.packages);
+db.packages.belongsTo(db.luxurycars);
+
 db.musicalband.hasMany(db.packages);
 
 db.packages.belongsTo(db.food);

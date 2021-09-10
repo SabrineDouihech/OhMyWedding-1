@@ -2,6 +2,6 @@ export interface SignUpInfo {
   username: string;
   email: string;
   phoneNumber: number;
-  role: string[];
+  roles: string[];
   password: string;
 }

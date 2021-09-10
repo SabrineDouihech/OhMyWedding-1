@@ -8,7 +8,7 @@ const AUTHORITIES_KEY = 'AuthAuthorities';
   providedIn: 'root',
 })
 export class TokenStorageService {
-  private roles: any = [];
+  private roles: Array<string> = [];
 
   constructor() {}
 
@@ -16,29 +16,32 @@ export class TokenStorageService {
     sessionStorage.clear();
   }
   public saveToken(token: string) {
+    window.sessionStorage.removeItem(TOKEN_KEY);
     sessionStorage.setItem(TOKEN_KEY, token);
   }
-  public getToken() {
+  public getToken(): any {
     return sessionStorage.getItem(TOKEN_KEY);
   }
   public saveUsername(username: string) {
     sessionStorage.setItem(USERNAME_KEY, username);
   }
-  public getUsername() {
+  public getUsername(): any {
     return sessionStorage.getItem(USERNAME_KEY);
   }
-  // public saveAuthorities(authorities: string[]) {
-  //   sessionStorage.setItem(AUTHORITIES_KEY, JSON.stringify(authorities));
-  // }
-  // public getAuthorities(): string[] {
-  //   this.roles = [];
-  //   if (sessionStorage.getItem(TOKEN_KEY)) {
-  //     JSON.parse(sessionStorage.getItem(AUTHORITIES_KEY) || '').forEach(
-  //       (authority: any) => {
-  //         this.roles.push(authority.authority);
-  //       }
-  //     );
-  //   }
-  //   return this.roles;
-  // }
+  public saveAuthorities(authorities: string[]) {
+    sessionStorage.removeItem(AUTHORITIES_KEY);
+    console.log('auth saved', JSON.stringify(authorities));
+    sessionStorage.setItem(AUTHORITIES_KEY, JSON.stringify(authorities));
+  }
+  public getAuthorities(): string[] {
+    this.roles = [];
+    if (sessionStorage.getItem(TOKEN_KEY)) {
+      JSON.parse(sessionStorage.getItem(AUTHORITIES_KEY) || '').forEach(
+        (authority: any) => {
+          this.roles.push(authority);
+        }
+      );
+    }
+    return this.roles;
+  }
 }
