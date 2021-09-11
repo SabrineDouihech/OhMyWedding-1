@@ -6,7 +6,7 @@ import { FavoritesService } from '../favorites.service';
 @Component({
   selector: 'app-musical-band',
   templateUrl: './musical-band.component.html',
-  styleUrls: ['./musical-band.component.css'],
+  styleUrls: ['./musical-band.component.scss'],
 })
 export class MusicalBandComponent implements OnInit {
   data: any = [];

@@ -35,25 +35,25 @@
         (input)="searchforAFood()"
       />
       {{ this.price }}
-      <br />
+
       <!-- <label> Food choices </label> -->
-      <select name="foodchoices" [(ngModel)]="foodtype">
+      <!-- <select name="foodchoices" [(ngModel)]="foodtype">
         <option value="">all the food</option>
         <option value="Dinner">Dinner</option>
         <option value="Sweet food">Sweet food</option>
         <option value="Cake">Cake</option>
-      </select>
+      </select> -->
 
-      <!-- <div class="form-group">
-    <label for="recipient-name" class="col-form-label">all the food</label>
-    <br/>
-    <select #foodT   [(ngModel)]="foodtype">
-        <option selected value="">all the food</option>
-        <option value="Dinner">Dinner</option>
-        <option value="Sweet food">Sweet food</option>
-        <option value="Cake">Cake</option>
-      </select>
-</div> -->
+      <div class="form-group">
+        <label for="recipient-name" class="col-form-label"></label>
+        <br />
+        <select #foodT [(ngModel)]="foodtype">
+          <option selected value="">all the food</option>
+          <option value="Dinner">Dinner</option>
+          <option value="Sweet food">Sweet food</option>
+          <option value="Cake">Cake</option>
+        </select>
+      </div>
 
       <button
         type="button"

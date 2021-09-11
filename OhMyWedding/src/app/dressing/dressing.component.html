@@ -35,12 +35,22 @@
       {{ this.price }}
       <br />
       <!-- <label for="cars">Clothes</label> -->
-      <select name="cars" [(ngModel)]="genre">
+      <!-- <select name="cars" [(ngModel)]="genre">
         <option value="">all the clothes</option>
 
         <option value="Woman">Woman</option>
         <option value="Man">Man</option>
-      </select>
+      </select> -->
+
+      <div class="form-group">
+        <label for="recipient-name" class="col-form-label"></label>
+        <br />
+        <select #foodT [(ngModel)]="genre">
+          <option selected value="">all the food</option>
+          <option value="Woman">Woman</option>
+          <option value="Man">Man</option>
+        </select>
+      </div>
 
       <button
         type="button"

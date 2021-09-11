@@ -42,13 +42,25 @@
         {{ this.price }}
         <br />
         <!-- <label for="cars"> Band choices </label> -->
-        <select name="cars" [(ngModel)]="bandtype">
+        <!-- <select name="cars" [(ngModel)]="bandtype">
           <option value="">all the bands</option>
 
           <option value="Classic">Classic</option>
           <option value="Mezwed">Mezwed</option>
           <option value="Rboukh">Rboukh</option>
-        </select>
+        </select> -->
+
+        <div class="form-group">
+          <label for="recipient-name" class="col-form-label"></label>
+          <br />
+          <select #foodT [(ngModel)]="bandtype">
+            <option selected value="">all the bands</option>
+            <option value="Mezwed">Mezwed</option>
+            <option value="Sweet food">Sweet food</option>
+            <option value="Rboukh">Rboukh</option>
+          </select>
+        </div>
+
         <button
           type="button"
           class="btn btn-warning"
