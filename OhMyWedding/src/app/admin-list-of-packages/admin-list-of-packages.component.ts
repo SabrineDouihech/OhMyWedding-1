@@ -9,7 +9,7 @@ import { PackagesService } from '../packages.service';
 @Component({
   selector: 'app-admin-list-of-packages',
   templateUrl: './admin-list-of-packages.component.html',
-  styleUrls: ['./admin-list-of-packages.component.css'],
+  styleUrls: ['./admin-list-of-packages.component.scss'],
 })
 export class AdminListOfPackagesComponent implements OnInit {
   constructor(
@@ -52,6 +52,11 @@ export class AdminListOfPackagesComponent implements OnInit {
   ngOnInit(): void {
     this.getPacks();
     this.getFoods();
+    this.getCars();
+    this.getDress();
+    this.getHosts();
+    this.getInvi();
+    this.getBand();
   }
 
   click(inn: any) {
