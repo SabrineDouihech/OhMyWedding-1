@@ -103,28 +103,28 @@ db.sequelize.sync({ force: 0 }).then(() => {
 });
 
 
-// app.post("/paéiment", (req, res) => {
-//   var obj = {
-//     receiverWallet: process.env.wallet_id,
-//     amount: 250000,
-//     selectedPaymentMethod: "gateway",
-//     token: "TND",
-//     firstName: req.body.firstName,
-//     lastName: req.body.lastName,
-//     phoneNumber: req.body.phoneNumber,
-//     email: req.body.email,
-//     // orderId: req.body.orderId,
-//     webhook: "merchant.tech/api/notification_payment",
-//     successUrl: "http://localhost:4200/carInfo",
-//     failUrl: "http://localhost:4200",
-//   };
-//   console.log(obj);
-//   axios
-//     .post("https://api.konnect.network/api/v1/payments/init-payment", obj)
-//     .then((data) => {
-//       res.json(data.data.payUrl);
-//     });
-// });
+app.post("/paiment", (req, res) => {
+  var obj = {
+    receiverWallet: process.env.wallet_id,
+    amount: 250000,
+    selectedPaymentMethod: "gateway",
+    token: "TND",
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    phoneNumber: req.body.phoneNumber,
+    email: req.body.email,
+
+    webhook: "merchant.tech/api/notification_payment",
+    successUrl: "http://localhost:4200/userInfo",
+    failUrl: "http://localhost:4200",
+  };
+  console.log(obj);
+  axios
+    .post("https://api.konnect.network/api/v1/payments/init-payment", obj)
+    .then((data) => {
+      res.json(data.data.payUrl);
+    });
+});
 
 
 app.listen(port, () => {
