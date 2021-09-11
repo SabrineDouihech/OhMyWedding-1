@@ -1,6 +1,8 @@
 /*****************
     - Header -
 *****************/
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800,900|Open Sans:400,600,800");
+
 header {
   position: relative;
   left: 0;
@@ -9,7 +11,8 @@ header {
   min-height: 120px;
   padding: 50px 0;
   color: #fff;
-  background: #c68b59 no-repeat center center;
+  /* background: #c68b59 no-repeat center center; */
+  background-image: url("https://images.pexels.com/photos/9430439/pexels-photo-9430439.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
   margin-bottom: 30px;
 }
 
@@ -37,7 +40,6 @@ header h1 {
   padding-bottom: 25px;
 }
 
-@import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800,900|Open Sans:400,600,800");
 h1,
 h2,
 h3,
@@ -74,7 +76,7 @@ body {
 }
 
 .profile-card-1 {
-  background-color: #fff;
+  background-color: #fc7fb2;
   border-radius: 10px;
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1);
 
@@ -89,7 +91,7 @@ body {
 
 .profile-card-1 .profile-content {
   position: relative;
-  background-color: #fff;
+  background-color: #fc7fb2;
   padding: 70px 20px 20px 20px;
   text-align: center;
 }
@@ -146,7 +148,7 @@ body {
 
 .profile-card-2 {
   max-width: 300px;
-  background-color: #fff;
+  background-color: #fc7fb2;
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1);
   background-position: center;
   overflow: hidden;
@@ -209,7 +211,7 @@ body {
 }
 
 .profile-card-3 {
-  background-color: #fff;
+  background-color: #fc7fb2;
   border-radius: 5px;
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -262,7 +264,7 @@ body {
 
 .profile-card-4 {
   max-width: 300px;
-  background-color: #fff;
+  background-color: #fc7fb2;
   border-radius: 5px;
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -278,7 +280,7 @@ body {
 .profile-card-4 .profile-content {
   position: relative;
   padding: 15px;
-  background-color: #fff;
+  background-color: #fc7fb2;
 }
 
 .profile-card-4 .profile-name {
@@ -325,7 +327,7 @@ body {
   top: -10px;
   left: 0px;
   right: 0px;
-  background-color: #fff;
+  background-color: #fc7fb2;
   z-index: 0;
   transform: skewY(3deg);
 }
@@ -337,7 +339,7 @@ body {
 
 .profile-card-5 {
   max-width: 300px;
-  background-color: #fff;
+  background-color: #fc7fb2;
   border-radius: 5px;
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -417,7 +419,7 @@ body {
 .profile-card-6 {
   max-width: 300px;
   height: 400px;
-  background-color: #fff;
+  background-color: #fc7fb2;
   border-radius: 5px;
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -496,7 +498,7 @@ body {
 }
 
 .profile-card-7 {
-  background-color: #fff;
+  background-color: #fc7fb2;
   border-radius: 5px;
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -507,7 +509,7 @@ body {
 
 .profile-card-7 .profile-content {
   padding: 60px 30px 30px 30px;
-  background-color: #fff;
+  background-color: #fc7fb2;
   position: relative;
 }
 
@@ -600,7 +602,7 @@ body {
   margin: 10px auto;
   cursor: pointer;
   padding: 30px 15px;
-  background-color: #fff;
+  background-color: #fc7fb2;
   transition: all 0.25s linear;
 }
 
@@ -700,4 +702,142 @@ label {
 
 input {
   margin: 0.4rem;
+}
+/* Slide button styling */
+.slide {
+  font-size: 20px;
+  font-weight: 200;
+  letter-spacing: 1px;
+  padding: 13px 30px 13px;
+  outline: 0;
+  border: 1px solid black;
+  cursor: pointer;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.slide i {
+  opacity: 0;
+  font-size: 13px;
+  transition: 0.2s;
+  position: absolute;
+  right: 10px;
+  top: 21px;
+  transition: transform 1;
+}
+
+.slide div {
+  transition: transform 0.8s;
+}
+
+.slide:hover div {
+  transform: translateX(-6px);
+}
+
+.slide::after {
+  content: "";
+  background-color: #66f2d5;
+  width: 100%;
+  z-index: -1;
+  position: absolute;
+  height: 100%;
+  top: 7px;
+  left: 7px;
+}
+
+.slide:hover i {
+  opacity: 1;
+  transform: translateX(-6px);
+}
+/* End of Slide Button  */
+/* input */
+
+input[type="range"] {
+  height: 32px;
+  -webkit-appearance: none;
+  margin: 10px 0;
+  width: 10%;
+}
+input[type="range"]:focus {
+  outline: none;
+}
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 16px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 0px 0px 0px #000000;
+  background: #b6b6b6;
+  border-radius: 25px;
+  border: 1px solid #8a8a8a;
+}
+input[type="range"]::-webkit-slider-thumb {
+  box-shadow: 1px 1px 1px #828282;
+  border: 1px solid #8a8a8a;
+  height: 24px;
+  width: 35px;
+  border-radius: 6px;
+  background: #dadada;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -5px;
+}
+input[type="range"]:focus::-webkit-slider-runnable-track {
+  background: #b6b6b6;
+}
+input[type="range"]::-moz-range-track {
+  width: 100%;
+  height: 16px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 0px 0px 0px #000000;
+  background: #b6b6b6;
+  border-radius: 25px;
+  border: 1px solid #8a8a8a;
+}
+input[type="range"]::-moz-range-thumb {
+  box-shadow: 1px 1px 1px #828282;
+  border: 1px solid #8a8a8a;
+  height: 24px;
+  width: 35px;
+  border-radius: 6px;
+  background: #dadada;
+  cursor: pointer;
+}
+input[type="range"]::-ms-track {
+  width: 100%;
+  height: 16px;
+  cursor: pointer;
+  animate: 0.2s;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+input[type="range"]::-ms-fill-lower {
+  background: #b6b6b6;
+  border: 1px solid #8a8a8a;
+  border-radius: 50px;
+  box-shadow: 0px 0px 0px #000000;
+}
+input[type="range"]::-ms-fill-upper {
+  background: #b6b6b6;
+  border: 1px solid #8a8a8a;
+  border-radius: 50px;
+  box-shadow: 0px 0px 0px #000000;
+}
+input[type="range"]::-ms-thumb {
+  margin-top: 1px;
+  box-shadow: 1px 1px 1px #828282;
+  border: 1px solid #8a8a8a;
+  height: 24px;
+  width: 35px;
+  border-radius: 6px;
+  background: #dadada;
+  cursor: pointer;
+}
+input[type="range"]:focus::-ms-fill-lower {
+  background: #b6b6b6;
+}
+input[type="range"]:focus::-ms-fill-upper {
+  background: #b6b6b6;
 }

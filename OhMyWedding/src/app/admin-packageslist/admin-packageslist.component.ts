@@ -35,7 +35,7 @@ export class AdminPackageslistComponent implements OnInit {
 
   update(categoryId: number) {
     this.packagesService
-      .updatePackage(2, this.selectedCategory, categoryId)
+      .updatePackage(8, this.selectedCategory, categoryId)
       .subscribe(() => {
         this.selectedItemId = categoryId;
       });

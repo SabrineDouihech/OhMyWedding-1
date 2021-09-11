@@ -6,7 +6,7 @@ import { FavoritesService } from '../favorites.service';
 @Component({
   selector: 'app-dressing',
   templateUrl: './dressing.component.html',
-  styleUrls: ['./dressing.component.css'],
+  styleUrls: ['./dressing.component.scss'],
 })
 export class DressingComponent implements OnInit {
   data: any = [];
@@ -35,7 +35,7 @@ export class DressingComponent implements OnInit {
     });
   }
   showDetails(element: any) {
-    this.detailsService.selectedItem = element;
+    this.detailsService.selectedItem = { element, type: 'dressings' };
     this.router.navigateByUrl('/details');
   }
 

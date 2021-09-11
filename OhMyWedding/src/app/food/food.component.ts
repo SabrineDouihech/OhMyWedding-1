@@ -6,7 +6,7 @@ import { FavoritesService } from '../favorites.service';
 @Component({
   selector: 'app-food',
   templateUrl: './food.component.html',
-  styleUrls: ['./food.component.css'],
+  styleUrls: ['./food.component.scss'],
 })
 export class FoodComponent implements OnInit {
   data: any = [];
@@ -81,7 +81,7 @@ export class FoodComponent implements OnInit {
   }
 
   showDetails(element: any) {
-    this.detailsService.selectedItem = element;
+    this.detailsService.selectedItem = { element, type: 'food' };
     this.router.navigateByUrl('/details');
   }
 

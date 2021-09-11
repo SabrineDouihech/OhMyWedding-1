@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TokenStorageService } from '../auth/token-storage.service';
 import { Router } from '@angular/router';
-// import { UserService } from '../user.service';
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
@@ -16,6 +15,21 @@ export class NavComponent implements OnInit {
   ngOnInit(): void {
     // this.user = this.us.user;
     // console.log(this.user, this.us.user);
+  }
+
+  favlist() {
+    this.router.navigateByUrl('/favorites');
+  }
+  homePage() {
+    this.router.navigateByUrl('');
+  }
+
+  packageslist() {
+    this.router.navigateByUrl('/packages');
+  }
+
+  aboutUs() {
+    this.router.navigateByUrl('/aboutus');
   }
   logOut() {
     this.tokenStorage.signOut();

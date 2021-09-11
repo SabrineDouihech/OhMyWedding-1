@@ -14,8 +14,20 @@ export class HomeComponent implements OnInit {
     private router: Router,
     private tokenStorage: TokenStorageService
   ) {}
-
   ngOnInit(): void {}
+
+  logIn() {
+    this.router.navigateByUrl('/Log-in');
+  }
+  signup() {
+    this.router.navigateByUrl('/Sign-Up');
+  }
+  homePage() {
+    this.router.navigateByUrl('');
+  }
+  aboutUsHome() {
+    this.router.navigateByUrl('/aboutus');
+  }
 
   vrifyAuthority() {
     if (this.tokenStorage.getToken()) {
@@ -29,12 +41,5 @@ export class HomeComponent implements OnInit {
         return true;
       });
     }
-  }
-
-  dis() {
-    this.router.navigateByUrl('/Log-in');
-  }
-  sig() {
-    this.router.navigateByUrl('/Sign-Up');
   }
 }

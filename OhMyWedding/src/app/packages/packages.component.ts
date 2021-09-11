@@ -25,7 +25,18 @@ export class PackagesComponent implements OnInit {
 
   packageslist() {
     this.router.navigateByUrl('/packageslist');
-    console.log('one');
+  }
+
+  foodlist() {
+    this.router.navigateByUrl('/food');
+  }
+
+  carsList() {
+    this.router.navigateByUrl('/carslist');
+  }
+
+  hosts() {
+    this.router.navigateByUrl('/hosts');
   }
 
   submitForm(form: NgForm) {

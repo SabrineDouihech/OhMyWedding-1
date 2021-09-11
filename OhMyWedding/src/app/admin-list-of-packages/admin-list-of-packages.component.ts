@@ -1,21 +1,107 @@
 import { Component, OnInit } from '@angular/core';
+import { FoodService } from '../food.service';
+import { LuxuryCarsSercice } from '../cars.service';
+import { DressingService } from '../dressing.service';
+import { HostsSercice } from '../hosts.service';
+import { InvitationCardsService } from '../invitationcard.service';
+import { MusicalbandService } from '../musicalband.service';
 import { PackagesService } from '../packages.service';
 @Component({
   selector: 'app-admin-list-of-packages',
   templateUrl: './admin-list-of-packages.component.html',
-  styleUrls: ['./admin-list-of-packages.component.css'],
+  styleUrls: ['./admin-list-of-packages.component.scss'],
 })
 export class AdminListOfPackagesComponent implements OnInit {
-  constructor(private packagesService: PackagesService) {}
+  constructor(
+    private packagesService: PackagesService,
+    private foodService: FoodService,
+    private luxuryCarsSercice: LuxuryCarsSercice,
+    private dressingService: DressingService,
+    private hostsSercice: HostsSercice,
+    private invitationCardsService: InvitationCardsService,
+    private musicalbandService: MusicalbandService
+  ) {}
   myData: any = [];
   Packs: any = [];
   title: any = 'New Package';
   pack: any = '';
   packAddUpdate: any;
   image: any;
+
+  foodQuery = '';
+  dressQuery = '';
+  carQuery = '';
+  hostQuery = '';
+  invitQuery = '';
+  musicQuery = '';
+
+  foods: any[] = [];
+  cars: any[] = [];
+  dresses: any[] = [];
+  hosts: any[] = [];
+  invitationcards: any[] = [];
+  musicBands: any[] = [];
+
+  selectedFood = '';
+  selectedCar = '';
+  selectedDress = '';
+  selectedHost = '';
+  selectedInvi = '';
+  selectedMusic = '';
+
   ngOnInit(): void {
     this.getPacks();
+    this.getFoods();
+    this.getCars();
+    this.getDress();
+    this.getHosts();
+    this.getInvi();
+    this.getBand();
   }
+
+  click(inn: any) {
+    console.log(inn);
+  }
+
+  getFoods() {
+    this.foodService.getSomeFood().subscribe((foods) => {
+      this.foods = foods;
+    });
+  }
+
+  getCars() {
+    this.luxuryCarsSercice.getCars().subscribe((cars) => {
+      this.cars = cars;
+    });
+  }
+
+  getDress() {
+    this.dressingService.getDressing().subscribe((dresses) => {
+      this.dresses = dresses;
+    });
+  }
+  getHosts() {
+    this.hostsSercice.gethosts().subscribe((hosts) => {
+      this.hosts = hosts;
+    });
+  }
+  getInvi() {
+    this.invitationCardsService
+      .getSomeInvitationCards()
+      .subscribe((invitationcards) => {
+        this.invitationcards = invitationcards;
+      });
+  }
+  getBand() {
+    this.musicalbandService.getABand().subscribe((musicBands) => {
+      this.musicBands = musicBands;
+    });
+  }
+  // getFoods() {
+  //   this.foodService.getSomeFood().subscribe((foods) => {
+  //     this.foods = foods;
+  //   });
+  // }
 
   getPacks() {
     this.packagesService.getPackages().subscribe((myData) => {
@@ -23,6 +109,7 @@ export class AdminListOfPackagesComponent implements OnInit {
       console.log(this.Packs);
     });
   }
+
   insertAPack(myData: any = []) {
     this.packagesService.postPackages(myData).subscribe((data) => {
       alert('You Have New Pack');
