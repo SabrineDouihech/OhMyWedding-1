@@ -7,7 +7,7 @@ const {
 
 const addToFavorites = async function (req, res) {
   const { type, itemId } = req.body;
-  //console.log("********userId inside addtofav*******", req.userId);
+  
   const userId = req.userId;
   try {
     if (

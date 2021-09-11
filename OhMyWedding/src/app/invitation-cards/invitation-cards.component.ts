@@ -36,7 +36,7 @@ export class InvitationCardsComponent implements OnInit {
   }
 
   showDetails(element: any) {
-    this.detailsService.selectedItem = element;
+    this.detailsService.selectedItem = { element, type: 'invitationcards' };
     this.router.navigateByUrl('/details');
   }
   goBacktoCategories() {

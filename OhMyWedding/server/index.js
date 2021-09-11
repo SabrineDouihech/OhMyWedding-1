@@ -13,8 +13,6 @@ const Food = require("../models/Food");
 
 // const upload = require("./routes/uploader");
 
-
-
 const Role = db.role;
 const app = express();
 
@@ -44,7 +42,7 @@ app.use("/api/invitationcards", require("./routes/InvitationCard.routes"));
 app.use("/api/favorites", require("./routes/favourite.routes"));
 app.use("/api/food", require("./routes/food.routes"));
 app.use("/api/musicalband", require("./routes/mucsicalBand.routes"));
-app.use("/api", require("./routes/confirmation.routes"))
+app.use("/api", require("./routes/confirmation.routes"));
 
 const multer = require("multer");
 // CREATES A LOCAL FOLDER
@@ -56,7 +54,7 @@ cloudinary.config({
   api_secret: "RJUn_vM_yWc3eLxDQ9B2mhgdCi0",
 });
 app.post("/api", upload.single("picture"), async (req, res) => {
-  console.log(res.json({ picture: req.file.path }))
+  console.log(res.json({ picture: req.file.path }));
   return res.json({ picture: req.file.path });
 });
 app.post("/upload", upload.any(0), (req, res) => {
@@ -98,11 +96,9 @@ db.sequelize.sync({ force: 0 }).then(() => {
   console.log("Database connection established with success");
 });
 
-
 app.listen(port, () => {
   console.log(`listening on port ${port}`);
 });
-
 
 // function initial() {
 //   Role.create({

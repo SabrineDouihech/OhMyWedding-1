@@ -36,6 +36,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
 // import { MDBBootstrapModule} from 'angular-boostrap-md';
 import { UserComponent } from './user/user.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+// import { UserComponent } from './user/user.component';
 import { ConfirmationComponent } from './confirmation/confirmation.component';
 import { UserinfoComponent } from './userinfo/userinfo.component';
 import { AdminListOfPackagesComponent } from './admin-list-of-packages/admin-list-of-packages.component';
@@ -68,6 +70,7 @@ import { AdminListOfPackagesComponent } from './admin-list-of-packages/admin-lis
     HostsComponent,
     DressingComponent,
     UserComponent,
+    AboutUsComponent,
     ConfirmationComponent,
     UserinfoComponent,
     AdminListOfPackagesComponent,

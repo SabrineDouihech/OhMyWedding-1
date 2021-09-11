@@ -16,6 +16,8 @@ import { SignupComponent } from './signup/signup.component';
 import { SigninComponent } from './signin/signin.component';
 import { FavoritesComponent } from './favorites/favorites.component';
 import { UserComponent } from './user/user.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+
 import { ConfirmationComponent } from './confirmation/confirmation.component';
 import { UserinfoComponent } from './userinfo/userinfo.component';
 import { AdminListOfPackagesComponent } from './admin-list-of-packages/admin-list-of-packages.component';
@@ -36,6 +38,7 @@ const routes: Routes = [
   { path: 'Sign-Up', component: SignupComponent },
   { path: 'Log-in', component: SigninComponent },
   { path: 'user', component: UserComponent },
+  { path: 'aboutus', component: AboutUsComponent },
   { path: 'listPck', component: AdminListOfPackagesComponent },
   { path: 'confirm', component: ConfirmationComponent },
   { path: 'info', component: UserinfoComponent },

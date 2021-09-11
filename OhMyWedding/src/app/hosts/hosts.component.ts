@@ -37,7 +37,7 @@ export class HostsComponent implements OnInit {
   }
 
   showDetails(element: any) {
-    this.detailsService.selectedItem = element;
+    this.detailsService.selectedItem = { element, type: 'hosts' };
     this.router.navigateByUrl('/details');
   }
 
