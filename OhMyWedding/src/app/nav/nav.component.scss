@@ -89,6 +89,10 @@
 $font-primary: "Poppins", Arial, sans-serif;
 $primary: #fc7fb2;
 
+.container a {
+  font-family: fangsong;
+}
+
 body {
   font-family: $font-primary;
   font-size: 16px;

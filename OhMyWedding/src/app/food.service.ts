@@ -5,6 +5,9 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class FoodService {
+  getOneFood(id: any) {
+    throw new Error('Method not implemented.');
+  }
   constructor(private http: HttpClient) {}
 
   getSomeFood() {

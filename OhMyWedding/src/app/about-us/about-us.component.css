@@ -19,6 +19,47 @@ ul {
   list-style: none;
 }
 
+.font-weight-bold {
+  font-family: -webkit-body;
+  color: black;
+}
+.col-lg-12 p {
+  font-family: fangsong;
+}
+.col-lg-4 h5 {
+  font-family: fangsong;
+}
+
+.col-lg-4 p {
+  font-family: fangsong;
+}
+
+.about_icon_box p {
+  font-family: -webkit-body;
+  color: salmon;
+}
+.col-lg-4 h5 {
+  font-family: fangsong;
+}
+
+.col-lg-4 p {
+  font-family: fangsong;
+}
+
+.col-lg-6 h4 {
+  font-family: fangsong;
+}
+.col-lg-6 p {
+  font-family: fangsong;
+}
+.row h3 {
+  color: white;
+}
+
+.about_icon i ::before {
+  color: salmon;
+}
+
 .section_all {
   position: relative;
   padding-top: 80px;

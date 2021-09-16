@@ -40,6 +40,26 @@ nav {
   background-color: white;
 }
 
+.w3-content p {
+  font-family: fangsong;
+}
+
+.w3-content b {
+  font-family: -webkit-body;
+}
+
+.container a {
+  font-family: fangsong;
+}
+
+.w3-jumbo {
+  font-family: initial;
+}
+
+.w3-text-grey b {
+  font-family: fangsong;
+}
+
 @import "../../../node_modules/bootstrap/scss/bootstrap";
 @import "../../../node_modules/bootstrap/scss/variables";
 @import "../../../node_modules/bootstrap/scss/mixins";

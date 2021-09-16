@@ -9,6 +9,7 @@ export class PackagesService {
   getPackages() {
     return this.http.get('http://localhost:3000/api/package');
   }
+
   postPackages(data: any) {
     return this.http.post('http://localhost:3000/api/package', data);
   }

@@ -21,16 +21,6 @@ const {
 //   }
 // }
 
-// const getpackagesDetails = async function (req, res) {
-//   try {
-//     // const { userId: UserId } = req.params;
-//     const getpackagesDetails = await .findAll({
-//       where: { packages },
-//       include: {food}
-//     });
-//   }
-// }
-
 const getPackages = async function (req, res) {
   try {
     const packages = await db.packages.findAll();
@@ -55,7 +45,7 @@ const postPackage = async function (req, res) {
       InvitationCardId: req.body.invId,
       LuxuryCarId: req.body.carId,
       usicalBandId: req.body.bandId,
-      state: "Not Reserved"
+      state: "Not Reserved",
     });
     res.status(200).send(package);
   } catch (error) {
@@ -64,20 +54,19 @@ const postPackage = async function (req, res) {
 };
 const deletePackage = async (req, res) => {
   try {
-    db.packages.destroy({
-      where: {
-        id: req.params.id
-      }
-    }).then(() => {
-      res.send({ message: "deleted with success" })
-    })
-
+    db.packages
+      .destroy({
+        where: {
+          id: req.params.id,
+        },
+      })
+      .then(() => {
+        res.send({ message: "deleted with success" });
+      });
   } catch (error) {
     res.status(404).send(error);
   }
-}
-
-
+};
 
 const searchCategory = async function (req, res) {
   try {
@@ -136,6 +125,5 @@ module.exports = {
   postPackage,
   searchCategory,
   updatePackageWithCategory,
-  deletePackage
-  // getpackagesCategoriesClothes,
+  deletePackage,
 };

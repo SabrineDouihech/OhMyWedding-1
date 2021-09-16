@@ -50,4 +50,7 @@ export class SigninComponent implements OnInit {
       }
     );
   }
+  admin() {
+    this.router.navigateByUrl('/admin');
+  }
 }

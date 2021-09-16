@@ -28,7 +28,7 @@ export class ConfirmationComponent implements OnInit {
     console.log(this.favorites);
   }
 
-  paimentCalculate(): void {
+  paimentCalculate() {
     for (var i = 0; i < this.favorites.length; i++) {
       this.total += this.favorites[i].item.price;
       console.log(this.favorites[i].item.price);

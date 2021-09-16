@@ -103,7 +103,11 @@
               </div>
             </div>
           </div>
-          <button type="button" class="btn btn-warning">
+          <button
+            type="button"
+            class="btn btn-warning"
+            (click)="addAfavoritePackages(element.id)"
+          >
             Add to favorites
           </button>
         </div>

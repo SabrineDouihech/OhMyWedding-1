@@ -21,9 +21,9 @@ export class PackagesListComponent implements OnInit {
   price: any;
   safeprice: any;
   safepackage: any = [];
+
   ngOnInit(): void {
     this.getAPackage();
-    // this.getAPackagecar();
   }
 
   getAPackage() {
@@ -34,11 +34,6 @@ export class PackagesListComponent implements OnInit {
     });
   }
 
-  // getAPackagecar() {
-  //   this.packagesService.getoneCar().subscribe((data) => {
-  //     this.carpackage = data;
-  //   });
-  // }
   // addAFavorite(data: any){
   //   this.fs.addtofavorites(this.package).subscribe(data)
 
@@ -83,7 +78,17 @@ export class PackagesListComponent implements OnInit {
   }
 
   showDetails(element: any) {
-    this.detailsService.selectedItem = element;
+    this.detailsService.selectedItem = { element, type: 'packages' };
     this.router.navigateByUrl('/details');
   }
+
+  addAfavoritePackages(itemId: number) {
+    this.favoritesService
+      .addtofavorites({ itemId, type: 'packages' })
+      .subscribe((data) => {});
+  }
 }
+
+// function id(id: any) {
+//   throw new Error('Function not implemented.');
+// }
