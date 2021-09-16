@@ -9,13 +9,13 @@
 <div class="center">
   <div class="container">
     <div class="row">
-      <div class="col-md-4" >
+      <div class="col-md-4" *ngFor="let element of favorites">
         <h4 class="text-center"><strong></strong></h4>
         <hr />
         <div class="profile-card-6">
-          <img src="https://images.pexels.com/photos/4041287/pexels-photo-4041287.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="img img-responsive" />
+          <img src="{{ element?.item.image }}" class="img img-responsive" />
           <div class="profile-name">
-            <p></p>
+            <p>{{ element?.item.name }}</p>
             <br />
           </div>
           <div class="profile-position"></div>
@@ -27,74 +27,11 @@
                   <p></p>
                 </div>
                 <div class="col-xs-4">
-                  <h3></h3>
+                  <h3>{{ element?.item.price }}</h3>
                   <p>Dinars</p>
                 </div>
                 <div class="col-xs-4">
-                  <h3></h3>
-
-                  <p>Person</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4" >
-        <h4 class="text-center"><strong></strong></h4>
-        <hr />
-        <div class="profile-card-6">
-          <img src="https://images.pexels.com/photos/4041287/pexels-photo-4041287.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="img img-responsive" />
-          <div class="profile-name">
-            <p></p>
-            <br />
-          </div>
-          <div class="profile-position"></div>
-          <div class="profile-overview">
-            <div class="profile-overview">
-              <div class="row text-center">
-                <div class="col-xs-4">
-                  <h3></h3>
-                  <p></p>
-                </div>
-                <div class="col-xs-4">
-                  <h3></h3>
-                  <p>Dinars</p>
-                </div>
-                <div class="col-xs-4">
-                  <h3></h3>
-
-                  <p>Person</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4" >
-        <h4 class="text-center"><strong></strong></h4>
-        <hr />
-        <div class="profile-card-6">
-          <img src="https://images.pexels.com/photos/4041287/pexels-photo-4041287.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="img img-responsive" />
-          <div class="profile-name">
-            <p></p>
-            <br />
-          </div>
-          <div class="profile-position"></div>
-          <div class="profile-overview">
-            <div class="profile-overview">
-              <div class="row text-center">
-                <div class="col-xs-4">
-                  <h3></h3>
-                  <p></p>
-                </div>
-                <div class="col-xs-4">
-                  <h3></h3>
-                  <p>Dinars</p>
-                </div>
-                <div class="col-xs-4">
-                  <h3></h3>
-
+                  <h3>{{ element?.persons }}</h3>
                   <p>Person</p>
                 </div>
               </div>
@@ -126,7 +63,7 @@
     </div>
     <div class="col-md-6">
       <label for="validationDefault03" class="form-label">Total :</label>
-      <input type="text" class="form-control" id="validationDefault03" required>
+      <input type="text" disabled [value]="total" class="form-control" id="validationDefault03" required>
     </div>
     <div class="col-md-3">
       <label for="validationDefault04" class="form-label">State :</label>
@@ -146,12 +83,12 @@
     </div>
     <div class="col-md-3">
       <label for="validationDefault05" class="form-label">Mount You will Pay :</label>
-      <input type="text" class="form-control" id="validationDefault05"  required>
-      <button class="btn btn-primary" type="submit" >click</button>
+      <input type="text" disabled [value]="aarboun" class="form-control" id="validationDefault05"  required>
+      <button class="btn btn-primary" type="submit" >click Here</button>
     </div>
     <div class="col-md-3">
       <label for="validationDefault05" class="form-label">The Rest of the Amount :</label>
-      <input type="text" class="form-control" id="validationDefault05" required>
+      <input type="text" disabled [value]="rest" class="form-control" id="validationDefault05" required>
     </div>
     <div class="col-12">
       <div class="form-check">
@@ -162,7 +99,7 @@
       </div>
     </div>
     <div class="col-12">
-      <button class="btn btn-primary" type="submit">Submit form</button>
+      <button  (click)="paimentCalculate()" class="btn btn-primary" type="submit">Submit form</button>
     </div>
   </form>
   

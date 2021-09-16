@@ -52,9 +52,9 @@ const postPackage = async function (req, res) {
       FoodId: req.body.foodId,
       DressingId: req.body.dressingId,
       HostId: req.body.hostId,
-      InvitationCardId: req.body.invId,
+      InvitationCardId: req.body.InvitationCardId,
       LuxuryCarId: req.body.carId,
-      usicalBandId: req.body.bandId,
+      MusicalBandId: req.body.bandId,
       state: "Not Reserved"
     });
     res.status(200).send(package);
