@@ -23,12 +23,8 @@
 <br />
 <br />
 <br />
-
-<div class="dropi">
-  <div class="dropdown">
-    <div>
-      <div style="margin-left: 2%">
-        Your Budget:
+<div class="madcenter">
+  <p>Your Budget:</p> 
         <br />
         <input
           type="range"
@@ -39,17 +35,8 @@
           [(ngModel)]="price"
           (input)="searchforABand()"
         />
-        {{ this.price }}
+       <h1> {{ this.price }} </h1>
         <br />
-        <!-- <label for="cars"> Band choices </label> -->
-        <!-- <select name="cars" [(ngModel)]="bandtype">
-          <option value="">all the bands</option>
-
-          <option value="Classic">Classic</option>
-          <option value="Mezwed">Mezwed</option>
-          <option value="Rboukh">Rboukh</option>
-        </select> -->
-
         <div class="form-group">
           <label for="recipient-name" class="col-form-label"></label>
           <br />
@@ -60,19 +47,64 @@
             <option value="Rboukh">Rboukh</option>
           </select>
         </div>
-
         <button
+        type="button"
+        class="btn btn-warning"
+        style="margin: 17px"
+        (click)="searchforMusicalBand()"
+      >
+        Search
+      </button>
+</div>
+<div class="dropi">
+  <div class="dropdown">
+    <!-- <div>
+      
+       <p>Your Budget:</p> 
+        <br />
+        <input
+          type="range"
+          id="filterBudget"
+          name="budget"
+          min="1"
+          max="4000"
+          [(ngModel)]="price"
+          (input)="searchforABand()"
+        />
+       <h1> {{ this.price }} </h1>
+        <br /> -->
+        <!-- <label for="cars"> Band choices </label> -->
+        <!-- <select name="cars" [(ngModel)]="bandtype">
+          <option value="">all the bands</option>
+
+          <option value="Classic">Classic</option>
+          <option value="Mezwed">Mezwed</option>
+          <option value="Rboukh">Rboukh</option>
+        </select> -->
+
+        <!-- <div class="form-group">
+          <label for="recipient-name" class="col-form-label"></label>
+          <br />
+          <select #foodT [(ngModel)]="bandtype">
+            <option selected value="">all the bands</option>
+            <option value="Mezwed">Mezwed</option>
+            <option value="Sweet food">Sweet food</option>
+            <option value="Rboukh">Rboukh</option>
+          </select>
+        </div> -->
+
+        <!-- <button
           type="button"
           class="btn btn-warning"
           style="margin: 17px"
           (click)="searchforMusicalBand()"
         >
           Search
-        </button>
+        </button> -->
       </div>
     </div>
     <br />
-  </div>
+  <!-- </div> -->
 
   <div class="center">
     <div class="container">
@@ -130,7 +162,7 @@
       </div>
     </div>
   </div>
-</div>
+
 <br />
 <br />
 <br />
