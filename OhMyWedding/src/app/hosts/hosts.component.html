@@ -24,10 +24,25 @@
 <br />
 <br />
 <br />
+<div class="madcenter">
+  <p>Your Budget:</p>
+  <input
+    type="range"
+    id="volume"
+    name="budget"
+    min="1000"
+    max="20000"
+    [(ngModel)]="price"
+    (input)="searchforAHost()"
+  />
+  <h1>{{ this.price }}</h1>
+</div>
+
+
 
 <div class="dropi">
   <div class="dropdown">
-    <div style="margin-left: 2%">
+    <!-- <div style="margin-left: 2%">
       <p>Your Budget:</p>
 
       <input
@@ -38,8 +53,8 @@
         max="40000"
         [(ngModel)]="price"
         (input)="searchforAHost()"
-      />
-      {{ this.price }}
+      /> -->
+      <!-- {{ this.price }} -->
       <!-- <form action="">
         <label for="birthday">Your Wedding date</label>
         <input type="date" name="birthday" />
@@ -48,7 +63,7 @@
     </div>
   </div>
   <br />
-</div>
+<!-- </div> -->
 <div class="center">
   <div class="container">
     <div class="row">

@@ -1,4 +1,4 @@
-/*****************
+/* /* ****************
     - Header -
 *****************/
 header {
@@ -9,15 +9,10 @@ header {
   min-height: 120px;
   padding: 50px 0;
   color: #fff;
-  /* background: #c7baaf no-repeat center center; */
   background-image: url("https://images.pexels.com/photos/4041287/pexels-photo-4041287.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
   margin-bottom: 30px;
 }
 
-.center {
-  margin-left: 20%;
-  margin-right: 20%;
-}
 
 /* Logo */
 header .logo {
@@ -25,6 +20,8 @@ header .logo {
   display: block;
   text-align: center;
   padding-bottom: 10px;
+  margin-left: 35%;
+  margin-right: 35%;
 }
 
 header h1 {
@@ -750,3 +747,4 @@ body {
   background-color: rgba(128, 128, 128, 0.671);
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1);
 }
+ 

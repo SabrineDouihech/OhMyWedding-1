@@ -1,4 +1,4 @@
-<app-nav></app-nav>
+ <app-nav></app-nav>
 <header>
   <div class="container text-center">
     <div class="logo">
@@ -19,22 +19,51 @@
 <br />
 <br />
 <br />
-
+<div class="madcenter">
+  <h2>Your Budget:</h2>
+  <input
+    type="range"
+    id="filterBudget"
+    name="budget"
+    min="1000"
+    max="20000"
+    [(ngModel)]="price"
+    (input)="searchforAFood()"
+  />
+  <h1>{{ this.price }}</h1>
+<div class="form-group">
+  <label for="recipient-name" class="col-form-label"></label>
+  <br />
+  <select #foodT [(ngModel)]="foodtype">
+    <option selected value="">all the food</option>
+    <option value="Dinner">Dinner</option>
+    <option value="Sweet food">Sweet food</option>
+    <option value="Cake">Cake</option>
+  </select>
+</div>
+<button
+        type="button"
+        class="btn btn-warning"
+        style="margin: 17px"
+        (click)="search()"
+      >
+        Search
+      </button>
+</div>
 <div class="dropi">
-  <div class="dropdown">
-    <div style="margin-left: 2%">
+  <!-- <div class="dropdown">
+    <div>
       Your Budget:
-      <br />
       <input
         type="range"
         id="filterBudget"
         name="budget"
-        min="1"
-        max="4000"
+        min="1000"
+        max="20000"
         [(ngModel)]="price"
         (input)="searchforAFood()"
-      />
-      {{ this.price }}
+      /> -->
+      <!-- {{ this.price }} -->
 
       <!-- <label> Food choices </label> -->
       <!-- <select name="foodchoices" [(ngModel)]="foodtype">
@@ -44,7 +73,7 @@
         <option value="Cake">Cake</option>
       </select> -->
 
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label for="recipient-name" class="col-form-label"></label>
         <br />
         <select #foodT [(ngModel)]="foodtype">
@@ -53,17 +82,17 @@
           <option value="Sweet food">Sweet food</option>
           <option value="Cake">Cake</option>
         </select>
-      </div>
+      </div> -->
 
-      <button
+      <!-- <button
         type="button"
         class="btn btn-warning"
         style="margin: 17px"
         (click)="search()"
       >
         Search
-      </button>
-    </div>
+      </button> -->
+    <!-- </div> -->
 
     <!-- <form action="">
       <label for="birthday">Your Wedding date</label>
@@ -75,7 +104,7 @@
     </form>
   </div>
   <br /> -->
-  </div>
+  <!-- </div> -->
 
   <div class="center">
     <div class="container">

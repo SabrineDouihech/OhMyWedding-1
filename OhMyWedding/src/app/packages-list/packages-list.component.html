@@ -11,6 +11,7 @@
 <br />
 <br />
 <br />
+
 <!-- <button type="button" class="slide" (click)="previousPage()">
   <div>Go back to Packages & Categories</div>
   <i class="icon-arrow-left"></i>
@@ -35,11 +36,25 @@
 <br />
 <br />
 <br />
+<div class="madcenter">
+  <p>Your Budget:</p>
+  <input
+    type="range"
+    id="filterBudget"
+    name="budget"
+    min="1"
+    max="40000"
+    [(ngModel)]="price"
+    (input)="searchforAPackage()"
+  />
+  <h1>{{ this.price }}</h1>
+  
+</div>
 <div class="dropi">
   <div class="dropdown">
     <div>
       <div>
-        Your Budget:
+        <!-- <p>Your Budget:</p>
         <input
           type="range"
           id="filterBudget"
@@ -49,7 +64,7 @@
           [(ngModel)]="price"
           (input)="searchforAPackage()"
         />
-        {{ this.price }}
+        <h1>{{ this.price }}</h1> -->
       </div>
 
       <!-- <label for="cars"> You place : </label>
