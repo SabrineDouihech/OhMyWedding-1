@@ -168,10 +168,10 @@
               availabledate: date.value,
               foodId: foodSelect.value,
               carId: carSelect.value,
-              dressId: dressSelect.value,
+              dressingId: dressSelect.value,
               hostId: SelectHots.value,
-              inviId: SelectInvi.value,
-              bandId: SelectInvi.value
+              InvitationCardId: SelectInvi.value,
+              bandId: SelectMusic.value
             })
           "
           data-dismiss="modal"
@@ -240,19 +240,13 @@
           </td>
           <td>
             <a>
-              {{ pac.brand }}
-            </a>
-            <br />
-          </td>
-          <td>
-            <a>
               {{ pac.description.split("T")[0] }}
             </a>
             <br />
           </td>
           <td>
             <a>
-              {{ pac.price }}
+              {{ pac.price }} Dt
             </a>
             <br />
           </td>

@@ -19,9 +19,43 @@
 <br />
 <br />
 <br />
+
+<div class="madcenter">
+ <p>Your Budget:</p> 
+  <br />
+  <input
+    type="range"
+    id="filterBudget"
+    name="budget"
+    min="1000"
+    max="20000"
+    [(ngModel)]="price"
+    (input)="searchfortheprice()"
+  />
+ <h1>{{ this.price }}</h1> 
+ <div class="form-group">
+  <label for="recipient-name" class="col-form-label"></label>
+  <br />
+  <select #foodT [(ngModel)]="carbrand">
+    <option selected value="">all the brands</option>
+    <option value="Mercedes">Mercedes</option>
+    <option value="Vintage">Vintage</option>
+    <option value="Tesla">Tesla</option>
+    <option value="Ferrari">Ferrari</option>
+  </select>
+</div>
+<button
+type="button"
+class="btn btn-warning"
+style="margin: 17px"
+(click)="searchforACar()"
+>
+Search
+</button>
+</div>
 <div class="dropi">
-  <div class="dropdown">
-    <div style="margin-left: 2%">
+  <!-- <div class="dropdown">
+    <div >
       Your Budget:
       <br />
       <input
@@ -34,7 +68,7 @@
         (input)="searchfortheprice()"
       />
       {{ this.price }}
-      <br />
+      <br /> -->
       <!-- <label for="cars"> Brand </label> -->
       <!-- <select class="car" name="cars" [(ngModel)]="carbrand">
         <option value="">all the brands</option>
@@ -45,7 +79,7 @@
         <option value="Ferrari">Ferrari</option>
       </select> -->
 
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label for="recipient-name" class="col-form-label"></label>
         <br />
         <select #foodT [(ngModel)]="carbrand">
@@ -64,7 +98,7 @@
       >
         Search
       </button>
-    </div>
+    </div> -->
 
     <!-- <button
       class="btn btn-warning"
@@ -81,7 +115,7 @@
     </form> -->
   </div>
   <br />
-</div>
+<!-- </div> -->
 
 <div class="center">
   <div class="container">
