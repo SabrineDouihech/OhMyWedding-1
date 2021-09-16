@@ -1,6 +1,6 @@
-// var router = require("express").Router();
-// var carsDetailsController = require("../controllers/details.controller");
+var router = require("express").Router();
+var DetailsController = require("../controllers/details.controller");
 
-// router.get("/:id", carsDetailsController.getpackagesCategoriesCar);
+router.get("/", DetailsController.getPackagesCategories);
 
-// module.exports = router;
+module.exports = router;

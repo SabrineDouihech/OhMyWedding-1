@@ -11,6 +11,7 @@ export class DetailsService {
   // getOneFood(id: any) {
   //   return this.http.get(`http://localhost:3000/api/food/${id}`);
   // }
+
   // getOneCar(id: any) {
   //   return this.http.get(`http://localhost:3000/api/cars/${id}`);
   // }

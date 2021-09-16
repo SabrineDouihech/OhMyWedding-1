@@ -3,7 +3,7 @@ const db = require("../config/db.confing");
 const cors = require("cors");
 const nodemailer = require("nodemailer");
 require("dotenv").config();
-const axios = require('axios')
+const axios = require("axios");
 
 // const Admin = require("../models/Admin");
 const Packages = require("../models/Packages");
@@ -44,6 +44,7 @@ app.use("/api/favorites", require("./routes/favourite.routes"));
 app.use("/api/food", require("./routes/food.routes"));
 app.use("/api/musicalband", require("./routes/mucsicalBand.routes"));
 app.use("/api", require("./routes/confirmation.routes"));
+app.use("/api/details", require("./routes/details.routes"));
 
 const multer = require("multer");
 // CREATES A LOCAL FOLDER
@@ -93,13 +94,9 @@ app.post("/upload", upload.any(0), (req, res) => {
 //   }
 // });
 
-
-
-
 db.sequelize.sync({ force: 0 }).then(() => {
   console.log("Database connection established with success");
 });
-
 
 app.post("/paiment", (req, res) => {
   var obj = {
@@ -124,7 +121,6 @@ app.post("/paiment", (req, res) => {
     });
 });
 
-
 app.listen(port, () => {
   console.log(`listening on port ${port}`);
 });
@@ -142,6 +138,4 @@ app.listen(port, () => {
 //   });
 // }
 
-
-// 
-
+//

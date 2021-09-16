@@ -13,13 +13,13 @@ const {
 
 // const getPackagesCategories = async function (req, res) {
 //   try {
-//     const packlages = await favorite.findAll({
-
-//       include: food,
-//       // all the categories
-//     });
-//   }
+//     const packages = await favorite.findAll({
+//       include: food, dressings, hosts, invitationcards, luxurycars, musicalbands
+//     })
+// }catch (error) {
+//  res.status(200).send(error);
 // }
+// };
 
 const getPackages = async function (req, res) {
   try {

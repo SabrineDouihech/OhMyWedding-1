@@ -1,21 +1,4 @@
-// var db = require("../../config/db.confing");
-// var db = require("../../config/db.confing");
-
-// const getpackagesCategoriesCar = async (req, res) => {
-//   try {
-//     db.luxurycars
-//       .findOne({
-//         where: {
-//           id: req.params.id,
-//         },
-//       })
-//       .then((car) => {
-//         res.send(car);
-//       });
-//   } catch (error) {
-//     res.status(404).send(error);
-//   }
-// };
+var db = require("../../config/db.confing");
 
 // const getpackagesCategoriesClothes = async function (req, res) {
 //   try {
@@ -33,4 +16,22 @@
 //   }
 // };
 
-// module.exports = { getpackagesCategoriesCar, getpackagesCategoriesClothes };
+const getPackagesCategories = async function (req, res) {
+  try {
+    const packages = await favorite.findAll({
+      include: [
+        food,
+        dressings,
+        hosts,
+        invitationcards,
+        luxurycars,
+        musicalbands,
+      ],
+    });
+    res.send(packages);
+  } catch (error) {
+    res.status(200).send(error);
+  }
+};
+
+module.exports = { getPackagesCategories };
